@@ -22,7 +22,7 @@ INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Eimsk
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Eskjuvöllur', 'Eskifjörður', 1500, 'grass', 'api_football_venue_id: 2748');
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Extra völlurinn', 'Reykjavík', 2000, 'grass', 'api_football_venue_id: 1956');
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Fagrilundur Gervigras', 'Kópavogur', 1000, 'artificial', 'api_football_venue_id: 4532');
-INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Fagverksvöllurinn Varmá Gervigras', 'Mosfellsbær', 1000, 'artificial', 'api_football_venue_id: 20543');
+INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Varmárvöllur', 'Mosfellsbær', 1000, 'artificial', 'api_football_venue_id: 20543');
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Fellavöllur', 'Fellabær', 1100, 'artificial', 'api_football_venue_id: 20546');
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Fífan', 'Kópavogur', 2000, 'artificial', 'api_football_venue_id: 20545');
 INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES ('Fjarðabyggðarhöllin', 'Reyðarfjörður', 400, 'artificial', 'api_football_venue_id: 2747');
