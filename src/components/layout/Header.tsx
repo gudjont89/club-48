@@ -55,7 +55,7 @@ export default function Header() {
               {user ? (
                 <button className={styles.userButton} onClick={() => setShowAuthMenu(prev => !prev)}>
                   {avatarUrl ? (
-                    <img src={avatarUrl} alt="" className={styles.avatar} />
+                    <img src={avatarUrl} alt="" className={styles.avatar} referrerPolicy="no-referrer" />
                   ) : (
                     <span className={styles.avatarFallback}>{displayName[0].toUpperCase()}</span>
                   )}
