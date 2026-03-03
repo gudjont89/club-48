@@ -1,6 +1,66 @@
 # API-Football venue name overrides
 # Format: api_venue_id<TAB>name
 # Lines starting with # are ignored. Only listed venues are overridden.
-# Most ground names are already correct from the API — only override what needs fixing.
+# Commented-out lines show the API name — uncomment and edit to override.
+# 820	Kópavogsvöllur
 821	Kaplakriki
+# 822	Würth völlurinn
+# 823	Mustad völlurinn
+# 824	Kórinn
+# 825	Norðurálsvöllurinn
+# 826	Hásteinsvöllur
+# 827	Akureyrarvöllur
+# 829	Samsung völlurinn
 830	Valsvöllur
+# 831	Víkingsvöllur
+# 1956	Extra völlurinn
+# 2313	Ólafsvíkurvöllur
+# 2314	Vivaldivöllurinn
+# 2317	Rafholtsvöllurinn
+# 2318	Eimskipsvöllurinn
+# 2319	Framvöllur
+# 2320	Leiknisvöllur
+# 2321	JÁVERK-völlurinn
+# 2322	Hertz völlurinn
+# 2747	Fjarðabyggðarhöllin
+# 2748	Eskjuvöllur
+# 3178	Ólafsfjarðarvöllur
+# 3180	Olísvöllurinn
+# 3183	Sauðárkróksvöllur
+# 3184	Nesfisk-völlurinn
+# 3185	Akraneshöllin
+# 3186	Vogabæjarvöllur
+# 3187	Dalvíkurvöllur
+# 4519	Fjölnisvöllur Gervigras
+# 4520	Vopnafjarðarvöllur
+# 4521	Grýluvöllur
+# 4522	Tungubakkavöllur
+# 4524	SS-völlurinn
+# 4525	Týsvöllur
+# 4527	Gervigrasvöllur Laugardal (Þróttarvöllur)
+# 4529	Hrafnagilsvöllur
+# 4530	Skallagrímsvöllur
+# 4531	Stykkishólmsvöllur
+# 4532	Fagrilundur Gervigras
+# 4533	Bessastaðavöllur
+# 4534	Kórinn Gervigrasvöllur
+# 4535	Framvöllur Úlfarsárdal
+# 7123	Stokkseyrarvöllur
+# 9799	Würth völlurinn
+# 10591	KR-völlur
+# 11562	Skessan
+# 18455	Nettóhöllin
+# 19615	HS Orku völlurinn
+# 20542	VÍS völlurinn
+# 20543	Fagverksvöllurinn Varmá Gervigras
+# 20544	Jökulfellsvöllurinn
+# 20545	Fífan
+# 20546	Fellavöllur
+# 20547	N1-völlurinn Hlíðarenda
+# 20548	Brons völlurinn
+# 20549	AVIS völlurinn
+# 20550	OnePlus völlurinn
+# 21596	BIRTU völlurinn
+# 21597	Boginn
+# 21598	PCC völlurinn Húsavík
+# 21599	GeoSalmo völlurinn

@@ -1,6 +1,10 @@
 # API-Football team name overrides
 # Format: api_id<TAB>name<TAB>short_name
 # Lines starting with # are ignored. Only listed teams are overridden.
+# Commented-out lines show the API name — uncomment and edit to override.
+267	Fylkir	Fylkir
+268	ÍBV Vestmannaeyjar	ÍBV
+269	Keflavík	Keflavík
 270	FH Hafnarfjörður	FH
 271	KR Reykjavík	KR
 272	KA Akureyri	KA
@@ -10,9 +14,6 @@
 276	Breiðablik	Breiðablik
 277	Grindavík	Grindavík
 278	Víkingur Reykjavík	Víkingur R
-267	Fylkir	Fylkir
-268	ÍBV Vestmannaeyjar	ÍBV
-269	Keflavík	Keflavík
 827	ÍA Akranes	ÍA
 828	Víkingur Ólafsvík	Víkingur Ó
 829	Þróttur Reykjavík	Þróttur R
@@ -29,6 +30,9 @@
 2123	Njarðvík	Njarðvík
 2124	Magni	Magni
 3514	Afturelding	Afturelding
+4162	KF Fjarðabyggð	KF
+# 4163	KV	KV
+4164	Sindri	Sindri
 4165	Vestri	Vestri
 4166	Völsungur	Völsungur
 4167	Ægir	Ægir
@@ -90,10 +94,9 @@
 18476	Hafnir	Hafnir
 18477	KFK Kópavogur	KFK
 18478	Spyrnir	Spyrnir
+# 18479	Árbær	ÁRB
 22959	Þorlákur	Þorlákur
 25517	Fjarðabyggð/Höttur/Leiknir	Fjarðab./H/L
 25566	BF 108	BF 108
 25567	Fálkar	Fálkar
 25568	Neisti Dalvík	Neisti D
-4162	KF Fjarðabyggð	KF
-4164	Sindri	Sindri
