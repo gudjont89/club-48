@@ -1,0 +1,6 @@
+# API-Football venue name overrides
+# Format: api_venue_id<TAB>name
+# Lines starting with # are ignored. Only listed venues are overridden.
+# Most ground names are already correct from the API — only override what needs fixing.
+821	Kaplakriki
+830	Valsvöllur

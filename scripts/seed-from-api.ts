@@ -11,7 +11,11 @@
  * 60-80 requests depending on seasons. Paid tier ($19/mo) has 100/day
  * which is sufficient for a single run.
  *
- * Output: supabase/migrations/002_seed.sql (overwrites existing)
+ * Output: supabase/seed.sql (overwrites existing)
+ *
+ * Name overrides:
+ *   scripts/overrides/teams.tsv   — api_id<TAB>name<TAB>short_name
+ *   scripts/overrides/grounds.tsv — api_venue_id<TAB>name
  */
 
 const API_KEY = process.env.API_FOOTBALL_KEY;
@@ -22,7 +26,44 @@ if (!API_KEY) {
 
 const BASE_URL = 'https://v3.football.api-sports.io';
 const SEASONS = [2020, 2021, 2022, 2023, 2024, 2025];
-const OUTPUT_FILE = 'supabase/migrations/002_seed.sql';
+const OUTPUT_FILE = 'supabase/seed.sql';
+
+// ---- Load name overrides ----
+
+interface TeamOverride { name: string; shortName: string }
+interface GroundOverride { name: string }
+
+function loadOverrides() {
+  const { readFileSync, existsSync } = require('fs') as typeof import('fs');
+  const teamOverrides = new Map<number, TeamOverride>();
+  const groundOverrides = new Map<number, GroundOverride>();
+
+  const teamsFile = 'scripts/overrides/teams.tsv';
+  if (existsSync(teamsFile)) {
+    for (const line of readFileSync(teamsFile, 'utf-8').split('\n')) {
+      if (!line.trim() || line.startsWith('#')) continue;
+      const [id, name, shortName] = line.split('\t');
+      if (id && name && shortName) {
+        teamOverrides.set(Number(id), { name: name.trim(), shortName: shortName.trim() });
+      }
+    }
+    console.log(`  Loaded ${teamOverrides.size} team name overrides`);
+  }
+
+  const groundsFile = 'scripts/overrides/grounds.tsv';
+  if (existsSync(groundsFile)) {
+    for (const line of readFileSync(groundsFile, 'utf-8').split('\n')) {
+      if (!line.trim() || line.startsWith('#')) continue;
+      const [id, name] = line.split('\t');
+      if (id && name) {
+        groundOverrides.set(Number(id), { name: name.trim() });
+      }
+    }
+    console.log(`  Loaded ${groundOverrides.size} ground name overrides`);
+  }
+
+  return { teamOverrides, groundOverrides };
+}
 
 // Rate limit tracking
 let requestCount = 0;
@@ -132,6 +173,9 @@ interface Fixture {
 
 async function main() {
   console.log('=== 48 Klúbburinn — API-Football Seed Script ===\n');
+
+  // Load name overrides from TSV files
+  const { teamOverrides, groundOverrides } = loadOverrides();
 
   // Step 1: Discover Icelandic leagues
   console.log('Step 1: Discovering Icelandic leagues...');
@@ -437,7 +481,9 @@ async function main() {
 
   for (const [venueApiId, ground] of sortedGrounds) {
     groundIdMap.set(venueApiId, groundId);
-    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES (${esc(ground.name)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(`api_football_venue_id: ${venueApiId}`)});`);
+    const gOverride = groundOverrides.get(venueApiId);
+    const groundName = gOverride?.name ?? ground.name;
+    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES (${esc(groundName)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(`api_football_venue_id: ${venueApiId}`)});`);
     groundId++;
   }
 
@@ -453,9 +499,16 @@ async function main() {
 
   const sortedTeams = [...allTeams.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name));
 
+  // Build a reverse lookup: API team name → overridden name (for opponent names in fixtures)
+  const teamNameLookup = new Map<string, string>();
+
   for (const [apiId, team] of sortedTeams) {
     teamIdMap.set(apiId, teamId);
-    sql.push(`INSERT INTO public.teams (name, short_name, logo_url, city) VALUES (${esc(team.name)}, ${esc(team.shortName)}, ${esc(team.logoUrl)}, ${esc(team.city)});`);
+    const tOverride = teamOverrides.get(apiId);
+    const teamName = tOverride?.name ?? team.name;
+    const shortName = tOverride?.shortName ?? team.shortName;
+    teamNameLookup.set(team.name, teamName);
+    sql.push(`INSERT INTO public.teams (name, short_name, logo_url, city) VALUES (${esc(teamName)}, ${esc(shortName)}, ${esc(team.logoUrl)}, ${esc(team.city)});`);
     teamId++;
   }
 
@@ -524,7 +577,11 @@ async function main() {
     const roundMatch = fix.round.match(/(\d+)/);
     const roundVal = roundMatch ? roundMatch[1] : 'NULL';
 
-    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_name, home_goals, away_goals, status) VALUES (${fix.apiFootballId}, (SELECT id FROM public.team_seasons WHERE team_id = ${ourTeamId} AND season = ${fix.season} LIMIT 1), ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', ${esc(fix.opponentName)}, ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(fix.status)}) ON CONFLICT (api_football_id) DO NOTHING;`);
+    // Apply opponent name override
+    const opponentName = teamNameLookup.get(fix.opponentName) ?? fix.opponentName;
+
+    // Use INSERT...SELECT to gracefully skip rows where team_season doesn't exist
+    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_name, home_goals, away_goals, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', ${esc(opponentName)}, ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
   }
 
   sql.push('');
