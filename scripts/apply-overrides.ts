@@ -62,6 +62,7 @@ const sortedApiTeams = [...apiData.teams].sort((a: any, b: any) => a.name.locale
 
 let patchedTeams = 0;
 let patchedGrounds = 0;
+let patchedImages = 0;
 let patchedOpponents = 0;
 
 for (const apiTeam of sortedApiTeams) {
@@ -105,14 +106,25 @@ for (let i = 0; i < lines.length; i++) {
     const venueMatch = line.match(/api_football_venue_id: (\d+)/);
     if (venueMatch) {
       const venueId = Number(venueMatch[1]);
+
+      // Apply name override if present
       const override = groundOverrides.get(venueId);
       if (override) {
-        // Replace the name (first value in VALUES)
         const nameMatch = line.match(/VALUES \('([^']*(?:''[^']*)*)',/);
         if (nameMatch) {
-          lines[i] = line.replace(`VALUES ('${nameMatch[1]}',`, `VALUES ('${esc(override.name)}',`);
+          lines[i] = lines[i].replace(`VALUES ('${nameMatch[1]}',`, `VALUES ('${esc(override.name)}',`);
           patchedGrounds++;
         }
+      }
+
+      // Ensure image_url is in the INSERT (add column + value if missing)
+      const imageUrl = `https://media.api-sports.io/football/venues/${venueId}.png`;
+      if (!lines[i].includes('image_url')) {
+        // Add image_url column and value to existing INSERT
+        lines[i] = lines[i]
+          .replace('surface, notes)', 'surface, image_url, notes)')
+          .replace(/, 'api_football_venue_id:/, `, '${imageUrl}', 'api_football_venue_id:`);
+        patchedImages++;
       }
     }
   }
@@ -133,6 +145,7 @@ writeFileSync('supabase/seed.sql', lines.join('\n'));
 console.log(`\nPatched supabase/seed.sql:`);
 console.log(`  ${patchedTeams} team names`);
 console.log(`  ${patchedGrounds} ground names`);
+console.log(`  ${patchedImages} ground image URLs added`);
 console.log(`  ${patchedOpponents} opponent names in fixtures`);
 
 // ---- Generate SQL for live DB ----
@@ -151,9 +164,15 @@ for (let idx = 0; idx < sortedApiTeams.length; idx++) {
   }
 }
 
-// Ground updates: need to match by notes field
+// Ground name updates: match by notes field
 for (const [venueId, override] of groundOverrides) {
   updateSql.push(`UPDATE public.grounds SET name = '${esc(override.name)}' WHERE notes LIKE '%api_football_venue_id: ${venueId}%';`);
+}
+
+// Ground image_url updates: set for all grounds based on venue ID in notes
+for (const ground of apiData.grounds) {
+  const imageUrl = `https://media.api-sports.io/football/venues/${ground.apiId}.png`;
+  updateSql.push(`UPDATE public.grounds SET image_url = '${imageUrl}' WHERE notes LIKE '%api_football_venue_id: ${ground.apiId}%' AND image_url IS NULL;`);
 }
 
 // Opponent name updates in fixtures

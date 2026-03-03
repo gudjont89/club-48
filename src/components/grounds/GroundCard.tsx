@@ -32,7 +32,15 @@ export default function GroundCard({ ground, division, isVisited, animationDelay
       </div>
 
       <div className={`${styles.cardImg} ${bgClass}`}>
-        <span className={styles.icon}>&#x2B21;</span>
+        {ground.groundImageUrl && (
+          <img
+            src={ground.groundImageUrl}
+            alt={ground.groundName}
+            className={styles.groundPhoto}
+            loading="lazy"
+          />
+        )}
+        {!ground.groundImageUrl && <span className={styles.icon}>&#x2B21;</span>}
         <span className={styles.capTag}>{ground.capacity.toLocaleString()}</span>
         <span className={styles.surfaceTag}>
           {ground.surface === 'artificial' ? 'Artificial' : ground.surface === 'grass' ? 'Natural' : 'Hybrid'}
@@ -42,7 +50,17 @@ export default function GroundCard({ ground, division, isVisited, animationDelay
       <div className={styles.cardBody}>
         <div className={styles.groundName}>{ground.groundName}</div>
         <div className={styles.groundCity}>{ground.groundCity}</div>
-        <div className={styles.teamName}>{ground.shortName}</div>
+        <div className={styles.teamRow}>
+          {ground.teamLogoUrl && (
+            <img
+              src={ground.teamLogoUrl}
+              alt={ground.shortName}
+              className={styles.teamLogo}
+              loading="lazy"
+            />
+          )}
+          <span className={styles.teamName}>{ground.shortName}</span>
+        </div>
       </div>
     </div>
   );

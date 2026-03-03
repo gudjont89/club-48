@@ -483,7 +483,8 @@ async function main() {
     groundIdMap.set(venueApiId, groundId);
     const gOverride = groundOverrides.get(venueApiId);
     const groundName = gOverride?.name ?? ground.name;
-    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, notes) VALUES (${esc(groundName)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(`api_football_venue_id: ${venueApiId}`)});`);
+    const imageUrl = `https://media.api-sports.io/football/venues/${venueApiId}.png`;
+    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, image_url, notes) VALUES (${esc(groundName)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(imageUrl)}, ${esc(`api_football_venue_id: ${venueApiId}`)});`);
     groundId++;
   }
 

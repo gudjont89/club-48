@@ -17,6 +17,8 @@ export interface GroundProgress {
   longitude: number;
   capacity: number;
   surface: 'artificial' | 'grass' | 'hybrid';
+  teamLogoUrl: string | null;
+  groundImageUrl: string | null;
   visited: boolean;
   visitDate: string | null;
   fixtureCount: number;
