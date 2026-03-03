@@ -7,7 +7,7 @@
  *   npx tsx scripts/apply-overrides.ts
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 
 // ---- Load overrides ----
 
@@ -33,7 +33,18 @@ for (const line of readFileSync('scripts/overrides/grounds.tsv', 'utf-8').split(
   }
 }
 
-console.log(`Loaded ${teamOverrides.size} team overrides, ${groundOverrides.size} ground overrides`);
+// Scan public/grounds/ for local image overrides
+const localImages = new Map<number, string>(); // venue API ID → local path
+try {
+  for (const file of readdirSync('public/grounds')) {
+    const match = file.match(/^(\d+)\.(jpg|jpeg|png|webp)$/i);
+    if (match) {
+      localImages.set(Number(match[1]), `/grounds/${file}`);
+    }
+  }
+} catch { /* directory may not exist */ }
+
+console.log(`Loaded ${teamOverrides.size} team overrides, ${groundOverrides.size} ground overrides, ${localImages.size} local ground images`);
 
 // ---- Patch seed.sql ----
 
@@ -118,12 +129,19 @@ for (let i = 0; i < lines.length; i++) {
       }
 
       // Ensure image_url is in the INSERT (add column + value if missing)
-      const imageUrl = `https://media.api-sports.io/football/venues/${venueId}.png`;
+      const localImg = localImages.get(venueId);
+      const imageUrl = localImg ?? `https://media.api-sports.io/football/venues/${venueId}.png`;
       if (!lines[i].includes('image_url')) {
-        // Add image_url column and value to existing INSERT
         lines[i] = lines[i]
           .replace('surface, notes)', 'surface, image_url, notes)')
           .replace(/, 'api_football_venue_id:/, `, '${imageUrl}', 'api_football_venue_id:`);
+        patchedImages++;
+      } else if (localImg) {
+        // Replace existing image_url with local override
+        lines[i] = lines[i].replace(
+          /https:\/\/media\.api-sports\.io\/football\/venues\/\d+\.png/,
+          localImg,
+        );
         patchedImages++;
       }
     }
@@ -170,9 +188,15 @@ for (const [venueId, override] of groundOverrides) {
 }
 
 // Ground image_url updates: set for all grounds based on venue ID in notes
+// Local images take priority over API images
 for (const ground of apiData.grounds) {
-  const imageUrl = `https://media.api-sports.io/football/venues/${ground.apiId}.png`;
-  updateSql.push(`UPDATE public.grounds SET image_url = '${imageUrl}' WHERE notes LIKE '%api_football_venue_id: ${ground.apiId}%' AND image_url IS NULL;`);
+  const localImg = localImages.get(ground.apiId);
+  if (localImg) {
+    updateSql.push(`UPDATE public.grounds SET image_url = '${localImg}' WHERE notes LIKE '%api_football_venue_id: ${ground.apiId}%';`);
+  } else {
+    const imageUrl = `https://media.api-sports.io/football/venues/${ground.apiId}.png`;
+    updateSql.push(`UPDATE public.grounds SET image_url = '${imageUrl}' WHERE notes LIKE '%api_football_venue_id: ${ground.apiId}%' AND image_url IS NULL;`);
+  }
 }
 
 // Opponent name updates in fixtures

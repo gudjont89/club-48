@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { GroundProgress, Division } from '../../types';
 import styles from './GroundCard.module.css';
 
@@ -18,6 +19,8 @@ const BG_MAP: Record<string, string> = {
 
 export default function GroundCard({ ground, division, isVisited, animationDelay, onClick }: GroundCardProps) {
   const bgClass = BG_MAP[division.cssKey] ?? '';
+  const [imgError, setImgError] = useState(false);
+  const showImage = ground.groundImageUrl && !imgError;
 
   return (
     <div
@@ -32,15 +35,16 @@ export default function GroundCard({ ground, division, isVisited, animationDelay
       </div>
 
       <div className={`${styles.cardImg} ${bgClass}`}>
-        {ground.groundImageUrl && (
+        {showImage && (
           <img
-            src={ground.groundImageUrl}
+            src={ground.groundImageUrl!}
             alt={ground.groundName}
             className={styles.groundPhoto}
             loading="lazy"
+            onError={() => setImgError(true)}
           />
         )}
-        {!ground.groundImageUrl && <span className={styles.icon}>&#x2B21;</span>}
+        {!showImage && <span className={styles.icon}>&#x2B21;</span>}
         <span className={styles.capTag}>{ground.capacity.toLocaleString()}</span>
         <span className={styles.surfaceTag}>
           {ground.surface === 'artificial' ? 'Artificial' : ground.surface === 'grass' ? 'Natural' : 'Hybrid'}
