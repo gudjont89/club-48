@@ -1,37 +1,32 @@
-import { useEffect, useMemo } from 'react';
-import { GROUNDS } from '../../data/grounds';
+import { useEffect } from 'react';
 import { DIVISION_MAP } from '../../data/divisions';
-import { generateFixtures } from '../../data/fixtures';
 import { useVisits } from '../../context/VisitsContext';
+import { useFixtures } from '../../hooks/useFixtures';
 import { useKeyboard } from '../../hooks/useKeyboard';
 import { getMatchResult } from '../../types';
+import type { GroundProgress } from '../../types';
 import styles from './MatchPickerPanel.module.css';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const MIN_YEAR = 2022;
-const MAX_YEAR = 2026;
+const MIN_YEAR = 2020;
+const MAX_YEAR = 2025;
 
 interface MatchPickerPanelProps {
   isOpen: boolean;
   teamId: number | null;
+  grounds: GroundProgress[];
   season: number;
   onClose: () => void;
   onChangeSeason: (delta: number) => void;
 }
 
-export default function MatchPickerPanel({ isOpen, teamId, season, onClose, onChangeSeason }: MatchPickerPanelProps) {
+export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onClose, onChangeSeason }: MatchPickerPanelProps) {
   const { isAttended, toggleAttendance } = useVisits();
 
-  const ground = teamId ? GROUNDS.find(g => g.teamId === teamId) : null;
+  const ground = teamId ? grounds.find(g => g.teamId === teamId) : null;
   const division = ground ? DIVISION_MAP[ground.division] : null;
 
-  const fixtures = useMemo(() => {
-    if (!ground) return [];
-    return generateFixtures(ground.shortName, season);
-  }, [ground, season]);
-
-  const leagueFixtures = fixtures.filter(f => f.competition === 'league');
-  const cupFixtures = fixtures.filter(f => f.competition === 'cup');
+  const { fixtures, loading } = useFixtures(teamId, season);
   const attendedCount = fixtures.filter(f => isAttended(f.fixtureId)).length;
 
   // Body scroll lock
@@ -71,7 +66,7 @@ export default function MatchPickerPanel({ isOpen, teamId, season, onClose, onCh
                 </div>
                 <button className={styles.closeBtn} onClick={onClose}>&#x2715;</button>
               </div>
-              <div className={styles.panelTeam}>{ground.shortName} &middot; {division.name}</div>
+              <div className={styles.panelTeam}>{ground.teamName} &middot; {division.name}</div>
               <div className={styles.panelMeta}>
                 <span>Cap. {ground.capacity.toLocaleString()}</span>
                 <span>{ground.surface === 'artificial' ? 'Artificial' : ground.surface === 'grass' ? 'Natural' : 'Hybrid'}</span>
@@ -107,101 +102,53 @@ export default function MatchPickerPanel({ isOpen, teamId, season, onClose, onCh
 
             {/* Fixtures */}
             <div className={styles.fixturesArea}>
-              {fixtures.length === 0 ? (
+              {loading ? (
+                <div className={styles.noFixtures}>Loading fixtures...</div>
+              ) : fixtures.length === 0 ? (
                 <div className={styles.noFixtures}>No fixtures for this season</div>
               ) : (
                 <>
-                  {leagueFixtures.length > 0 && (
-                    <>
-                      <div className={styles.sectionLabel}>
-                        League &middot; {leagueFixtures.length} home matches
-                      </div>
-                      <div className={styles.fixtureList}>
-                        {leagueFixtures.map(fix => {
-                          const d = new Date(fix.matchDate + 'T12:00:00');
-                          const attended = isAttended(fix.fixtureId);
-                          const result = getMatchResult(fix.homeGoals, fix.awayGoals);
-                          const played = fix.status === 'FT';
-                          const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
+                  <div className={styles.sectionLabel}>
+                    Home matches &middot; {fixtures.length}
+                  </div>
+                  <div className={styles.fixtureList}>
+                    {fixtures.map(fix => {
+                      const d = new Date(fix.matchDate + 'T12:00:00');
+                      const attended = isAttended(fix.fixtureId);
+                      const result = getMatchResult(fix.homeGoals, fix.awayGoals);
+                      const played = fix.status === 'FT';
+                      const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
 
-                          return (
-                            <div
-                              key={fix.fixtureId}
-                              className={`${styles.fixtureRow} ${attended ? styles.attended : ''} ${!played ? styles.upcoming : ''}`}
-                              onClick={() => played && teamId && toggleAttendance(fix.fixtureId, teamId)}
-                            >
-                              <div className={styles.fixDate}>
-                                <span className={styles.fixDay}>{d.getDate()}</span>
-                                <span className={styles.fixMon}>{MONTHS[d.getMonth()]}</span>
-                              </div>
-                              <div>
-                                <div className={styles.opponent}>v {fix.opponentName}</div>
-                                <div className={styles.meta}>
-                                  R{fix.round} &middot; {fix.kickoffTime} &middot; {ground.groundName}
-                                </div>
-                              </div>
-                              <div className={styles.fixRight}>
-                                {played ? (
-                                  <div className={`${styles.fixScore} ${scoreCls}`}>
-                                    {fix.homeGoals} &ndash; {fix.awayGoals}
-                                  </div>
-                                ) : (
-                                  <div className={styles.fixUpcoming}>upcoming</div>
-                                )}
-                                <div className={styles.attendedCheck}>&#x2713; attended</div>
-                              </div>
+                      return (
+                        <div
+                          key={fix.fixtureId}
+                          className={`${styles.fixtureRow} ${attended ? styles.attended : ''} ${!played ? styles.upcoming : ''}`}
+                          onClick={() => played && teamId && toggleAttendance(fix.fixtureId, teamId)}
+                        >
+                          <div className={styles.fixDate}>
+                            <span className={styles.fixDay}>{d.getDate()}</span>
+                            <span className={styles.fixMon}>{MONTHS[d.getMonth()]}</span>
+                          </div>
+                          <div>
+                            <div className={styles.opponent}>v {fix.opponentName}</div>
+                            <div className={styles.meta}>
+                              {fix.round ? `R${fix.round}` : 'Cup'} &middot; {fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
-                          );
-                        })}
-                      </div>
-                    </>
-                  )}
-
-                  {cupFixtures.length > 0 && (
-                    <>
-                      <div className={`${styles.sectionLabel} ${styles.sectionLabelCup}`}>
-                        Borgunarbikarinn &middot; {cupFixtures.length} matches
-                      </div>
-                      <div className={styles.fixtureList}>
-                        {cupFixtures.map(fix => {
-                          const d = new Date(fix.matchDate + 'T12:00:00');
-                          const attended = isAttended(fix.fixtureId);
-                          const result = getMatchResult(fix.homeGoals, fix.awayGoals);
-                          const played = fix.status === 'FT';
-                          const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
-
-                          return (
-                            <div
-                              key={fix.fixtureId}
-                              className={`${styles.fixtureRow} ${styles.isCup} ${attended ? styles.attended : ''} ${!played ? styles.upcoming : ''}`}
-                              onClick={() => played && teamId && toggleAttendance(fix.fixtureId, teamId)}
-                            >
-                              <div className={styles.fixDate}>
-                                <span className={styles.fixDay}>{d.getDate()}</span>
-                                <span className={styles.fixMon}>{MONTHS[d.getMonth()]}</span>
+                          </div>
+                          <div className={styles.fixRight}>
+                            {played ? (
+                              <div className={`${styles.fixScore} ${scoreCls}`}>
+                                {fix.homeGoals} &ndash; {fix.awayGoals}
                               </div>
-                              <div>
-                                <div className={styles.opponent}>v {fix.opponentName}</div>
-                                <div className={styles.meta}>
-                                  Cup &middot; {fix.kickoffTime} &middot; {ground.groundName}
-                                </div>
-                              </div>
-                              <div className={styles.fixRight}>
-                                {played ? (
-                                  <div className={`${styles.fixScore} ${scoreCls}`}>
-                                    {fix.homeGoals} &ndash; {fix.awayGoals}
-                                  </div>
-                                ) : (
-                                  <div className={styles.fixUpcoming}>upcoming</div>
-                                )}
-                                <div className={styles.attendedCheck}>&#x2713; attended</div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </>
-                  )}
+                            ) : (
+                              <div className={styles.fixUpcoming}>upcoming</div>
+                            )}
+                            <div className={styles.attendedCheck}>&#x2713; attended</div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </>
               )}
             </div>

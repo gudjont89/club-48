@@ -1,6 +1,4 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
-import type { DivisionId } from '../types';
-import { GROUNDS } from '../data/grounds';
 
 interface VisitsContextValue {
   visitedTeams: Set<number>;
@@ -8,13 +6,11 @@ interface VisitsContextValue {
   toggleAttendance: (fixtureId: number, teamId: number) => void;
   isAttended: (fixtureId: number) => boolean;
   isTeamVisited: (teamId: number) => boolean;
-  getVisitedCount: () => number;
-  getVisitedCountByDivision: (divisionId: DivisionId) => number;
 }
 
 const VisitsContext = createContext<VisitsContextValue | null>(null);
 
-const STORAGE_KEY = '48club_visits';
+const STORAGE_KEY = '48club_visits_v2';
 
 interface StoredVisit {
   fixtureId: number;
@@ -66,21 +62,6 @@ export function VisitsProvider({ children }: { children: ReactNode }) {
     return visitedTeams.has(teamId);
   }, [visitedTeams]);
 
-  const getVisitedCount = useCallback(() => {
-    return visitedTeams.size;
-  }, [visitedTeams]);
-
-  const getVisitedCountByDivision = useCallback((divisionId: DivisionId) => {
-    const divTeamIds = new Set(
-      GROUNDS.filter(g => g.division === divisionId).map(g => g.teamId)
-    );
-    let count = 0;
-    for (const teamId of visitedTeams) {
-      if (divTeamIds.has(teamId)) count++;
-    }
-    return count;
-  }, [visitedTeams]);
-
   return (
     <VisitsContext.Provider value={{
       visitedTeams,
@@ -88,8 +69,6 @@ export function VisitsProvider({ children }: { children: ReactNode }) {
       toggleAttendance,
       isAttended,
       isTeamVisited,
-      getVisitedCount,
-      getVisitedCountByDivision,
     }}>
       {children}
     </VisitsContext.Provider>

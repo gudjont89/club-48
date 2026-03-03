@@ -3,11 +3,11 @@ import { useVisits } from '../../context/VisitsContext';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { getVisitedCount, attendedFixtures } = useVisits();
+  const { visitedTeams, attendedFixtures } = useVisits();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const visitedCount = getVisitedCount();
+  const visitedCount = visitedTeams.size;
   const matchCount = attendedFixtures.size;
   const isGrounds = location.pathname === '/';
   const isLeaderboard = location.pathname === '/leaderboard';
@@ -20,7 +20,7 @@ export default function Header() {
           {isLeaderboard && <span className={styles.titleDim}>/ Leaderboard</span>}
         </h1>
         <div className={styles.stats}>
-          <span><strong>{visitedCount}</strong> of 48 grounds visited</span>
+          <span><strong>{visitedCount}</strong> grounds visited</span>
           <span><strong>{matchCount}</strong> matches attended</span>
         </div>
       </div>

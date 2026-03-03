@@ -38,3 +38,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+.loading,
+.error {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-faint);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.error {
+  color: var(--loss);
+}

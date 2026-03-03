@@ -1,0 +1,82 @@
+import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
+import type { Fixture } from '../types';
+
+interface UseFixturesResult {
+  fixtures: Fixture[];
+  loading: boolean;
+  error: string | null;
+}
+
+export function useFixtures(teamId: number | null, season: number): UseFixturesResult {
+  const [fixtures, setFixtures] = useState<Fixture[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!teamId) {
+      setFixtures([]);
+      return;
+    }
+
+    let cancelled = false;
+
+    async function fetchFixtures() {
+      setLoading(true);
+      setError(null);
+
+      // First find the team_season_id
+      const { data: tsData, error: tsErr } = await supabase
+        .from('team_seasons')
+        .select('id')
+        .eq('team_id', teamId)
+        .eq('season', season)
+        .limit(1)
+        .single();
+
+      if (cancelled) return;
+
+      if (tsErr || !tsData) {
+        // No team_season for this team/season combo — not an error, just no data
+        setFixtures([]);
+        setLoading(false);
+        return;
+      }
+
+      const { data, error: fErr } = await supabase
+        .from('fixtures')
+        .select('id, round, match_date, kickoff_time, opponent_name, home_goals, away_goals, status')
+        .eq('team_season_id', tsData.id)
+        .order('match_date');
+
+      if (cancelled) return;
+
+      if (fErr) {
+        setError(fErr.message);
+        setLoading(false);
+        return;
+      }
+
+      const mapped: Fixture[] = (data ?? []).map((row: any) => ({
+        fixtureId: row.id,
+        round: row.round,
+        matchDate: row.match_date,
+        kickoffTime: row.kickoff_time,
+        opponentName: row.opponent_name,
+        homeGoals: row.home_goals,
+        awayGoals: row.away_goals,
+        status: row.status,
+        attended: false,
+        competition: 'league' as const,
+      }));
+
+      setFixtures(mapped);
+      setLoading(false);
+    }
+
+    fetchFixtures();
+    return () => { cancelled = true; };
+  }, [teamId, season]);
+
+  return { fixtures, loading, error };
+}
