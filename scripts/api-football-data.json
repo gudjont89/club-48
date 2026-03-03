@@ -1,0 +1,3462 @@
+{
+  "leagues": [
+    {
+      "apiId": 164,
+      "name": "Úrvalsdeild",
+      "division": 1
+    },
+    {
+      "apiId": 165,
+      "name": "1. Deild",
+      "division": 2
+    },
+    {
+      "apiId": 166,
+      "name": "2. Deild",
+      "division": 3
+    },
+    {
+      "apiId": 167,
+      "name": "Cup",
+      "division": 0
+    },
+    {
+      "apiId": 168,
+      "name": "League Cup",
+      "division": 0
+    },
+    {
+      "apiId": 639,
+      "name": "Super Cup",
+      "division": 0
+    },
+    {
+      "apiId": 671,
+      "name": "Úrvalsdeild Women",
+      "division": 1
+    },
+    {
+      "apiId": 814,
+      "name": "Reykjavik Cup",
+      "division": 0
+    },
+    {
+      "apiId": 815,
+      "name": "Fotbolti.net Cup A",
+      "division": 0
+    }
+  ],
+  "grounds": [
+    {
+      "apiId": 822,
+      "apiFootballVenueId": 822,
+      "name": "Würth völlurinn",
+      "city": "Reykjavík",
+      "capacity": 2872,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 826,
+      "apiFootballVenueId": 826,
+      "name": "Hásteinsvöllur",
+      "city": "Vestmannaeyjar",
+      "capacity": 3034,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 19615,
+      "apiFootballVenueId": 19615,
+      "name": "HS Orku völlurinn",
+      "city": "Keflavík, Reykjanesbær",
+      "capacity": 4957,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 821,
+      "apiFootballVenueId": 821,
+      "name": "Kaplakrikavöllur",
+      "city": "Hafnarfjörður",
+      "capacity": 6738,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 10591,
+      "apiFootballVenueId": 10591,
+      "name": "KR-völlur",
+      "city": "Reykjavík",
+      "capacity": 2801,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 827,
+      "apiFootballVenueId": 827,
+      "name": "Akureyrarvöllur",
+      "city": "Akureyri",
+      "capacity": 1770,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 1956,
+      "apiFootballVenueId": 1956,
+      "name": "Extra völlurinn",
+      "city": "Reykjavík",
+      "capacity": 2000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 830,
+      "apiFootballVenueId": 830,
+      "name": "Origovöllurinn",
+      "city": "Reykjavík",
+      "capacity": 2489,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 829,
+      "apiFootballVenueId": 829,
+      "name": "Samsung völlurinn",
+      "city": "Garðabær",
+      "capacity": 2300,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 820,
+      "apiFootballVenueId": 820,
+      "name": "Kópavogsvöllur",
+      "city": "Kópavogur",
+      "capacity": 5501,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 823,
+      "apiFootballVenueId": 823,
+      "name": "Mustad völlurinn",
+      "city": "Grindavík",
+      "capacity": 1750,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 831,
+      "apiFootballVenueId": 831,
+      "name": "Víkingsvöllur",
+      "city": "Reykjavík",
+      "capacity": 1613,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 825,
+      "apiFootballVenueId": 825,
+      "name": "Norðurálsvöllurinn",
+      "city": "Akranes",
+      "capacity": 3054,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2313,
+      "apiFootballVenueId": 2313,
+      "name": "Ólafsvíkurvöllur",
+      "city": "Ólafsvik",
+      "capacity": 900,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2318,
+      "apiFootballVenueId": 2318,
+      "name": "Eimskipsvöllurinn",
+      "city": "Reykjavík",
+      "capacity": 5478,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20549,
+      "apiFootballVenueId": 20549,
+      "name": "AVIS völlurinn",
+      "city": "Reykjavík",
+      "capacity": 3000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2748,
+      "apiFootballVenueId": 2748,
+      "name": "Eskjuvöllur",
+      "city": "Eskifjörður",
+      "capacity": 1500,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 824,
+      "apiFootballVenueId": 824,
+      "name": "Kórinn",
+      "city": "Kópavogur",
+      "capacity": 1452,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2320,
+      "apiFootballVenueId": 2320,
+      "name": "Leiknisvöllur",
+      "city": "Reykjavík",
+      "capacity": 1300,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2321,
+      "apiFootballVenueId": 2321,
+      "name": "JÁVERK-völlurinn",
+      "city": "Selfoss, Árborg",
+      "capacity": 2000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20542,
+      "apiFootballVenueId": 20542,
+      "name": "VÍS völlurinn",
+      "city": "Akureyri",
+      "capacity": 1550,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2319,
+      "apiFootballVenueId": 2319,
+      "name": "Framvöllur",
+      "city": "Reykjavík",
+      "capacity": 1600,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 21596,
+      "apiFootballVenueId": 21596,
+      "name": "BIRTU völlurinn",
+      "city": "Hafnarfjörður",
+      "capacity": 2120,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2747,
+      "apiFootballVenueId": 2747,
+      "name": "Fjarðabyggðarhöllin",
+      "city": "Reyðarfjörður",
+      "capacity": 400,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2314,
+      "apiFootballVenueId": 2314,
+      "name": "Vivaldivöllurinn",
+      "city": "Seltjarnarnes",
+      "capacity": 1050,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2322,
+      "apiFootballVenueId": 2322,
+      "name": "Hertz völlurinn",
+      "city": "Reykjavík",
+      "capacity": 800,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 2317,
+      "apiFootballVenueId": 2317,
+      "name": "Rafholtsvöllurinn",
+      "city": "Njarðvík, Reykjanesbær",
+      "capacity": 2880,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 21597,
+      "apiFootballVenueId": 21597,
+      "name": "Boginn",
+      "city": "Akureyri",
+      "capacity": 400,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20543,
+      "apiFootballVenueId": 20543,
+      "name": "Fagverksvöllurinn Varmá Gervigras",
+      "city": "Mosfellsbær",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3178,
+      "apiFootballVenueId": 3178,
+      "name": "Ólafsfjarðarvöllur",
+      "city": "Ólafsfjörður",
+      "capacity": 1500,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20544,
+      "apiFootballVenueId": 20544,
+      "name": "Jökulfellsvöllurinn",
+      "city": "Höfn í Hornafirði",
+      "capacity": 2000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3180,
+      "apiFootballVenueId": 3180,
+      "name": "Olísvöllurinn",
+      "city": "Hnífsdalur, Ísafjarðabær",
+      "capacity": 800,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 21598,
+      "apiFootballVenueId": 21598,
+      "name": "PCC völlurinn Húsavík",
+      "city": "Húsavík",
+      "capacity": 3000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 21599,
+      "apiFootballVenueId": 21599,
+      "name": "GeoSalmo völlurinn",
+      "city": "Þorlákshöfn",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3183,
+      "apiFootballVenueId": 3183,
+      "name": "Sauðárkróksvöllur",
+      "city": "Sauðárkrókur",
+      "capacity": 300,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3184,
+      "apiFootballVenueId": 3184,
+      "name": "Nesfisk-völlurinn",
+      "city": "Garður",
+      "capacity": 2000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3185,
+      "apiFootballVenueId": 3185,
+      "name": "Akraneshöllin",
+      "city": "Akranes",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3186,
+      "apiFootballVenueId": 3186,
+      "name": "Vogabæjarvöllur",
+      "city": "Vogar",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 3187,
+      "apiFootballVenueId": 3187,
+      "name": "Dalvíkurvöllur",
+      "city": "Dalvík",
+      "capacity": 1300,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20545,
+      "apiFootballVenueId": 20545,
+      "name": "Fífan",
+      "city": "Kópavogur",
+      "capacity": 2000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4519,
+      "apiFootballVenueId": 4519,
+      "name": "Fjölnisvöllur Gervigras",
+      "city": "Reykjavík",
+      "capacity": 500,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4520,
+      "apiFootballVenueId": 4520,
+      "name": "Vopnafjarðarvöllur",
+      "city": "Vopnafjörður",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4521,
+      "apiFootballVenueId": 4521,
+      "name": "Grýluvöllur",
+      "city": "Hveragerði",
+      "capacity": 2000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20546,
+      "apiFootballVenueId": 20546,
+      "name": "Fellavöllur",
+      "city": "Fellabær",
+      "capacity": 1100,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4524,
+      "apiFootballVenueId": 4524,
+      "name": "SS-völlurinn",
+      "city": "Hvolsvöllur",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4525,
+      "apiFootballVenueId": 4525,
+      "name": "Týsvöllur",
+      "city": "Vestmannaeyjar",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20547,
+      "apiFootballVenueId": 20547,
+      "name": "N1-völlurinn Hlíðarenda",
+      "city": "Reykjavík",
+      "capacity": 2489,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4527,
+      "apiFootballVenueId": 4527,
+      "name": "Gervigrasvöllur Laugardal (Þróttarvöllur)",
+      "city": "Reykjavík",
+      "capacity": 3000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20548,
+      "apiFootballVenueId": 20548,
+      "name": "Brons völlurinn",
+      "city": "Sandgerði",
+      "capacity": 1500,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4529,
+      "apiFootballVenueId": 4529,
+      "name": "Hrafnagilsvöllur",
+      "city": "Hrafnagil",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4530,
+      "apiFootballVenueId": 4530,
+      "name": "Skallagrímsvöllur",
+      "city": "Borgarnes",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4531,
+      "apiFootballVenueId": 4531,
+      "name": "Stykkishólmsvöllur",
+      "city": "Stykkishólmur",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4532,
+      "apiFootballVenueId": 4532,
+      "name": "Fagrilundur Gervigras",
+      "city": "Kópavogur",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4522,
+      "apiFootballVenueId": 4522,
+      "name": "Tungubakkavöllur",
+      "city": "Mosfellsbær",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 20550,
+      "apiFootballVenueId": 20550,
+      "name": "OnePlus völlurinn",
+      "city": "Álftanes",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 11562,
+      "apiFootballVenueId": 11562,
+      "name": "Skessan",
+      "city": "Hafnarfjörður",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4534,
+      "apiFootballVenueId": 4534,
+      "name": "Kórinn Gervigrasvöllur",
+      "city": "Kópavogur",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4535,
+      "apiFootballVenueId": 4535,
+      "name": "Framvöllur Úlfarsárdal",
+      "city": "Reykjavík",
+      "capacity": 1722,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 4533,
+      "apiFootballVenueId": 4533,
+      "name": "Bessastaðavöllur",
+      "city": "Álftanes",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 9799,
+      "apiFootballVenueId": 9799,
+      "name": "Würth völlurinn",
+      "city": "Reykjavík",
+      "capacity": 2872,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 7123,
+      "apiFootballVenueId": 7123,
+      "name": "Stokkseyrarvöllur",
+      "city": "Stokkseyri",
+      "capacity": 1000,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 18455,
+      "apiFootballVenueId": 18455,
+      "name": "Nettóhöllin",
+      "city": "Keflavík, Reykjanesbær",
+      "capacity": 1000,
+      "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    }
+  ],
+  "teams": [
+    {
+      "apiId": 267,
+      "apiFootballId": 267,
+      "name": "Fylkir",
+      "shortName": "FYL",
+      "logoUrl": "https://media.api-sports.io/football/teams/267.png",
+      "city": "Reykjavík",
+      "venueId": 822,
+      "venueName": "Würth völlurinn"
+    },
+    {
+      "apiId": 270,
+      "apiFootballId": 270,
+      "name": "FH hafnarfjordur",
+      "shortName": "HAF",
+      "logoUrl": "https://media.api-sports.io/football/teams/270.png",
+      "city": "Hafnarfjörður",
+      "venueId": 821,
+      "venueName": "Kaplakrikavöllur"
+    },
+    {
+      "apiId": 271,
+      "apiFootballId": 271,
+      "name": "KR Reykjavik",
+      "shortName": "REY",
+      "logoUrl": "https://media.api-sports.io/football/teams/271.png",
+      "city": "Reykjavík",
+      "venueId": 10591,
+      "venueName": "KR-völlur"
+    },
+    {
+      "apiId": 272,
+      "apiFootballId": 272,
+      "name": "KA Akureyri",
+      "shortName": "AKU",
+      "logoUrl": "https://media.api-sports.io/football/teams/272.png",
+      "city": "Akureyri",
+      "venueId": 827,
+      "venueName": "Akureyrarvöllur"
+    },
+    {
+      "apiId": 273,
+      "apiFootballId": 273,
+      "name": "Fjolnir",
+      "shortName": "FJO",
+      "logoUrl": "https://media.api-sports.io/football/teams/273.png",
+      "city": "Reykjavík",
+      "venueId": 1956,
+      "venueName": "Extra völlurinn"
+    },
+    {
+      "apiId": 274,
+      "apiFootballId": 274,
+      "name": "Valur Reykjavik",
+      "shortName": "VAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/274.png",
+      "city": "Reykjavík",
+      "venueId": 830,
+      "venueName": "Origovöllurinn"
+    },
+    {
+      "apiId": 275,
+      "apiFootballId": 275,
+      "name": "Stjarnan",
+      "shortName": "STJ",
+      "logoUrl": "https://media.api-sports.io/football/teams/275.png",
+      "city": "Garðabær",
+      "venueId": 829,
+      "venueName": "Samsung völlurinn"
+    },
+    {
+      "apiId": 276,
+      "apiFootballId": 276,
+      "name": "Breidablik",
+      "shortName": "BRE",
+      "logoUrl": "https://media.api-sports.io/football/teams/276.png",
+      "city": "Kópavogur",
+      "venueId": 820,
+      "venueName": "Kópavogsvöllur"
+    },
+    {
+      "apiId": 278,
+      "apiFootballId": 278,
+      "name": "Vikingur Reykjavik",
+      "shortName": "VIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/278.png",
+      "city": "Reykjavík",
+      "venueId": 831,
+      "venueName": "Víkingsvöllur"
+    },
+    {
+      "apiId": 827,
+      "apiFootballId": 827,
+      "name": "IA Akranes",
+      "shortName": "AKR",
+      "logoUrl": "https://media.api-sports.io/football/teams/827.png",
+      "city": "Akranes",
+      "venueId": 825,
+      "venueName": "Norðurálsvöllurinn"
+    },
+    {
+      "apiId": 2113,
+      "apiFootballId": 2113,
+      "name": "HK Kopavogur",
+      "shortName": "KOP",
+      "logoUrl": "https://media.api-sports.io/football/teams/2113.png",
+      "city": "Kópavogur",
+      "venueId": 824,
+      "venueName": "Kórinn"
+    },
+    {
+      "apiId": 2121,
+      "apiFootballId": 2121,
+      "name": "Grotta",
+      "shortName": "GRO",
+      "logoUrl": "https://media.api-sports.io/football/teams/2121.png",
+      "city": "Seltjarnarnes",
+      "venueId": 2314,
+      "venueName": "Vivaldivöllurinn"
+    },
+    {
+      "apiId": 269,
+      "apiFootballId": 269,
+      "name": "Keflavik",
+      "shortName": "KEF",
+      "logoUrl": "https://media.api-sports.io/football/teams/269.png",
+      "city": "Keflavík, Reykjanesbær",
+      "venueId": 19615,
+      "venueName": "HS Orku völlurinn"
+    },
+    {
+      "apiId": 2114,
+      "apiFootballId": 2114,
+      "name": "Leiknir R.",
+      "shortName": "LEI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2114.png",
+      "city": "Reykjavík",
+      "venueId": 2320,
+      "venueName": "Leiknisvöllur"
+    },
+    {
+      "apiId": 268,
+      "apiFootballId": 268,
+      "name": "IBV Vestmannaeyjar",
+      "shortName": "VES",
+      "logoUrl": "https://media.api-sports.io/football/teams/268.png",
+      "city": "Vestmannaeyjar",
+      "venueId": 826,
+      "venueName": "Hásteinsvöllur"
+    },
+    {
+      "apiId": 2117,
+      "apiFootballId": 2117,
+      "name": "Fram Reykjavik",
+      "shortName": "FRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/2117.png",
+      "city": "Reykjavík",
+      "venueId": 2319,
+      "venueName": "Framvöllur"
+    },
+    {
+      "apiId": 4165,
+      "apiFootballId": 4165,
+      "name": "Vestri",
+      "shortName": "VES",
+      "logoUrl": "https://media.api-sports.io/football/teams/4165.png",
+      "city": "Hnífsdalur, Ísafjarðabær",
+      "venueId": 3180,
+      "venueName": "Olísvöllurinn"
+    },
+    {
+      "apiId": 3514,
+      "apiFootballId": 3514,
+      "name": "Afturelding",
+      "shortName": "ALF",
+      "logoUrl": "https://media.api-sports.io/football/teams/3514.png",
+      "city": "Mosfellsbær",
+      "venueId": 20543,
+      "venueName": "Fagverksvöllurinn Varmá Gervigras"
+    },
+    {
+      "apiId": 277,
+      "apiFootballId": 277,
+      "name": "Grindavik",
+      "shortName": "GRI",
+      "logoUrl": "https://media.api-sports.io/football/teams/277.png",
+      "city": "Grindavík",
+      "venueId": 823,
+      "venueName": "Mustad völlurinn"
+    },
+    {
+      "apiId": 828,
+      "apiFootballId": 828,
+      "name": "Vikingur Olafsiik",
+      "shortName": "VIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/828.png",
+      "city": "Ólafsvik",
+      "venueId": 2313,
+      "venueName": "Ólafsvíkurvöllur"
+    },
+    {
+      "apiId": 829,
+      "apiFootballId": 829,
+      "name": "Throttur Reykjavik",
+      "shortName": "THR",
+      "logoUrl": "https://media.api-sports.io/football/teams/829.png",
+      "city": "Reykjavík",
+      "venueId": 2318,
+      "venueName": "Eimskipsvöllurinn"
+    },
+    {
+      "apiId": 2116,
+      "apiFootballId": 2116,
+      "name": "Thor Akureyri",
+      "shortName": "THO",
+      "logoUrl": "https://media.api-sports.io/football/teams/2116.png",
+      "city": "Akureyri",
+      "venueId": 20542,
+      "venueName": "VÍS völlurinn"
+    },
+    {
+      "apiId": 2120,
+      "apiFootballId": 2120,
+      "name": "Leiknir F.",
+      "shortName": "LEI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2120.png",
+      "city": "Reyðarfjörður",
+      "venueId": 2747,
+      "venueName": "Fjarðabyggðarhöllin"
+    },
+    {
+      "apiId": 2124,
+      "apiFootballId": 2124,
+      "name": "Magni",
+      "shortName": "MAG",
+      "logoUrl": "https://media.api-sports.io/football/teams/2124.png",
+      "city": "Akureyri",
+      "venueId": 21597,
+      "venueName": "Boginn"
+    },
+    {
+      "apiId": 2115,
+      "apiFootballId": 2115,
+      "name": "Selfoss",
+      "shortName": "SEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/2115.png",
+      "city": "Selfoss, Árborg",
+      "venueId": 2321,
+      "venueName": "JÁVERK-völlurinn"
+    },
+    {
+      "apiId": 6097,
+      "apiFootballId": 6097,
+      "name": "Kórdrengir",
+      "shortName": "KÓR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6097.png",
+      "city": "Reykjavík",
+      "venueId": 2320,
+      "venueName": "Leiknisvöllur"
+    },
+    {
+      "apiId": 4163,
+      "apiFootballId": 4163,
+      "name": "KV",
+      "shortName": "KV",
+      "logoUrl": "https://media.api-sports.io/football/teams/4163.png",
+      "city": "Reykjavík",
+      "venueId": 10591,
+      "venueName": "KR-völlur"
+    },
+    {
+      "apiId": 4171,
+      "apiFootballId": 4171,
+      "name": "Thróttur Vogar",
+      "shortName": "THR",
+      "logoUrl": "https://media.api-sports.io/football/teams/4171.png",
+      "city": "Vogar",
+      "venueId": 3186,
+      "venueName": "Vogabæjarvöllur"
+    },
+    {
+      "apiId": 2123,
+      "apiFootballId": 2123,
+      "name": "Njardvik",
+      "shortName": "NJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/2123.png",
+      "city": "Njarðvík, Reykjanesbær",
+      "venueId": 2317,
+      "venueName": "Rafholtsvöllurinn"
+    },
+    {
+      "apiId": 4167,
+      "apiFootballId": 4167,
+      "name": "Ægir",
+      "shortName": "AEG",
+      "logoUrl": "https://media.api-sports.io/football/teams/4167.png",
+      "city": "Þorlákshöfn",
+      "venueId": 21599,
+      "venueName": "GeoSalmo völlurinn"
+    },
+    {
+      "apiId": 2122,
+      "apiFootballId": 2122,
+      "name": "IR Reykjavik",
+      "shortName": "IR ",
+      "logoUrl": "https://media.api-sports.io/football/teams/2122.png",
+      "city": "Reykjavík",
+      "venueId": 2322,
+      "venueName": "Hertz völlurinn"
+    },
+    {
+      "apiId": 4172,
+      "apiFootballId": 4172,
+      "name": "Dalvík / Reynir",
+      "shortName": "DAV",
+      "logoUrl": "https://media.api-sports.io/football/teams/4172.png",
+      "city": "Dalvík",
+      "venueId": 3187,
+      "venueName": "Dalvíkurvöllur"
+    },
+    {
+      "apiId": 4166,
+      "apiFootballId": 4166,
+      "name": "Völsungur",
+      "shortName": "VOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/4166.png",
+      "city": "Húsavík",
+      "venueId": 21598,
+      "venueName": "PCC völlurinn Húsavík"
+    },
+    {
+      "apiId": 2112,
+      "apiFootballId": 2112,
+      "name": "Fjardabyggd",
+      "shortName": "FJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/2112.png",
+      "city": "Eskifjörður",
+      "venueId": 2748,
+      "venueName": "Eskjuvöllur"
+    },
+    {
+      "apiId": 2118,
+      "apiFootballId": 2118,
+      "name": "Haukar",
+      "shortName": "HAU",
+      "logoUrl": "https://media.api-sports.io/football/teams/2118.png",
+      "city": "Hafnarfjörður",
+      "venueId": 21596,
+      "venueName": "BIRTU völlurinn"
+    },
+    {
+      "apiId": 4162,
+      "apiFootballId": 4162,
+      "name": "KF",
+      "shortName": "FJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/4162.png",
+      "city": "Ólafsfjörður",
+      "venueId": 3178,
+      "venueName": "Ólafsfjarðarvöllur"
+    },
+    {
+      "apiId": 4169,
+      "apiFootballId": 4169,
+      "name": "Vídir",
+      "shortName": "VID",
+      "logoUrl": "https://media.api-sports.io/football/teams/4169.png",
+      "city": "Garður",
+      "venueId": 3184,
+      "venueName": "Nesfisk-völlurinn"
+    },
+    {
+      "apiId": 4170,
+      "apiFootballId": 4170,
+      "name": "Kári",
+      "shortName": "KÁR",
+      "logoUrl": "https://media.api-sports.io/football/teams/4170.png",
+      "city": "Akranes",
+      "venueId": 3185,
+      "venueName": "Akraneshöllin"
+    },
+    {
+      "apiId": 6101,
+      "apiFootballId": 6101,
+      "name": "Reynir",
+      "shortName": "REY",
+      "logoUrl": "https://media.api-sports.io/football/teams/6101.png",
+      "city": "Sandgerði",
+      "venueId": 20548,
+      "venueName": "Brons völlurinn"
+    },
+    {
+      "apiId": 6087,
+      "apiFootballId": 6087,
+      "name": "Höttur / Huginn",
+      "shortName": "HÖT",
+      "logoUrl": "https://media.api-sports.io/football/teams/6087.png",
+      "city": "Fellabær",
+      "venueId": 20546,
+      "venueName": "Fellavöllur"
+    },
+    {
+      "apiId": 18366,
+      "apiFootballId": 18366,
+      "name": "Fjardabyggd / Leiknir",
+      "shortName": "FJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/18366.png",
+      "city": "Reyðarfjörður",
+      "venueId": 2747,
+      "venueName": "Fjarðabyggðarhöllin"
+    },
+    {
+      "apiId": 4164,
+      "apiFootballId": 4164,
+      "name": "Sindri",
+      "shortName": "SIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/4164.png",
+      "city": "Höfn í Hornafirði",
+      "venueId": 20544,
+      "venueName": "Jökulfellsvöllurinn"
+    },
+    {
+      "apiId": 4173,
+      "apiFootballId": 4173,
+      "name": "KFG",
+      "shortName": "KFG",
+      "logoUrl": "https://media.api-sports.io/football/teams/4173.png",
+      "city": "Garðabær",
+      "venueId": 829,
+      "venueName": "Samsung völlurinn"
+    },
+    {
+      "apiId": 6093,
+      "apiFootballId": 6093,
+      "name": "Kormákur / Hvöt",
+      "shortName": "KOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6093.png",
+      "city": "Sauðárkrókur",
+      "venueId": 3183,
+      "venueName": "Sauðárkróksvöllur"
+    },
+    {
+      "apiId": 10914,
+      "apiFootballId": 10914,
+      "name": "Breidablik W",
+      "shortName": "BRE",
+      "logoUrl": "https://media.api-sports.io/football/teams/10914.png",
+      "city": "Kópavogur",
+      "venueId": 820,
+      "venueName": "Kópavogsvöllur"
+    },
+    {
+      "apiId": 14848,
+      "apiFootballId": 14848,
+      "name": "FH W",
+      "shortName": "FH ",
+      "logoUrl": "https://media.api-sports.io/football/teams/14848.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14849,
+      "apiFootballId": 14849,
+      "name": "KR W",
+      "shortName": "KR ",
+      "logoUrl": "https://media.api-sports.io/football/teams/14849.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14850,
+      "apiFootballId": 14850,
+      "name": "Thór / KA W",
+      "shortName": "THÓ",
+      "logoUrl": "https://media.api-sports.io/football/teams/14850.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14851,
+      "apiFootballId": 14851,
+      "name": "Valur W",
+      "shortName": "VAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/14851.png",
+      "city": "Reykjavík",
+      "venueId": 20547,
+      "venueName": "N1-völlurinn Hlíðarenda"
+    },
+    {
+      "apiId": 14852,
+      "apiFootballId": 14852,
+      "name": "ÍBV W",
+      "shortName": "ÍBV",
+      "logoUrl": "https://media.api-sports.io/football/teams/14852.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14853,
+      "apiFootballId": 14853,
+      "name": "Fylkir W",
+      "shortName": "FYL",
+      "logoUrl": "https://media.api-sports.io/football/teams/14853.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14854,
+      "apiFootballId": 14854,
+      "name": "Selfoss W",
+      "shortName": "SEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/14854.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14855,
+      "apiFootballId": 14855,
+      "name": "Stjarnan W",
+      "shortName": "STJ",
+      "logoUrl": "https://media.api-sports.io/football/teams/14855.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14856,
+      "apiFootballId": 14856,
+      "name": "Thróttur Reykjavík W",
+      "shortName": "THR",
+      "logoUrl": "https://media.api-sports.io/football/teams/14856.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 16440,
+      "apiFootballId": 16440,
+      "name": "Keflavík W",
+      "shortName": "KEF",
+      "logoUrl": "https://media.api-sports.io/football/teams/16440.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 16441,
+      "apiFootballId": 16441,
+      "name": "Tindastóll W",
+      "shortName": "TIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/16441.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 18661,
+      "apiFootballId": 18661,
+      "name": "Afturelding W",
+      "shortName": "AFT",
+      "logoUrl": "https://media.api-sports.io/football/teams/18661.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 22857,
+      "apiFootballId": 22857,
+      "name": "Víkingur Reykjavík W",
+      "shortName": "VÍK",
+      "logoUrl": "https://media.api-sports.io/football/teams/22857.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 25517,
+      "apiFootballId": 25517,
+      "name": "Fjard / Hött / Leiknir",
+      "shortName": "FJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/25517.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 25518,
+      "apiFootballId": 25518,
+      "name": "Fram W",
+      "shortName": "FRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/25518.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4168,
+      "apiFootballId": 4168,
+      "name": "Tindastóll",
+      "shortName": "TIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/4168.png",
+      "city": "Sauðárkrókur",
+      "venueId": 3183,
+      "venueName": "Sauðárkróksvöllur"
+    },
+    {
+      "apiId": 6076,
+      "apiFootballId": 6076,
+      "name": "Afríka",
+      "shortName": "AFR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6076.png",
+      "city": "Reykjavík",
+      "venueId": 2320,
+      "venueName": "Leiknisvöllur"
+    },
+    {
+      "apiId": 6077,
+      "apiFootballId": 6077,
+      "name": "Augnablik",
+      "shortName": "AUG",
+      "logoUrl": "https://media.api-sports.io/football/teams/6077.png",
+      "city": "Kópavogur",
+      "venueId": 20545,
+      "venueName": "Fífan"
+    },
+    {
+      "apiId": 6078,
+      "apiFootballId": 6078,
+      "name": "Berserkir",
+      "shortName": "BER",
+      "logoUrl": "https://media.api-sports.io/football/teams/6078.png",
+      "city": "Reykjavík",
+      "venueId": 831,
+      "venueName": "Víkingsvöllur"
+    },
+    {
+      "apiId": 6079,
+      "apiFootballId": 6079,
+      "name": "Björninn",
+      "shortName": "BJÖ",
+      "logoUrl": "https://media.api-sports.io/football/teams/6079.png",
+      "city": "Reykjavík",
+      "venueId": 4519,
+      "venueName": "Fjölnisvöllur Gervigras"
+    },
+    {
+      "apiId": 6080,
+      "apiFootballId": 6080,
+      "name": "Einherji",
+      "shortName": "EIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/6080.png",
+      "city": "Vopnafjörður",
+      "venueId": 4520,
+      "venueName": "Vopnafjarðarvöllur"
+    },
+    {
+      "apiId": 6081,
+      "apiFootballId": 6081,
+      "name": "Ellidi",
+      "shortName": "ELL",
+      "logoUrl": "https://media.api-sports.io/football/teams/6081.png",
+      "city": "Reykjavík",
+      "venueId": 822,
+      "venueName": "Würth völlurinn"
+    },
+    {
+      "apiId": 6083,
+      "apiFootballId": 6083,
+      "name": "GG",
+      "shortName": "GG",
+      "logoUrl": "https://media.api-sports.io/football/teams/6083.png",
+      "city": "Grindavík",
+      "venueId": 823,
+      "venueName": "Mustad völlurinn"
+    },
+    {
+      "apiId": 6084,
+      "apiFootballId": 6084,
+      "name": "Hamar",
+      "shortName": "HAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/6084.png",
+      "city": "Hveragerði",
+      "venueId": 4521,
+      "venueName": "Grýluvöllur"
+    },
+    {
+      "apiId": 6085,
+      "apiFootballId": 6085,
+      "name": "Hvíti riddarinn",
+      "shortName": "HVÍ",
+      "logoUrl": "https://media.api-sports.io/football/teams/6085.png",
+      "city": "Mosfellsbær",
+      "venueId": 20543,
+      "venueName": "Fagverksvöllurinn Varmá Gervigras"
+    },
+    {
+      "apiId": 6086,
+      "apiFootballId": 6086,
+      "name": "Hörður Í.",
+      "shortName": "HÖR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6086.png",
+      "city": "Hnífsdalur, Ísafjarðabær",
+      "venueId": 3180,
+      "venueName": "Olísvöllurinn"
+    },
+    {
+      "apiId": 6088,
+      "apiFootballId": 6088,
+      "name": "KB",
+      "shortName": "KB",
+      "logoUrl": "https://media.api-sports.io/football/teams/6088.png",
+      "city": "Reykjavík",
+      "venueId": 2320,
+      "venueName": "Leiknisvöllur"
+    },
+    {
+      "apiId": 6089,
+      "apiFootballId": 6089,
+      "name": "KFR",
+      "shortName": "KFR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6089.png",
+      "city": "Hvolsvöllur",
+      "venueId": 4524,
+      "venueName": "SS-völlurinn"
+    },
+    {
+      "apiId": 6090,
+      "apiFootballId": 6090,
+      "name": "KFS",
+      "shortName": "KFS",
+      "logoUrl": "https://media.api-sports.io/football/teams/6090.png",
+      "city": "Vestmannaeyjar",
+      "venueId": 4525,
+      "venueName": "Týsvöllur"
+    },
+    {
+      "apiId": 6091,
+      "apiFootballId": 6091,
+      "name": "KH",
+      "shortName": "KH",
+      "logoUrl": "https://media.api-sports.io/football/teams/6091.png",
+      "city": "Reykjavík",
+      "venueId": 20547,
+      "venueName": "N1-völlurinn Hlíðarenda"
+    },
+    {
+      "apiId": 6092,
+      "apiFootballId": 6092,
+      "name": "KM",
+      "shortName": "KM",
+      "logoUrl": "https://media.api-sports.io/football/teams/6092.png",
+      "city": "Reykjavík",
+      "venueId": 10591,
+      "venueName": "KR-völlur"
+    },
+    {
+      "apiId": 6094,
+      "apiFootballId": 6094,
+      "name": "Kría",
+      "shortName": "KRÍ",
+      "logoUrl": "https://media.api-sports.io/football/teams/6094.png",
+      "city": "Seltjarnarnes",
+      "venueId": 2314,
+      "venueName": "Vivaldivöllurinn"
+    },
+    {
+      "apiId": 6098,
+      "apiFootballId": 6098,
+      "name": "Léttir",
+      "shortName": "LÉT",
+      "logoUrl": "https://media.api-sports.io/football/teams/6098.png",
+      "city": "Reykjavík",
+      "venueId": 2322,
+      "venueName": "Hertz völlurinn"
+    },
+    {
+      "apiId": 6099,
+      "apiFootballId": 6099,
+      "name": "Mídas",
+      "shortName": "MÍD",
+      "logoUrl": "https://media.api-sports.io/football/teams/6099.png",
+      "city": "Reykjavík",
+      "venueId": 831,
+      "venueName": "Víkingsvöllur"
+    },
+    {
+      "apiId": 6100,
+      "apiFootballId": 6100,
+      "name": "Nökkvi",
+      "shortName": "NÖK",
+      "logoUrl": "https://media.api-sports.io/football/teams/6100.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 6102,
+      "apiFootballId": 6102,
+      "name": "SR",
+      "shortName": "SR",
+      "logoUrl": "https://media.api-sports.io/football/teams/6102.png",
+      "city": "Reykjavík",
+      "venueId": 20549,
+      "venueName": "AVIS völlurinn"
+    },
+    {
+      "apiId": 6103,
+      "apiFootballId": 6103,
+      "name": "Samherjar",
+      "shortName": "SAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/6103.png",
+      "city": "Hrafnagil",
+      "venueId": 4529,
+      "venueName": "Hrafnagilsvöllur"
+    },
+    {
+      "apiId": 6104,
+      "apiFootballId": 6104,
+      "name": "Skallagrímur",
+      "shortName": "SKA",
+      "logoUrl": "https://media.api-sports.io/football/teams/6104.png",
+      "city": "Borgarnes",
+      "venueId": 4530,
+      "venueName": "Skallagrímsvöllur"
+    },
+    {
+      "apiId": 6105,
+      "apiFootballId": 6105,
+      "name": "Snæfell",
+      "shortName": "SNÆ",
+      "logoUrl": "https://media.api-sports.io/football/teams/6105.png",
+      "city": "Stykkishólmur",
+      "venueId": 4531,
+      "venueName": "Stykkishólmsvöllur"
+    },
+    {
+      "apiId": 6106,
+      "apiFootballId": 6106,
+      "name": "Vatnaliljur",
+      "shortName": "VAT",
+      "logoUrl": "https://media.api-sports.io/football/teams/6106.png",
+      "city": "Kópavogur",
+      "venueId": 4532,
+      "venueName": "Fagrilundur Gervigras"
+    },
+    {
+      "apiId": 6107,
+      "apiFootballId": 6107,
+      "name": "Vængir Júpiters",
+      "shortName": "VÆN",
+      "logoUrl": "https://media.api-sports.io/football/teams/6107.png",
+      "city": "Reykjavík",
+      "venueId": 4519,
+      "venueName": "Fjölnisvöllur Gervigras"
+    },
+    {
+      "apiId": 6108,
+      "apiFootballId": 6108,
+      "name": "Álafoss",
+      "shortName": "ÁLA",
+      "logoUrl": "https://media.api-sports.io/football/teams/6108.png",
+      "city": "Mosfellsbær",
+      "venueId": 4522,
+      "venueName": "Tungubakkavöllur"
+    },
+    {
+      "apiId": 6109,
+      "apiFootballId": 6109,
+      "name": "Álftanes",
+      "shortName": "ALF",
+      "logoUrl": "https://media.api-sports.io/football/teams/6109.png",
+      "city": "Álftanes",
+      "venueId": 20550,
+      "venueName": "OnePlus völlurinn"
+    },
+    {
+      "apiId": 6110,
+      "apiFootballId": 6110,
+      "name": "Árborg",
+      "shortName": "ÁRB",
+      "logoUrl": "https://media.api-sports.io/football/teams/6110.png",
+      "city": "Selfoss, Árborg",
+      "venueId": 2321,
+      "venueName": "JÁVERK-völlurinn"
+    },
+    {
+      "apiId": 6112,
+      "apiFootballId": 6112,
+      "name": "ÍH",
+      "shortName": "IHH",
+      "logoUrl": "https://media.api-sports.io/football/teams/6112.png",
+      "city": "Hafnarfjörður",
+      "venueId": 11562,
+      "venueName": "Skessan"
+    },
+    {
+      "apiId": 6113,
+      "apiFootballId": 6113,
+      "name": "Ísbjörninn",
+      "shortName": "ÍSB",
+      "logoUrl": "https://media.api-sports.io/football/teams/6113.png",
+      "city": "Kópavogur",
+      "venueId": 4534,
+      "venueName": "Kórinn Gervigrasvöllur"
+    },
+    {
+      "apiId": 6115,
+      "apiFootballId": 6115,
+      "name": "Ýmir",
+      "shortName": "ÝMI",
+      "logoUrl": "https://media.api-sports.io/football/teams/6115.png",
+      "city": "Kópavogur",
+      "venueId": 824,
+      "venueName": "Kórinn"
+    },
+    {
+      "apiId": 10116,
+      "apiFootballId": 10116,
+      "name": "Blix",
+      "shortName": "BLI",
+      "logoUrl": "https://media.api-sports.io/football/teams/10116.png",
+      "city": "Kópavogur",
+      "venueId": 4532,
+      "venueName": "Fagrilundur Gervigras"
+    },
+    {
+      "apiId": 10117,
+      "apiFootballId": 10117,
+      "name": "KFB",
+      "shortName": "KFB",
+      "logoUrl": "https://media.api-sports.io/football/teams/10117.png",
+      "city": "Álftanes",
+      "venueId": 4533,
+      "venueName": "Bessastaðavöllur"
+    },
+    {
+      "apiId": 10118,
+      "apiFootballId": 10118,
+      "name": "Skandinavía",
+      "shortName": "SKA",
+      "logoUrl": "https://media.api-sports.io/football/teams/10118.png",
+      "city": "Reykjavík",
+      "venueId": 9799,
+      "venueName": "Würth völlurinn"
+    },
+    {
+      "apiId": 10119,
+      "apiFootballId": 10119,
+      "name": "Stokkseyri",
+      "shortName": "STO",
+      "logoUrl": "https://media.api-sports.io/football/teams/10119.png",
+      "city": "Stokkseyri",
+      "venueId": 7123,
+      "venueName": "Stokkseyrarvöllur"
+    },
+    {
+      "apiId": 10120,
+      "apiFootballId": 10120,
+      "name": "ÍBU",
+      "shortName": "ÍBU",
+      "logoUrl": "https://media.api-sports.io/football/teams/10120.png",
+      "city": "Selfoss, Árborg",
+      "venueId": 2321,
+      "venueName": "JÁVERK-völlurinn"
+    },
+    {
+      "apiId": 6095,
+      "apiFootballId": 6095,
+      "name": "KÁ Hafnarfjördur",
+      "shortName": "KÁ ",
+      "logoUrl": "https://media.api-sports.io/football/teams/6095.png",
+      "city": "Hafnarfjörður",
+      "venueId": 21596,
+      "venueName": "BIRTU völlurinn"
+    },
+    {
+      "apiId": 6114,
+      "apiFootballId": 6114,
+      "name": "Úlfarnir",
+      "shortName": "ÚLF",
+      "logoUrl": "https://media.api-sports.io/football/teams/6114.png",
+      "city": "Reykjavík",
+      "venueId": 4535,
+      "venueName": "Framvöllur Úlfarsárdal"
+    },
+    {
+      "apiId": 16442,
+      "apiFootballId": 16442,
+      "name": "Gullfálkinn",
+      "shortName": "GUL",
+      "logoUrl": "https://media.api-sports.io/football/teams/16442.png",
+      "city": "Reykjavík",
+      "venueId": 4527,
+      "venueName": "Gervigrasvöllur Laugardal (Þróttarvöllur)"
+    },
+    {
+      "apiId": 16443,
+      "apiFootballId": 16443,
+      "name": "RB",
+      "shortName": "RB",
+      "logoUrl": "https://media.api-sports.io/football/teams/16443.png",
+      "city": "Keflavík, Reykjanesbær",
+      "venueId": 18455,
+      "venueName": "Nettóhöllin"
+    },
+    {
+      "apiId": 16444,
+      "apiFootballId": 16444,
+      "name": "Reynir Hellissandur",
+      "shortName": "REY",
+      "logoUrl": "https://media.api-sports.io/football/teams/16444.png",
+      "city": "Ólafsvik",
+      "venueId": 2313,
+      "venueName": "Ólafsvíkurvöllur"
+    },
+    {
+      "apiId": 16624,
+      "apiFootballId": 16624,
+      "name": "Hamrarnir",
+      "shortName": "HAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/16624.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 18474,
+      "apiFootballId": 18474,
+      "name": "Berserkir / Mídas",
+      "shortName": "BER",
+      "logoUrl": "https://media.api-sports.io/football/teams/18474.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 18475,
+      "apiFootballId": 18475,
+      "name": "Boltafélag Norðfjarðar",
+      "shortName": "BOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/18475.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 18476,
+      "apiFootballId": 18476,
+      "name": "Hafnir",
+      "shortName": "HAF",
+      "logoUrl": "https://media.api-sports.io/football/teams/18476.png",
+      "city": "Keflavík, Reykjanesbær",
+      "venueId": 18455,
+      "venueName": "Nettóhöllin"
+    },
+    {
+      "apiId": 18477,
+      "apiFootballId": 18477,
+      "name": "KFK Kópavogur",
+      "shortName": "KFK",
+      "logoUrl": "https://media.api-sports.io/football/teams/18477.png",
+      "city": "Kópavogur",
+      "venueId": 4532,
+      "venueName": "Fagrilundur Gervigras"
+    },
+    {
+      "apiId": 18478,
+      "apiFootballId": 18478,
+      "name": "Spyrnir",
+      "shortName": "SPY",
+      "logoUrl": "https://media.api-sports.io/football/teams/18478.png",
+      "city": "Fellabær",
+      "venueId": 20546,
+      "venueName": "Fellavöllur"
+    },
+    {
+      "apiId": 18479,
+      "apiFootballId": 18479,
+      "name": "Árbær",
+      "shortName": "ÁRB",
+      "logoUrl": "https://media.api-sports.io/football/teams/18479.png",
+      "city": "Reykjavík",
+      "venueId": 822,
+      "venueName": "Würth völlurinn"
+    },
+    {
+      "apiId": 22959,
+      "apiFootballId": 22959,
+      "name": "Thorlákur",
+      "shortName": "THO",
+      "logoUrl": "https://media.api-sports.io/football/teams/22959.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 25566,
+      "apiFootballId": 25566,
+      "name": "BF 108",
+      "shortName": "BF ",
+      "logoUrl": "https://media.api-sports.io/football/teams/25566.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 25567,
+      "apiFootballId": 25567,
+      "name": "Fálkar",
+      "shortName": "FÁL",
+      "logoUrl": "https://media.api-sports.io/football/teams/25567.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 25568,
+      "apiFootballId": 25568,
+      "name": "Neisti D.",
+      "shortName": "NEI",
+      "logoUrl": "https://media.api-sports.io/football/teams/25568.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    }
+  ],
+  "teamSeasons": [
+    {
+      "teamApiId": 276,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 14848,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 273,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 267,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 14853,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 827,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 14852,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 272,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 271,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 14849,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14854,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 275,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 278,
+      "season": 2020,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 277,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 268,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 269,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 2120,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2124,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 21597
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 829,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 828,
+      "season": 2020,
+      "division": 2,
+      "venueApiId": 2313
+    },
+    {
+      "teamApiId": 4172,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 3187
+    },
+    {
+      "teamApiId": 2112,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 2748
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 4170,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 3185
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 3178
+    },
+    {
+      "teamApiId": 6097,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 4169,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 3184
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2020,
+      "division": 3,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 276,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 267,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 14853,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 827,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 14852,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 272,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 269,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 16440,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 271,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 14854,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 275,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 16441,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 278,
+      "season": 2021,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 273,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 277,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 268,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 6097,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 829,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 828,
+      "season": 2021,
+      "division": 2,
+      "venueApiId": 2313
+    },
+    {
+      "teamApiId": 2112,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 2748
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 4170,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 3185
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 3178
+    },
+    {
+      "teamApiId": 4163,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 2120,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2124,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 21597
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 6101,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 20548
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2021,
+      "division": 3,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 18661,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 276,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 827,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 268,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 14852,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 272,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 269,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 16440,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 271,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 14849,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 14854,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 275,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 278,
+      "season": 2022,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 273,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 267,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 277,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 6097,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 4163,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2022,
+      "division": 2,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 4167,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 21599
+    },
+    {
+      "teamApiId": 18366,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 6087,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 20546
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 3178
+    },
+    {
+      "teamApiId": 2124,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 21597
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 6101,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 20548
+    },
+    {
+      "teamApiId": 829,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 828,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 2313
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2022,
+      "division": 3,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 276,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 14848,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 267,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 268,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 14852,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 272,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 269,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 16440,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 271,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 14854,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 275,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 16441,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 278,
+      "season": 2023,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 4167,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 21599
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 273,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 277,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 827,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 829,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2023,
+      "division": 2,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 4172,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 3187
+    },
+    {
+      "teamApiId": 18366,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 6087,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 20546
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 3178
+    },
+    {
+      "teamApiId": 4173,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 4163,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 4164,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 20544
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 828,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 2313
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2023,
+      "division": 3,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 276,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 14848,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 267,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 14853,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 827,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 272,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 16440,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 271,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 275,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 16441,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 278,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 22857,
+      "season": 2024,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 4172,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 3187
+    },
+    {
+      "teamApiId": 273,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 277,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 268,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 269,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 829,
+      "season": 2024,
+      "division": 2,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 4167,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 21599
+    },
+    {
+      "teamApiId": 18366,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 6087,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 20546
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 3178
+    },
+    {
+      "teamApiId": 4173,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 6093,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 3183
+    },
+    {
+      "teamApiId": 6101,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 20548
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 828,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 2313
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2024,
+      "division": 3,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 3514,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 276,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 10914,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 820
+    },
+    {
+      "teamApiId": 270,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 821
+    },
+    {
+      "teamApiId": 14848,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 25517,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 2117,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 2319
+    },
+    {
+      "teamApiId": 25518,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 827,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 825
+    },
+    {
+      "teamApiId": 268,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 826
+    },
+    {
+      "teamApiId": 272,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 827
+    },
+    {
+      "teamApiId": 271,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 275,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 14855,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14850,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 14856,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 16441,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 274,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 830
+    },
+    {
+      "teamApiId": 14851,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 20547
+    },
+    {
+      "teamApiId": 4165,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 3180
+    },
+    {
+      "teamApiId": 278,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": 831
+    },
+    {
+      "teamApiId": 22857,
+      "season": 2025,
+      "division": 1,
+      "venueApiId": null
+    },
+    {
+      "teamApiId": 273,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 1956
+    },
+    {
+      "teamApiId": 267,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 822
+    },
+    {
+      "teamApiId": 277,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 823
+    },
+    {
+      "teamApiId": 2113,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 824
+    },
+    {
+      "teamApiId": 2122,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 2322
+    },
+    {
+      "teamApiId": 269,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 19615
+    },
+    {
+      "teamApiId": 2114,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 2123,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 2317
+    },
+    {
+      "teamApiId": 2115,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 2321
+    },
+    {
+      "teamApiId": 2116,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 20542
+    },
+    {
+      "teamApiId": 829,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 2318
+    },
+    {
+      "teamApiId": 4166,
+      "season": 2025,
+      "division": 2,
+      "venueApiId": 21598
+    },
+    {
+      "teamApiId": 4167,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 21599
+    },
+    {
+      "teamApiId": 4172,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 3187
+    },
+    {
+      "teamApiId": 18366,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 2747
+    },
+    {
+      "teamApiId": 2121,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 2314
+    },
+    {
+      "teamApiId": 2118,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 21596
+    },
+    {
+      "teamApiId": 6087,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 20546
+    },
+    {
+      "teamApiId": 4170,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 3185
+    },
+    {
+      "teamApiId": 4173,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 829
+    },
+    {
+      "teamApiId": 6093,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 3183
+    },
+    {
+      "teamApiId": 4171,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 3186
+    },
+    {
+      "teamApiId": 4169,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 3184
+    },
+    {
+      "teamApiId": 828,
+      "season": 2025,
+      "division": 3,
+      "venueApiId": 2313
+    }
+  ],
+  "fixtureCount": 3564
+}
