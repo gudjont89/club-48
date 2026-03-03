@@ -1,0 +1,40 @@
+.division {
+  margin-bottom: 2rem;
+}
+
+.divisionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.divisionName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.divisionProgress {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+/* Division color variants */
+.divBesta .divisionName { color: var(--besta); }
+.divFyrsta .divisionName { color: var(--fyrsta); }
+.divAnnar .divisionName { color: var(--annar); }
+.divThridi .divisionName { color: var(--thridi); }
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}

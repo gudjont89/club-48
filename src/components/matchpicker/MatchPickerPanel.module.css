@@ -1,0 +1,296 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 299;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 420px;
+  max-width: 92vw;
+  height: 100vh;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelOpen {
+  transform: translateX(0);
+}
+
+/* Panel header */
+.panelTop {
+  padding: 1.25rem 1.25rem 0;
+  flex-shrink: 0;
+}
+
+.panelHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.15rem;
+}
+
+.panelGround {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.panelCity {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.panelTeam {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-top: 0.3rem;
+}
+
+.panelMeta {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  font-family: var(--font-heading);
+}
+
+.closeBtn {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.closeBtn:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+/* Year navigator */
+.yearNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 1rem 1.25rem 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.yearArrow {
+  background: none;
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: all 0.15s;
+  font-size: 0.85rem;
+}
+
+.yearArrow:hover:not(:disabled) {
+  background: var(--bg-warm);
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+.yearArrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.yearLabel {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  min-width: 80px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.yearCount {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  margin-top: -1px;
+}
+
+/* Fixtures area */
+.fixturesArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 1.25rem 1.5rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin: 0.85rem 0 0.4rem;
+}
+
+.sectionLabelCup {
+  color: var(--cup);
+}
+
+.fixtureList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.noFixtures {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Fixture row */
+.fixtureRow {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.65rem;
+  background: var(--surface-dim);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.fixtureRow:hover {
+  background: var(--bg-warm);
+}
+
+.attended {
+  background: var(--visited-bg);
+  border-color: var(--visited-border);
+}
+
+.isCup {
+  border-left: 3px solid var(--cup);
+}
+
+.upcoming {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.fixDate {
+  text-align: center;
+  line-height: 1.1;
+}
+
+.fixDay {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  display: block;
+}
+
+.fixMon {
+  font-size: 0.56rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.attended .fixDay {
+  color: var(--visited);
+}
+
+.opponent {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.meta {
+  font-size: 0.68rem;
+  color: var(--text-faint);
+}
+
+.fixRight {
+  text-align: right;
+}
+
+.fixScore {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.scoreW { color: var(--win); }
+.scoreD { color: var(--draw); }
+.scoreL { color: var(--loss); }
+
+.fixUpcoming {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.attendedCheck {
+  display: none;
+  font-size: 0.6rem;
+  color: var(--visited);
+  margin-top: 1px;
+}
+
+.attended .attendedCheck {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    width: 100%;
+    max-width: 100vw;
+  }
+}

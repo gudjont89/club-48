@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Crimson+Pro:wght@400;500;600&display=swap');
+
+:root {
+  /* Backgrounds */
+  --bg: #f4f1eb;
+  --bg-warm: #eee9e0;
+  --surface: #ffffff;
+  --surface-dim: #f9f7f3;
+
+  /* Borders */
+  --border: #ddd6cc;
+  --border-light: #e8e3da;
+
+  /* Text */
+  --text: #2a2520;
+  --text-mid: #5c534a;
+  --text-dim: #8a8078;
+  --text-faint: #b5ada5;
+
+  /* Division colors */
+  --besta: #1a5f3a;
+  --besta-bg: #e8f3ed;
+  --besta-border: #c4ddd0;
+  --besta-bar: #2d8a54;
+
+  --fyrsta: #6b4c9a;
+  --fyrsta-bg: #f0ebf5;
+  --fyrsta-border: #d4c8e4;
+  --fyrsta-bar: #8a6ab8;
+
+  --annar: #2a6a8a;
+  --annar-bg: #e6f0f5;
+  --annar-border: #c0d8e6;
+  --annar-bar: #3d8db5;
+
+  --thridi: #7a6540;
+  --thridi-bg: #f2ede4;
+  --thridi-border: #ddd0b8;
+  --thridi-bar: #a08558;
+
+  /* Semantic */
+  --visited: #2d8a54;
+  --visited-bg: #e0f5e8;
+  --visited-border: #b0d9c0;
+  --win: #2d8a54;
+  --draw: #9a6b1a;
+  --loss: #8a3a3a;
+  --cup: #8a5e2a;
+  --cup-bg: #fdf5e8;
+  --overlay: rgba(30, 26, 22, 0.45);
+
+  /* Podium */
+  --gold: #b8951a;
+  --silver: #8a8a8e;
+  --bronze: #9a6a3a;
+
+  /* Typography */
+  --font-heading: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 4rem;
+}

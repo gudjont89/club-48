@@ -1,0 +1,115 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  animation: fadeUp 0.3s ease both;
+}
+
+.card:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.isVisited {
+  border-color: var(--visited-border);
+}
+
+.visitIndicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--visited);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.isVisited .visitIndicator {
+  opacity: 1;
+}
+
+.cardImg {
+  height: 72px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.6rem;
+  opacity: 0.15;
+}
+
+.capTag,
+.surfaceTag {
+  position: absolute;
+  bottom: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.capTag {
+  right: 6px;
+}
+
+.surfaceTag {
+  left: 6px;
+}
+
+.cardBody {
+  padding: 0.7rem 0.85rem;
+}
+
+.groundName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+}
+
+.groundCity {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+.teamName {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+.visitCount {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  margin-top: 0.2rem;
+}
+
+.visitCount strong {
+  color: var(--visited);
+  font-weight: 700;
+}
+
+/* Division background colors for card image area */
+.bgBesta { background: var(--besta-bg); }
+.bgFyrsta { background: var(--fyrsta-bg); }
+.bgAnnar { background: var(--annar-bg); }
+.bgThridi { background: var(--thridi-bg); }
