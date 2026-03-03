@@ -13,6 +13,26 @@ services:
       - ./public:/app/public
       - ./scripts:/app/scripts
       - ./supabase:/app/supabase
+    env_file: .env
     environment:
-      - VITE_SUPABASE_URL=http://localhost:54321
+      - VITE_SUPABASE_URL=${SUPABASE_URL:-http://localhost:54321}
       - VITE_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0}
+
+  # Daily fixture sync — runs at midnight
+  # Start with: docker compose --profile sync up -d
+  sync:
+    build:
+      context: .
+      target: dev
+    volumes:
+      - ./scripts:/app/scripts
+    env_file: .env
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "0 0 * * * cd /app && npm run sync >> /proc/1/fd/1 2>&1" | crontab -
+        echo "Cron installed: daily fixture sync at midnight"
+        echo "To run manually: docker compose exec sync npm run sync"
+        crond -f -l 2
+    profiles:
+      - sync
