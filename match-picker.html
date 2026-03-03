@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Picker — 48 Klúbburinn</title>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0e13;
+    --surface: #14171e;
+    --surface-hover: #1a1e28;
+    --surface-active: #1e2433;
+    --border: #252a36;
+    --border-light: #2f3544;
+    --text: #e8eaf0;
+    --text-dim: #8890a0;
+    --text-faint: #555d70;
+    --accent: #4fd1a0;
+    --accent-dim: rgba(79, 209, 160, 0.12);
+    --accent-glow: rgba(79, 209, 160, 0.25);
+    --win: #4fd1a0;
+    --draw: #e8c547;
+    --loss: #e85a5a;
+    --upcoming: #5a8ae8;
+    --besta: #4a9eff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ---- Team Header ---- */
+  .team-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--besta), var(--accent));
+  }
+
+  .team-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .team-crest {
+    width: 52px;
+    height: 52px;
+    background: var(--surface-active);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anybody', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--besta);
+    border: 1px solid var(--border-light);
+    flex-shrink: 0;
+  }
+
+  .team-info h1 {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .team-info .ground {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .division-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(74, 158, 255, 0.12);
+    color: var(--besta);
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .visit-status {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .visit-status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-faint);
+    transition: all 0.3s;
+  }
+
+  .visit-status.visited .dot {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  .visit-status.visited {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ---- Season Bar ---- */
+  .season-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .season-bar h2 {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dim);
+  }
+
+  .season-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 3px;
+    border: 1px solid var(--border);
+  }
+
+  .season-tab {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .season-tab:hover { color: var(--text-dim); }
+  .season-tab.active {
+    background: var(--surface-active);
+    color: var(--text);
+  }
+
+  /* ---- Match List ---- */
+  .match-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .match-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 0.85rem;
+    user-select: none;
+  }
+
+  .match-card:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-light);
+  }
+
+  .match-card.attended {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .match-card.attended:hover {
+    background: rgba(79, 209, 160, 0.18);
+  }
+
+  .match-card.upcoming {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .match-card.upcoming:hover {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  /* Date column */
+  .match-date {
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .match-date .day {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    display: block;
+  }
+
+  .match-date .month {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+  }
+
+  .match-card.attended .match-date .day {
+    color: var(--accent);
+  }
+
+  /* Match details */
+  .match-detail { min-width: 0; }
+
+  .match-teams {
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .match-teams .home-team { color: var(--text); }
+
+  .match-teams .vs {
+    color: var(--text-faint);
+    margin: 0 4px;
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .match-teams .away-team { color: var(--text-dim); }
+
+  .match-sub {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .round-tag {
+    background: var(--surface-active);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+  }
+
+  .match-card.attended .round-tag {
+    background: rgba(79, 209, 160, 0.15);
+    color: var(--accent);
+  }
+
+  /* Score column */
+  .match-score {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .score-text {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .score-text.win { color: var(--win); }
+  .score-text.draw { color: var(--draw); }
+  .score-text.loss { color: var(--loss); }
+
+  .result-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .result-tag.W { background: rgba(79,209,160,0.15); color: var(--win); }
+  .result-tag.D { background: rgba(232,197,71,0.15); color: var(--draw); }
+  .result-tag.L { background: rgba(232,90,90,0.15); color: var(--loss); }
+
+  .upcoming-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--upcoming);
+  }
+
+  .upcoming-time {
+    font-size: 0.68rem;
+    color: var(--text-faint);
+  }
+
+  /* Check ring */
+  .check-ring {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    opacity: 0;
+  }
+
+  .match-card:not(.upcoming):hover .check-ring,
+  .match-card.attended .check-ring {
+    opacity: 1;
+  }
+
+  .match-card.attended .check-ring {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .check-ring svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+  }
+
+  .match-card.attended .check-ring svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ---- Summary ---- */
+  .summary-bar {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .summary-text {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .summary-text strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .clear-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-faint);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .clear-btn:hover {
+    border-color: var(--loss);
+    color: var(--loss);
+  }
+
+  /* ---- Tooltip for upcoming ---- */
+  .match-card .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-active);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .match-card.upcoming:hover .tooltip {
+    display: block;
+  }
+
+  /* ---- Animations ---- */
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .match-card.just-toggled {
+    animation: pop 0.25s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .match-card {
+    animation: slideUp 0.3s ease both;
+  }
+
+  .match-card:nth-child(1)  { animation-delay: 0.02s; }
+  .match-card:nth-child(2)  { animation-delay: 0.04s; }
+  .match-card:nth-child(3)  { animation-delay: 0.06s; }
+  .match-card:nth-child(4)  { animation-delay: 0.08s; }
+  .match-card:nth-child(5)  { animation-delay: 0.10s; }
+  .match-card:nth-child(6)  { animation-delay: 0.12s; }
+  .match-card:nth-child(7)  { animation-delay: 0.14s; }
+  .match-card:nth-child(8)  { animation-delay: 0.16s; }
+  .match-card:nth-child(9)  { animation-delay: 0.18s; }
+  .match-card:nth-child(10) { animation-delay: 0.20s; }
+  .match-card:nth-child(11) { animation-delay: 0.22s; }
+  .match-card:nth-child(12) { animation-delay: 0.24s; }
+  .match-card:nth-child(13) { animation-delay: 0.26s; }
+  .match-card:nth-child(14) { animation-delay: 0.28s; }
+
+  @media (max-width: 480px) {
+    body { padding: 1rem 0.5rem; }
+    .match-card { padding: 0.75rem; gap: 0.65rem; }
+    .team-header { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Team Header -->
+  <div class="team-header">
+    <div class="team-meta">
+      <div class="team-crest">KR</div>
+      <div class="team-info">
+        <h1>KR Reykjavík <span class="division-badge">Besta deild</span></h1>
+        <div class="ground">KR-völlur, Reykjavík</div>
+      </div>
+    </div>
+    <div class="visit-status" id="visitStatus">
+      <span class="dot"></span>
+      <span id="visitLabel">Not yet visited</span>
+    </div>
+  </div>
+
+  <!-- Season selector -->
+  <div class="season-bar">
+    <h2>Home Fixtures</h2>
+    <div class="season-tabs">
+      <button class="season-tab" onclick="setSeason(2024)">2024</button>
+      <button class="season-tab active" onclick="setSeason(2025)">2025</button>
+    </div>
+  </div>
+
+  <!-- Match list -->
+  <div class="match-list" id="matchList"></div>
+
+  <!-- Summary -->
+  <div class="summary-bar" id="summaryBar" style="display:none;">
+    <span class="summary-text" id="summaryText"></span>
+    <button class="clear-btn" onclick="clearAll()">Clear visits</button>
+  </div>
+</div>
+
+<script>
+  // Sample fixture data — in production this comes from API-Football
+  const fixtures = {
+    2025: [
+      { round: 1,  date: '2025-04-19', time: '16:00', home: 'KR', away: 'Valur',       hg: 2, ag: 1, status: 'FT' },
+      { round: 3,  date: '2025-05-03', time: '16:00', home: 'KR', away: 'Breiðablik',   hg: 0, ag: 0, status: 'FT' },
+      { round: 5,  date: '2025-05-17', time: '19:15', home: 'KR', away: 'FH',           hg: 3, ag: 1, status: 'FT' },
+      { round: 7,  date: '2025-06-01', time: '16:00', home: 'KR', away: 'Stjarnan',     hg: 1, ag: 2, status: 'FT' },
+      { round: 9,  date: '2025-06-14', time: '16:00', home: 'KR', away: 'ÍA',           hg: 2, ag: 0, status: 'FT' },
+      { round: 11, date: '2025-06-28', time: '19:15', home: 'KR', away: 'Víkingur R',   hg: 1, ag: 1, status: 'FT' },
+      { round: 13, date: '2025-07-12', time: '16:00', home: 'KR', away: 'ÍBV',          hg: null, ag: null, status: 'NS' },
+      { round: 15, date: '2025-07-26', time: '16:00', home: 'KR', away: 'Afturelding',  hg: null, ag: null, status: 'NS' },
+      { round: 17, date: '2025-08-09', time: '19:15', home: 'KR', away: 'KA',           hg: null, ag: null, status: 'NS' },
+      { round: 19, date: '2025-08-23', time: '16:00', home: 'KR', away: 'Fram',         hg: null, ag: null, status: 'NS' },
+      { round: 21, date: '2025-09-13', time: '16:00', home: 'KR', away: 'Vestri',       hg: null, ag: null, status: 'NS' },
+    ],
+    2024: [
+      { round: 1,  date: '2024-04-20', time: '16:00', home: 'KR', away: 'Fram',        hg: 1, ag: 0, status: 'FT' },
+      { round: 3,  date: '2024-05-04', time: '19:15', home: 'KR', away: 'Stjarnan',    hg: 2, ag: 2, status: 'FT' },
+      { round: 5,  date: '2024-05-18', time: '16:00', home: 'KR', away: 'FH',          hg: 0, ag: 1, status: 'FT' },
+      { round: 7,  date: '2024-06-01', time: '16:00', home: 'KR', away: 'Breiðablik',  hg: 3, ag: 0, status: 'FT' },
+      { round: 9,  date: '2024-06-15', time: '16:00', home: 'KR', away: 'Valur',       hg: 2, ag: 1, status: 'FT' },
+      { round: 11, date: '2024-06-29', time: '19:15', home: 'KR', away: 'ÍA',          hg: 1, ag: 3, status: 'FT' },
+      { round: 13, date: '2024-07-13', time: '16:00', home: 'KR', away: 'Víkingur R',  hg: 0, ag: 0, status: 'FT' },
+      { round: 15, date: '2024-07-27', time: '16:00', home: 'KR', away: 'KA',          hg: 4, ag: 1, status: 'FT' },
+      { round: 17, date: '2024-08-10', time: '16:00', home: 'KR', away: 'ÍBV',         hg: 2, ag: 0, status: 'FT' },
+      { round: 19, date: '2024-08-24', time: '19:15', home: 'KR', away: 'Afturelding', hg: 1, ag: 1, status: 'FT' },
+      { round: 21, date: '2024-09-14', time: '16:00', home: 'KR', away: 'Vestri',      hg: 3, ag: 2, status: 'FT' },
+    ]
+  };
+
+  let currentSeason = 2025;
+  let attended = {}; // { "2025": Set([1, 5]), "2024": Set([9]) }
+
+  // Load state
+  try {
+    const saved = localStorage.getItem('48club_matchpicker_kr');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      for (const [year, rounds] of Object.entries(parsed)) {
+        attended[year] = new Set(rounds);
+      }
+    }
+  } catch(e) {}
+
+  function save() {
+    const out = {};
+    for (const [year, rounds] of Object.entries(attended)) {
+      out[year] = [...rounds];
+    }
+    localStorage.setItem('48club_matchpicker_kr', JSON.stringify(out));
+  }
+
+  function setSeason(y) {
+    currentSeason = y;
+    document.querySelectorAll('.season-tab').forEach(t => {
+      t.classList.toggle('active', parseInt(t.textContent) === y);
+    });
+    render();
+  }
+
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function result(m) {
+    if (m.status !== 'FT') return null;
+    if (m.hg > m.ag) return 'W';
+    if (m.hg < m.ag) return 'L';
+    return 'D';
+  }
+
+  function render() {
+    const list = document.getElementById('matchList');
+    const matches = fixtures[currentSeason] || [];
+    const att = attended[currentSeason] || new Set();
+
+    list.innerHTML = matches.map(m => {
+      const d = new Date(m.date + 'T12:00:00');
+      const day = d.getDate();
+      const month = MONTHS[d.getMonth()];
+      const isAtt = att.has(m.round);
+      const isUpcoming = m.status === 'NS';
+      const r = result(m);
+
+      let scoreHTML;
+      if (isUpcoming) {
+        scoreHTML = `<span class="upcoming-tag">Upcoming</span><span class="upcoming-time">${m.time}</span>`;
+      } else {
+        const cls = r === 'W' ? 'win' : r === 'L' ? 'loss' : 'draw';
+        scoreHTML = `<span class="score-text ${cls}">${m.hg} – ${m.ag}</span><span class="result-tag ${r}">${r}</span>`;
+      }
+
+      const classes = ['match-card'];
+      if (isAtt) classes.push('attended');
+      if (isUpcoming) classes.push('upcoming');
+
+      return `
+        <div class="${classes.join(' ')}" data-round="${m.round}" ${isUpcoming ? '' : `onclick="toggle(${m.round})"`}>
+          <div class="match-date">
+            <span class="day">${day}</span>
+            <span class="month">${month}</span>
+          </div>
+          <div class="match-detail">
+            <div class="match-teams">
+              <span class="home-team">${m.home}</span><span class="vs">v</span><span class="away-team">${m.away}</span>
+            </div>
+            <div class="match-sub">
+              <span class="round-tag">R${m.round}</span>
+              ${m.time} · KR-völlur
+            </div>
+          </div>
+          <div class="match-score">${scoreHTML}</div>
+          <div class="check-ring">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          ${isUpcoming ? '<div class="tooltip">Match not yet played</div>' : ''}
+        </div>`;
+    }).join('');
+
+    updateSummary();
+    updateVisitStatus();
+  }
+
+  function toggle(round) {
+    if (!attended[currentSeason]) attended[currentSeason] = new Set();
+    const set = attended[currentSeason];
+    set.has(round) ? set.delete(round) : set.add(round);
+    save();
+
+    const card = document.querySelector(`.match-card[data-round="${round}"]`);
+    if (card) {
+      card.classList.toggle('attended', set.has(round));
+      card.classList.add('just-toggled');
+      setTimeout(() => card.classList.remove('just-toggled'), 250);
+    }
+
+    updateSummary();
+    updateVisitStatus();
+  }
+
+  function updateSummary() {
+    const bar = document.getElementById('summaryBar');
+    const text = document.getElementById('summaryText');
+    const att = attended[currentSeason] || new Set();
+    const played = (fixtures[currentSeason] || []).filter(m => m.status === 'FT').length;
+
+    if (att.size > 0) {
+      bar.style.display = 'flex';
+      text.innerHTML = `Attended <strong>${att.size}</strong> of ${played} played matches`;
+    } else {
+      bar.style.display = 'none';
+    }
+  }
+
+  function updateVisitStatus() {
+    const el = document.getElementById('visitStatus');
+    const label = document.getElementById('visitLabel');
+    const total = Object.values(attended).reduce((s, set) => s + set.size, 0);
+
+    if (total > 0) {
+      el.classList.add('visited');
+      let latest = null;
+      for (const [year, rounds] of Object.entries(attended)) {
+        for (const round of rounds) {
+          const m = (fixtures[year] || []).find(f => f.round === round);
+          if (m && (!latest || m.date > latest.date)) latest = m;
+        }
+      }
+      if (latest) {
+        const d = new Date(latest.date + 'T12:00:00');
+        label.textContent = `Visited — ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+      } else {
+        label.textContent = 'Visited';
+      }
+    } else {
+      el.classList.remove('visited');
+      label.textContent = 'Not yet visited';
+    }
+  }
+
+  function clearAll() {
+    if (confirm('Clear all attended matches for ' + currentSeason + '?')) {
+      delete attended[currentSeason];
+      save();
+      render();
+    }
+  }
+
+  render();
+</script>
+</body>
+</html>

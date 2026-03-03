@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>48 Klúbburinn — Leaderboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f1eb;
+  --bg-warm: #eee9e0;
+  --surface: #ffffff;
+  --border: #ddd6cc;
+  --border-light: #e8e3da;
+  --text: #2a2520;
+  --text-mid: #5c534a;
+  --text-dim: #8a8078;
+  --text-faint: #b5ada5;
+  --besta: #1a5f3a;
+  --besta-bg: #e8f3ed;
+  --besta-bar: #2d8a54;
+  --fyrsta: #6b4c9a;
+  --fyrsta-bg: #f0ebf5;
+  --fyrsta-bar: #8a6ab8;
+  --annar: #2a6a8a;
+  --annar-bg: #e6f0f5;
+  --annar-bar: #3d8db5;
+  --thridi: #7a6540;
+  --thridi-bg: #f2ede4;
+  --thridi-bar: #a08558;
+  --gold: #b8951a;
+  --silver: #8a8a8e;
+  --bronze: #9a6a3a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  min-height: 100vh;
+}
+
+/* ---- Header ---- */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 0;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+}
+
+.header h1 span {
+  font-weight: 400;
+  color: var(--text-dim);
+  font-size: 0.9em;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.tab {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.tab:hover { color: var(--text-mid); }
+
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+/* ---- Main ---- */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+/* ---- Leaderboard ---- */
+.lb-summary {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.lb-stat {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 0.75rem 1.1rem;
+  flex: 1;
+  min-width: 120px;
+}
+
+.lb-stat-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.lb-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+/* Leaderboard cards */
+.lb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lb-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  transition: all 0.2s;
+  animation: cardIn 0.35s ease both;
+}
+
+.lb-card:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Rank column */
+.lb-rank {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-dim);
+  line-height: 1;
+}
+
+.lb-card[data-rank="1"] .lb-rank { color: var(--gold); font-size: 1.25rem; }
+.lb-card[data-rank="2"] .lb-rank { color: var(--silver); font-size: 1.2rem; }
+.lb-card[data-rank="3"] .lb-rank { color: var(--bronze); font-size: 1.15rem; }
+
+/* Podium cards get a subtle left accent */
+.lb-card[data-rank="1"] { border-left: 3px solid var(--gold); }
+.lb-card[data-rank="2"] { border-left: 3px solid var(--silver); }
+.lb-card[data-rank="3"] { border-left: 3px solid var(--bronze); }
+
+/* Middle: name + bars */
+.lb-info {
+  min-width: 0;
+}
+
+.lb-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.45rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-card[data-rank="1"] .lb-name { font-weight: 800; }
+
+.lb-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.lb-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lb-bar-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lb-bar-track {
+  height: 6px;
+  background: var(--bg-warm);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lb-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.lb-bar-group[data-div="besta"] .lb-bar-fill { background: var(--besta-bar); }
+.lb-bar-group[data-div="fyrsta"] .lb-bar-fill { background: var(--fyrsta-bar); }
+.lb-bar-group[data-div="annar"] .lb-bar-fill { background: var(--annar-bar); }
+.lb-bar-group[data-div="thridi"] .lb-bar-fill { background: var(--thridi-bar); }
+
+/* Full bar gets a subtle glow */
+.lb-bar-fill.complete {
+  box-shadow: 0 0 6px rgba(45, 138, 84, 0.3);
+}
+
+/* Right: total count */
+.lb-total {
+  text-align: right;
+  flex-shrink: 0;
+  min-width: 52px;
+}
+
+.lb-total-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.lb-card[data-rank="1"] .lb-total-num { color: var(--gold); }
+
+.lb-total-label {
+  font-size: 0.62rem;
+  color: var(--text-faint);
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+/* Completed badge */
+.lb-complete-badge {
+  display: inline-block;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  background: var(--besta-bg);
+  color: var(--besta);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .lb-card {
+    grid-template-columns: 32px 1fr auto;
+    padding: 0.7rem 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .lb-bars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 8px;
+  }
+
+  .lb-total-num { font-size: 1.2rem; }
+  .lb-stat { min-width: 90px; }
+  .lb-summary { gap: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>48 Klúbburinn</h1>
+    <div class="tabs">
+      <div class="tab" onclick="switchTab('grounds')">Grounds</div>
+      <div class="tab active" onclick="switchTab('leaderboard')">Leaderboard</div>
+    </div>
+  </div>
+</div>
+
+<div class="main" id="main"></div>
+
+<script>
+// Division structure
+const divs = [
+  { key: 'besta', name: 'Besta', max: 12 },
+  { key: 'fyrsta', name: '1. deild', max: 12 },
+  { key: 'annar', name: '2. deild', max: 12 },
+  { key: 'thridi', name: '3. deild', max: 12 },
+];
+
+// Demo participants
+const participants = [
+  { name: 'Ólafur Sigurðsson', besta: 12, fyrsta: 11, annar: 9, thridi: 7 },
+  { name: 'Katrín Björnsdóttir', besta: 12, fyrsta: 10, annar: 8, thridi: 5 },
+  { name: 'Birkir Þórhallsson', besta: 12, fyrsta: 9, annar: 7, thridi: 4 },
+  { name: 'Ásgeir Magnússon', besta: 11, fyrsta: 8, annar: 6, thridi: 3 },
+  { name: 'Hildur Eiríksdóttir', besta: 10, fyrsta: 9, annar: 5, thridi: 3 },
+  { name: 'Ragnar Jónsson', besta: 10, fyrsta: 7, annar: 6, thridi: 2 },
+  { name: 'Þórdís Gunnarsdóttir', besta: 9, fyrsta: 8, annar: 5, thridi: 2 },
+  { name: 'Einar Kristjánsson', besta: 10, fyrsta: 6, annar: 4, thridi: 3 },
+  { name: 'Sigrún Helgadóttir', besta: 8, fyrsta: 7, annar: 4, thridi: 2 },
+  { name: 'Guðmundur Pétursson', besta: 9, fyrsta: 5, annar: 4, thridi: 1 },
+  { name: 'Kristín Sveinsdóttir', besta: 7, fyrsta: 6, annar: 3, thridi: 2 },
+  { name: 'Jón Arnarson', besta: 8, fyrsta: 4, annar: 3, thridi: 1 },
+  { name: 'Margrét Davíðsdóttir', besta: 6, fyrsta: 5, annar: 2, thridi: 1 },
+  { name: 'Stefán Ólafsson', besta: 7, fyrsta: 3, annar: 2, thridi: 0 },
+  { name: 'Anna Þorsteinsdóttir', besta: 5, fyrsta: 4, annar: 1, thridi: 0 },
+  { name: 'Davíð Haraldsson', besta: 5, fyrsta: 2, annar: 1, thridi: 0 },
+  { name: 'Hrefna Ingólfsdóttir', besta: 4, fyrsta: 2, annar: 0, thridi: 0 },
+  { name: 'Magnús Baldursson', besta: 3, fyrsta: 1, annar: 0, thridi: 0 },
+];
+
+// Sort by total descending
+participants.forEach(p => {
+  p.total = p.besta + p.fyrsta + p.annar + p.thridi;
+});
+participants.sort((a, b) => b.total - a.total);
+
+function renderLeaderboard() {
+  const main = document.getElementById('main');
+  const totalParticipants = participants.length;
+  const completedCount = participants.filter(p => p.total === 48).length;
+  const avgGrounds = Math.round(participants.reduce((s, p) => s + p.total, 0) / totalParticipants);
+
+  let html = `
+    <div class="lb-summary">
+      <div class="lb-stat">
+        <div class="lb-stat-value">${totalParticipants}</div>
+        <div class="lb-stat-label">Participants</div>
+      </div>
+      <div class="lb-stat">
+        <div class="lb-stat-value">${completedCount}</div>
+        <div class="lb-stat-label">Completed all 48</div>
+      </div>
+      <div class="lb-stat">
+        <div class="lb-stat-value">${avgGrounds}</div>
+        <div class="lb-stat-label">Average grounds</div>
+      </div>
+    </div>
+    <div class="lb-list">
+  `;
+
+  participants.forEach((p, i) => {
+    const rank = i + 1;
+    const isComplete = p.total === 48;
+
+    html += `
+      <div class="lb-card" data-rank="${rank}" style="animation-delay: ${i * 0.04}s">
+        <div class="lb-rank">${rank}</div>
+        <div class="lb-info">
+          <div class="lb-name">
+            ${p.name}${isComplete ? '<span class="lb-complete-badge">48 ✓</span>' : ''}
+          </div>
+          <div class="lb-bars">
+            ${divs.map(d => {
+              const val = p[d.key];
+              const pct = (val / d.max) * 100;
+              return `
+                <div class="lb-bar-group" data-div="${d.key}">
+                  <div class="lb-bar-label">
+                    <span>${d.name}</span>
+                    <span>${val}/${d.max}</span>
+                  </div>
+                  <div class="lb-bar-track">
+                    <div class="lb-bar-fill ${pct === 100 ? 'complete' : ''}" style="width: ${pct}%"></div>
+                  </div>
+                </div>`;
+            }).join('')}
+          </div>
+        </div>
+        <div class="lb-total">
+          <div class="lb-total-num">${p.total}</div>
+          <div class="lb-total-label">/ 48</div>
+        </div>
+      </div>`;
+  });
+
+  html += '</div>';
+  main.innerHTML = html;
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  if (tab === 'leaderboard') {
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    renderLeaderboard();
+  } else {
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('main').innerHTML = `
+      <div style="text-align:center; padding:4rem 1rem; color:var(--text-faint); font-style:italic;">
+        Grounds view — already built in the other prototype
+      </div>`;
+  }
+}
+
+renderLeaderboard();
+</script>
+</body>
+</html>
