@@ -6,7 +6,7 @@ import styles from './Header.module.css';
 
 export default function Header() {
   const { visitedTeams, attendedFixtures } = useVisits();
-  const { user, loading: authLoading, signInWithGoogle, signInWithEmail, signOut } = useAuth();
+  const { user, loading: authLoading, profile, signInWithGoogle, signInWithEmail, signOut, updateProfile } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -76,6 +76,15 @@ export default function Header() {
                           <span className={styles.menuName}>{displayName}</span>
                           {user.email && <span className={styles.menuEmail}>{user.email}</span>}
                         </div>
+                        <label className={styles.toggleRow}>
+                          <span>Show on leaderboard</span>
+                          <input
+                            type="checkbox"
+                            checked={profile?.isPublic ?? false}
+                            onChange={e => updateProfile({ isPublic: e.target.checked })}
+                            className={styles.toggle}
+                          />
+                        </label>
                         <button className={styles.menuItem} onClick={() => { signOut(); setShowAuthMenu(false); }}>
                           Sign out
                         </button>

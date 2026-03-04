@@ -163,6 +163,31 @@
   color: var(--text);
 }
 
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  padding: 0.45rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggleRow:hover {
+  background: var(--surface-dim);
+  color: var(--text);
+}
+
+.toggle {
+  accent-color: var(--text);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
 .googleButton {
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import { MOCK_LEADERBOARD } from '../../data/leaderboard';
+import { useLeaderboard } from '../../hooks/useLeaderboard';
 import styles from './LeaderboardView.module.css';
 
 const DIVS = [
@@ -9,10 +9,27 @@ const DIVS = [
 ];
 
 export default function LeaderboardView() {
-  const participants = MOCK_LEADERBOARD;
-  const completedCount = participants.filter(p => p.totalGrounds === 48).length;
+  const { entries, loading, error } = useLeaderboard(2025);
+
+  if (loading) {
+    return <div className={styles.message}>Loading leaderboard...</div>;
+  }
+
+  if (error) {
+    return <div className={styles.message}>Failed to load leaderboard.</div>;
+  }
+
+  if (entries.length === 0) {
+    return (
+      <div className={styles.message}>
+        No participants yet. Sign in and enable "Show on leaderboard" to appear here.
+      </div>
+    );
+  }
+
+  const completedCount = entries.filter(p => p.totalGrounds === 48).length;
   const avgGrounds = Math.round(
-    participants.reduce((sum, p) => sum + p.totalGrounds, 0) / participants.length
+    entries.reduce((sum, p) => sum + p.totalGrounds, 0) / entries.length
   );
 
   return (
@@ -20,7 +37,7 @@ export default function LeaderboardView() {
       {/* Summary stats */}
       <div className={styles.summary}>
         <div className={styles.stat}>
-          <div className={styles.statValue}>{participants.length}</div>
+          <div className={styles.statValue}>{entries.length}</div>
           <div className={styles.statLabel}>Participants</div>
         </div>
         <div className={styles.stat}>
@@ -35,7 +52,7 @@ export default function LeaderboardView() {
 
       {/* Leaderboard cards */}
       <div className={styles.list}>
-        {participants.map((entry, i) => {
+        {entries.map((entry, i) => {
           const rank = i + 1;
           const isComplete = entry.totalGrounds === 48;
           const rankClass = rank === 1 ? styles.rank1 : rank === 2 ? styles.rank2 : rank === 3 ? styles.rank3 : '';
