@@ -1,3 +1,10 @@
+.message {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
 /* Summary stats */
 .summary {
   display: flex;
