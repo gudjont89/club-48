@@ -67,11 +67,6 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onCl
                 <button className={styles.closeBtn} onClick={onClose}>&#x2715;</button>
               </div>
               <div className={styles.panelTeam}>{ground.teamName} &middot; {division.name}</div>
-              <div className={styles.panelMeta}>
-                <span>Cap. {ground.capacity.toLocaleString()}</span>
-                <span>{ground.surface === 'artificial' ? 'Artificial' : ground.surface === 'grass' ? 'Natural' : 'Hybrid'}</span>
-                <span>{ground.groundCity}</span>
-              </div>
             </div>
 
             {/* Year Navigator */}
