@@ -41,7 +41,6 @@ const en: Record<TranslationKey, string> = {
   'match.cancelled': 'cancelled',
   'match.postponed': 'postponed',
   'match.upcoming': 'upcoming',
-  'match.vs': 'v',
 
   // Months
   'month.0': 'Jan',

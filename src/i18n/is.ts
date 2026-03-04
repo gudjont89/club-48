@@ -39,7 +39,6 @@ const is = {
   'match.cancelled': 'aflýst',
   'match.postponed': 'frestað',
   'match.upcoming': 'á dagskrá',
-  'match.vs': 'g',
 
   // Months
   'month.0': 'jan',

@@ -135,7 +135,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                             <span className={styles.fixMon}>{t(`month.${d.getMonth()}` as TranslationKey)}</span>
                           </div>
                           <div>
-                            <div className={styles.opponent}>{t('match.vs')} {fix.opponentName}</div>
+                            <div className={styles.opponent}>{fix.opponentName}</div>
                             <div className={styles.meta}>
                               {metaLabel}{metaLabel && ' \u00B7 '}{fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
