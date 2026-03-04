@@ -4,16 +4,16 @@
 # Commented-out lines show the API name — uncomment and edit to override.
 # 820	Kópavogsvöllur
 821	Kaplakriki
-# 822	Würth völlurinn
-# 823	Mustad völlurinn
+822	Würth-völlurinn
+823	Mustad-völlurinn
 # 824	Kórinn
 # 825	Norðurálsvöllurinn
 # 826	Hásteinsvöllur
 # 827	Akureyrarvöllur
-# 829	Samsung völlurinn
+829	Samsung-völlurinn
 830	Valsvöllur
 # 831	Víkingsvöllur
-# 1956	Extra völlurinn
+1956	Extra-völlurinn
 # 2313	Ólafsvíkurvöllur
 # 2314	Vivaldivöllurinn
 # 2317	Rafholtsvöllurinn
@@ -22,12 +22,12 @@
 2319	Lambhagavöllur
 # 2320	Leiknisvöllur
 # 2321	JÁVERK-völlurinn
-# 2322	Hertz völlurinn
+2322	Hertz-völlurinn
 # 2747	Fjarðabyggðarhöllin
 # 2748	Eskjuvöllur
 # 3178	Ólafsfjarðarvöllur
 # 3180	Olísvöllurinn
-3180	Kerecisvöllurinn
+3180	Kerecis-völlurinn
 # 3183	Sauðárkróksvöllur
 # 3184	Nesfisk-völlurinn
 # 3185	Akraneshöllin
@@ -48,22 +48,22 @@
 # 4534	Kórinn Gervigrasvöllur
 # 4535	Framvöllur Úlfarsárdal
 # 7123	Stokkseyrarvöllur
-# 9799	Würth völlurinn
+9799	Würth-völlurinn
 # 10591	KR-völlur
 # 11562	Skessan
 # 18455	Nettóhöllin
-# 19615	HS Orku völlurinn
-# 20542	VÍS völlurinn
+# 19615	HS Orku-völlurinn
+20542	VÍS-völlurinn
 # 20543	Fagverksvöllurinn Varmá Gervigras
 20543	Varmárvöllur
 # 20544	Jökulfellsvöllurinn
 # 20545	Fífan
 # 20546	Fellavöllur
 # 20547	N1-völlurinn Hlíðarenda
-# 20548	Brons völlurinn
-# 20549	AVIS völlurinn
-# 20550	OnePlus völlurinn
-# 21596	BIRTU völlurinn
+20548	Brons-völlurinn
+20549	AVIS-völlurinn
+20550	OnePlus-völlurinn
+21596	BIRTU-völlurinn
 # 21597	Boginn
-# 21598	PCC völlurinn Húsavík
-# 21599	GeoSalmo völlurinn
+21598	PCC-völlurinn
+21599	GeoSalmo-völlurinn
