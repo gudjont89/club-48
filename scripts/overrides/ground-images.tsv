@@ -1,0 +1,11 @@
+# Ground image URL overrides
+# Format: api_venue_id<TAB>image_url
+# These override the default API-Football venue image URLs
+2319	/grounds/2319.jpg
+2747	/grounds/2747.jpg
+3183	/grounds/3183.jpg
+3185	/grounds/3185.jpg
+3186	/grounds/3186.jpg
+3187	/grounds/3187.jpg
+20543	/grounds/20543.jpg
+21599	/grounds/21599.jpg

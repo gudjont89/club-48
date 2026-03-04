@@ -71,6 +71,12 @@
       "name": "Conference League",
       "division": 0,
       "competition": "conference_league"
+    },
+    {
+      "apiId": 0,
+      "name": "3. deild (ksi.is)",
+      "division": 4,
+      "competition": "league"
     }
   ],
   "grounds": [
@@ -7603,7 +7609,79 @@
       "season": 2025,
       "division": 3,
       "venueApiId": 2313
+    },
+    {
+      "teamApiId": 18479,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 2320
+    },
+    {
+      "teamApiId": 6077,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 20545
+    },
+    {
+      "teamApiId": 6085,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 20543
+    },
+    {
+      "teamApiId": 6112,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 11562
+    },
+    {
+      "teamApiId": 4162,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 3187
+    },
+    {
+      "teamApiId": 18477,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 4532
+    },
+    {
+      "teamApiId": 4163,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 10591
+    },
+    {
+      "teamApiId": 2124,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 21597
+    },
+    {
+      "teamApiId": 6101,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 20548
+    },
+    {
+      "teamApiId": 4164,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 20544
+    },
+    {
+      "teamApiId": 4168,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 3183
+    },
+    {
+      "teamApiId": 6115,
+      "season": 2025,
+      "division": 4,
+      "venueApiId": 824
     }
   ],
-  "fixtureCount": 8002
+  "fixtureCount": 8134
 }

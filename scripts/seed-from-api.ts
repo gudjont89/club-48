@@ -76,7 +76,21 @@ async function loadOverrides() {
     console.log(`  Loaded ${groundAliases.size} ground aliases`);
   }
 
-  return { teamOverrides, groundOverrides, groundAliases };
+  // Ground image URL overrides: venue ID → custom image URL
+  const groundImageOverrides = new Map<number, string>();
+  const imagesFile = 'scripts/overrides/ground-images.tsv';
+  if (existsSync(imagesFile)) {
+    for (const line of readFileSync(imagesFile, 'utf-8').split('\n')) {
+      if (!line.trim() || line.startsWith('#')) continue;
+      const [id, url] = line.split('\t');
+      if (id && url) {
+        groundImageOverrides.set(Number(id.trim()), url.trim());
+      }
+    }
+    console.log(`  Loaded ${groundImageOverrides.size} ground image overrides`);
+  }
+
+  return { teamOverrides, groundOverrides, groundAliases, groundImageOverrides };
 }
 
 // Rate limit tracking
@@ -190,7 +204,7 @@ async function main() {
   console.log('=== 48 Klúbburinn — API-Football Seed Script ===\n');
 
   // Load name overrides from TSV files
-  const { teamOverrides, groundOverrides, groundAliases } = await loadOverrides();
+  const { teamOverrides, groundOverrides, groundAliases, groundImageOverrides } = await loadOverrides();
 
   // Helper: resolve venue ID through aliases to canonical ID
   function resolveVenue(venueId: number | null): number | null {
@@ -572,6 +586,57 @@ async function main() {
 
   console.log(`  ${euroFixtures} European home fixtures for Icelandic teams`);
 
+  // Step 5d: Load 3. deild fixtures from ksi.is scraper data
+  // 3. deild is not covered by API-Football as a league, so we scrape from ksi.is
+  // Run `npx tsx scripts/scrape-ksi.ts` first to generate ksi-data.json
+  const { existsSync: ksiExists, readFileSync: ksiRead } = await import('fs');
+  const ksiDataFile = 'scripts/ksi-data.json';
+  if (ksiExists(ksiDataFile)) {
+    console.log('\nStep 5d: Loading 3. deild fixtures from ksi-data.json...');
+    const ksiData = JSON.parse(ksiRead(ksiDataFile, 'utf-8'));
+
+    // Add team_seasons for 3. deild
+    for (const ts of ksiData.teamSeasons) {
+      allTeamSeasons.push({
+        teamApiId: ts.apiTeamId,
+        season: ts.season,
+        division: ts.division,
+        venueApiId: ts.homeGroundApiId,
+      });
+    }
+
+    // Add fixtures with synthetic api_football_id (900000+)
+    let ksiFixtureCount = 0;
+    const KSI_ID_OFFSET = 900000;
+    for (let i = 0; i < ksiData.fixtures.length; i++) {
+      const f = ksiData.fixtures[i];
+      allFixtures.push({
+        apiFootballId: KSI_ID_OFFSET + i,
+        teamApiId: f.homeTeamApiId,
+        opponentApiId: f.awayTeamApiId,
+        season: f.season,
+        leagueApiId: 0, // no API-Football league ID for 3. deild
+        round: '',
+        matchDate: f.matchDate,
+        kickoffTime: f.kickoffTime,
+        homeGoals: f.homeGoals,
+        awayGoals: f.awayGoals,
+        status: f.status,
+        venueApiId: f.venueApiId,
+      });
+      ksiFixtureCount++;
+    }
+
+    // Ensure leagueMap has an entry for ksi fixtures (leagueApiId=0)
+    if (!leagueMap.has(0)) {
+      leagueMap.set(0, { apiId: 0, name: '3. deild (ksi.is)', division: 4, competition: 'league' });
+    }
+
+    console.log(`  ${ksiData.teamSeasons.length} team_seasons, ${ksiFixtureCount} fixtures from ksi.is`);
+  } else {
+    console.log('\nStep 5d: No ksi-data.json found, skipping 3. deild');
+  }
+
   // Diagnostic: report fixture venues that won't resolve to a ground
   const unresolvedVenues = new Map<number, { name: string; count: number }>();
   for (const fix of allFixtures) {
@@ -619,7 +684,7 @@ async function main() {
     groundIdMap.set(venueApiId, groundId);
     const gOverride = groundOverrides.get(venueApiId);
     const groundName = gOverride?.name ?? ground.name;
-    const imageUrl = `https://media.api-sports.io/football/venues/${venueApiId}.png`;
+    const imageUrl = groundImageOverrides.get(venueApiId) ?? `https://media.api-sports.io/football/venues/${venueApiId}.png`;
     // Collect aliases that point to this venue
     const aliases = [...groundAliases.entries()]
       .filter(([, canonical]) => canonical === venueApiId)

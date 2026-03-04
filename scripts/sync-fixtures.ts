@@ -33,6 +33,8 @@ const now = new Date();
 const CURRENT_SEASON = now.getMonth() < 3 ? now.getFullYear() - 1 : now.getFullYear();
 
 // League IDs confirmed from API-Football
+// NOTE: 3. deild is not covered by API-Football — those fixtures come from ksi.is
+// and are only updated via full re-seed (npx tsx scripts/scrape-ksi.ts + seed-from-api.ts)
 const LEAGUES = [
   { id: 164, name: 'Úrvalsdeild', division: 1, competition: 'league' },
   { id: 165, name: '1. Deild', division: 2, competition: 'league' },
