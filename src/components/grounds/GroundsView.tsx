@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 import { DIVISIONS } from '../../data/divisions';
 import { useVisits } from '../../context/VisitsContext';
+import { useLocale } from '../../context/LocaleContext';
+import type { TranslationKey } from '../../i18n/is';
 import { useGrounds, getGroundsByDivision } from '../../hooks/useGrounds';
 import { useSeasons } from '../../hooks/useSeasons';
 import GroundCard from './GroundCard';
@@ -16,6 +18,7 @@ const CSS_KEY_MAP: Record<string, string> = {
 
 export default function GroundsView() {
   const { isTeamVisited } = useVisits();
+  const { t } = useLocale();
   const { minSeason, maxSeason } = useSeasons();
   const [panelTeamId, setPanelTeamId] = useState<number | null>(null);
   const [panelSeason, setPanelSeason] = useState(maxSeason);
@@ -41,11 +44,11 @@ export default function GroundsView() {
   }, [minSeason, maxSeason]);
 
   if (loading) {
-    return <div className={styles.loading}>Loading grounds...</div>;
+    return <div className={styles.loading}>{t('grounds.loading')}</div>;
   }
 
   if (error) {
-    return <div className={styles.error}>Failed to load grounds: {error}</div>;
+    return <div className={styles.error}>{t('grounds.error', { error: error ?? '' })}</div>;
   }
 
   return (
@@ -59,7 +62,7 @@ export default function GroundsView() {
         return (
           <div key={division.id} className={`${styles.division} ${divClass}`}>
             <div className={styles.divisionHeader}>
-              <div className={styles.divisionName}>{division.name}</div>
+              <div className={styles.divisionName}>{t(`division.${division.cssKey}` as TranslationKey)}</div>
               <div className={styles.divisionProgress}>
                 {visitedCount} / {divGrounds.length}
               </div>

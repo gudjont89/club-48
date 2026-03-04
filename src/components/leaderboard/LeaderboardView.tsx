@@ -1,30 +1,32 @@
 import { useLeaderboard } from '../../hooks/useLeaderboard';
 import { useSeasons } from '../../hooks/useSeasons';
+import { useLocale } from '../../context/LocaleContext';
 import styles from './LeaderboardView.module.css';
 
 const DIVS = [
-  { key: 'besta' as const, name: 'Besta', barClass: styles.barBesta },
-  { key: 'fyrsta' as const, name: '1. deild', barClass: styles.barFyrsta },
-  { key: 'annar' as const, name: '2. deild', barClass: styles.barAnnar },
-  { key: 'thridi' as const, name: '3. deild', barClass: styles.barThridi },
+  { key: 'besta' as const, barClass: styles.barBesta },
+  { key: 'fyrsta' as const, barClass: styles.barFyrsta },
+  { key: 'annar' as const, barClass: styles.barAnnar },
+  { key: 'thridi' as const, barClass: styles.barThridi },
 ];
 
 export default function LeaderboardView() {
+  const { t } = useLocale();
   const { maxSeason } = useSeasons();
   const { entries, loading, error } = useLeaderboard(maxSeason);
 
   if (loading) {
-    return <div className={styles.message}>Loading leaderboard...</div>;
+    return <div className={styles.message}>{t('leaderboard.loading')}</div>;
   }
 
   if (error) {
-    return <div className={styles.message}>Failed to load leaderboard.</div>;
+    return <div className={styles.message}>{t('leaderboard.error')}</div>;
   }
 
   if (entries.length === 0) {
     return (
       <div className={styles.message}>
-        No participants yet. Sign in and enable "Show on leaderboard" to appear here.
+        {t('leaderboard.empty')}
       </div>
     );
   }
@@ -40,15 +42,15 @@ export default function LeaderboardView() {
       <div className={styles.summary}>
         <div className={styles.stat}>
           <div className={styles.statValue}>{entries.length}</div>
-          <div className={styles.statLabel}>Participants</div>
+          <div className={styles.statLabel}>{t('leaderboard.participants')}</div>
         </div>
         <div className={styles.stat}>
           <div className={styles.statValue}>{completedCount}</div>
-          <div className={styles.statLabel}>Completed all 48</div>
+          <div className={styles.statLabel}>{t('leaderboard.completedAll')}</div>
         </div>
         <div className={styles.stat}>
           <div className={styles.statValue}>{avgGrounds}</div>
-          <div className={styles.statLabel}>Average grounds</div>
+          <div className={styles.statLabel}>{t('leaderboard.averageGrounds')}</div>
         </div>
       </div>
 
@@ -79,7 +81,7 @@ export default function LeaderboardView() {
                     return (
                       <div key={d.key} className={styles.barGroup}>
                         <div className={styles.barLabel}>
-                          <span>{d.name}</span>
+                          <span>{t(`leaderboard.div.${d.key}`)}</span>
                           <span>{val}/12</span>
                         </div>
                         <div className={styles.barTrack}>

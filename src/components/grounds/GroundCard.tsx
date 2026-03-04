@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { GroundProgress, Division } from '../../types';
+import { useLocale } from '../../context/LocaleContext';
 import styles from './GroundCard.module.css';
 
 interface GroundCardProps {
@@ -18,6 +19,7 @@ const BG_MAP: Record<string, string> = {
 };
 
 export default function GroundCard({ ground, division, isVisited, animationDelay, onClick }: GroundCardProps) {
+  const { t } = useLocale();
   const bgClass = BG_MAP[division.cssKey] ?? '';
   const [imgError, setImgError] = useState(false);
   const showImage = ground.groundImageUrl && !imgError;
@@ -47,7 +49,7 @@ export default function GroundCard({ ground, division, isVisited, animationDelay
         {!showImage && <span className={styles.icon}>&#x2B21;</span>}
         <span className={styles.capTag}>{ground.capacity.toLocaleString()}</span>
         <span className={styles.surfaceTag}>
-          {ground.surface === 'artificial' ? 'Artificial' : ground.surface === 'grass' ? 'Natural' : 'Hybrid'}
+          {ground.surface === 'artificial' ? t('surface.artificial') : ground.surface === 'grass' ? t('surface.natural') : t('surface.hybrid')}
         </span>
       </div>
 

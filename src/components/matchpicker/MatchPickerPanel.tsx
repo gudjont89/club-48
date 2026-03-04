@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { DIVISION_MAP } from '../../data/divisions';
 import { useVisits } from '../../context/VisitsContext';
+import { useLocale } from '../../context/LocaleContext';
 import { useFixtures } from '../../hooks/useFixtures';
 import { useKeyboard } from '../../hooks/useKeyboard';
-import { getMatchResult, COMPETITION_LABELS } from '../../types';
+import { getMatchResult } from '../../types';
 import type { GroundProgress } from '../../types';
+import type { TranslationKey } from '../../i18n/is';
 import styles from './MatchPickerPanel.module.css';
-
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 interface MatchPickerPanelProps {
   isOpen: boolean;
   teamId: number | null;
@@ -21,6 +21,7 @@ interface MatchPickerPanelProps {
 
 export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minSeason, maxSeason, onClose, onChangeSeason }: MatchPickerPanelProps) {
   const { isAttended, toggleAttendance } = useVisits();
+  const { t } = useLocale();
 
   const ground = teamId ? grounds.find(g => g.teamId === teamId) : null;
   const division = ground ? DIVISION_MAP[ground.division] : null;
@@ -69,7 +70,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                 </div>
                 <button className={styles.closeBtn} onClick={onClose}>&#x2715;</button>
               </div>
-              <div className={styles.panelTeam}>{ground.teamName} &middot; {division.name}</div>
+              <div className={styles.panelTeam}>{ground.teamName} &middot; {t(`division.${division.cssKey}` as TranslationKey)}</div>
             </div>
 
             {/* Year Navigator */}
@@ -85,7 +86,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
               </button>
               <div className={styles.yearLabel}>
                 {season}
-                <span className={styles.yearCount}>{attendedCount} / {fixtures.length} attended</span>
+                <span className={styles.yearCount}>{t('match.attendedCount', { count: attendedCount, total: fixtures.length })}</span>
               </div>
               <button
                 className={styles.yearArrow}
@@ -101,13 +102,13 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
             {/* Fixtures */}
             <div className={styles.fixturesArea}>
               {loading ? (
-                <div className={styles.noFixtures}>Loading fixtures...</div>
+                <div className={styles.noFixtures}>{t('match.loading')}</div>
               ) : fixtures.length === 0 ? (
-                <div className={styles.noFixtures}>No fixtures for this season</div>
+                <div className={styles.noFixtures}>{t('match.noFixtures')}</div>
               ) : (
                 <>
                   <div className={styles.sectionLabel}>
-                    Home matches &middot; {fixtures.length}
+                    {t('match.homeMatches')} &middot; {fixtures.length}
                   </div>
                   <div className={styles.fixtureList}>
                     {fixtures.map(fix => {
@@ -120,7 +121,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
                       const isCup = fix.competition !== 'league';
                       const metaLabel = isCup
-                        ? COMPETITION_LABELS[fix.competition]
+                        ? t(`competition.${fix.competition}` as TranslationKey)
                         : fix.round ? `R${fix.round}` : '';
 
                       return (
@@ -131,10 +132,10 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                         >
                           <div className={styles.fixDate}>
                             <span className={styles.fixDay}>{d.getDate()}</span>
-                            <span className={styles.fixMon}>{MONTHS[d.getMonth()]}</span>
+                            <span className={styles.fixMon}>{t(`month.${d.getMonth()}` as TranslationKey)}</span>
                           </div>
                           <div>
-                            <div className={styles.opponent}>v {fix.opponentName}</div>
+                            <div className={styles.opponent}>{t('match.vs')} {fix.opponentName}</div>
                             <div className={styles.meta}>
                               {metaLabel}{metaLabel && ' \u00B7 '}{fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
@@ -145,13 +146,13 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                                 {fix.homeGoals} &ndash; {fix.awayGoals}
                               </div>
                             ) : cancelled ? (
-                              <div className={styles.fixCancelled}>cancelled</div>
+                              <div className={styles.fixCancelled}>{t('match.cancelled')}</div>
                             ) : postponed ? (
-                              <div className={styles.fixPostponed}>postponed</div>
+                              <div className={styles.fixPostponed}>{t('match.postponed')}</div>
                             ) : (
-                              <div className={styles.fixUpcoming}>upcoming</div>
+                              <div className={styles.fixUpcoming}>{t('match.upcoming')}</div>
                             )}
-                            <div className={styles.attendedCheck}>&#x2713; attended</div>
+                            <div className={styles.attendedCheck}>&#x2713; {t('match.attended')}</div>
                           </div>
                         </div>
                       );

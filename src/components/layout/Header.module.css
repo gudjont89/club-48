@@ -49,6 +49,26 @@
   font-weight: 800;
 }
 
+/* Language toggle */
+.langToggle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.langToggle:hover {
+  border-color: var(--text-dim);
+  color: var(--text-mid);
+}
+
 /* Auth area */
 .authArea {
   position: relative;
