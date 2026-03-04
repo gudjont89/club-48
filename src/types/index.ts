@@ -29,7 +29,7 @@ export interface Fixture {
   round: number | null;
   matchDate: string;
   kickoffTime: string | null;
-  opponentName: string;
+  opponentShortName: string;
   homeGoals: number | null;
   awayGoals: number | null;
   status: 'NS' | 'FT' | 'LIVE' | 'PST' | 'CANC';

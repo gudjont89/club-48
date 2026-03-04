@@ -3,34 +3,34 @@
 # Lines starting with # are ignored. Only listed teams are overridden.
 # Commented-out lines show the API name — uncomment and edit to override.
 267	Fylkir	Fylkir
-268	ÍBV Vestmannaeyjar	ÍBV
+268	Íþróttabandalag Vestmannaeyja	ÍBV
 269	Keflavík	Keflavík
-270	FH Hafnarfjörður	FH
-271	KR Reykjavík	KR
-272	KA Akureyri	KA
+270	Fimleikafélag Hafnarfjarðar	FH
+271	Knattspyrnufélag Reykjavíkur	KR
+272	Knattspyrnufélag Akureyrar	KA
 273	Fjölnir	Fjölnir
 274	Valur	Valur
 275	Stjarnan	Stjarnan
 276	Breiðablik	Breiðablik
 277	Grindavík	Grindavík
 278	Víkingur Reykjavík	Víkingur R
-827	ÍA Akranes	ÍA
+827	Íþróttabandalag Akraness	ÍA
 828	Víkingur Ólafsvík	Víkingur Ó
 829	Þróttur Reykjavík	Þróttur R
 2112	Fjarðabyggð	Fjarðabyggð
-2113	HK Kópavogur	HK
+2113	Handknattleiksfélag Kópavogs	HK
 2114	Leiknir Reykjavík	Leiknir R
 2115	Selfoss	Selfoss
 2116	Þór Akureyri	Þór
-2117	Fram Reykjavík	Fram
+2117	Fram	Fram
 2118	Haukar	Haukar
-2120	Leiknir Fljótsdalshérað	Leiknir F
+2120	Leiknir Fáskrúðsfirði	Leiknir F
 2121	Grótta	Grótta
-2122	ÍR Reykjavík	ÍR
+2122	Íþróttafélag Reykjavíkur	ÍR
 2123	Njarðvík	Njarðvík
 2124	Magni	Magni
 3514	Afturelding	Afturelding
-4162	KF Fjarðabyggð	KF
+4162	Knattspyrnufélag Fjallabyggðar	KF
 # 4163	KV	KV
 4164	Sindri	Sindri
 4165	Vestri	Vestri
@@ -40,15 +40,15 @@
 4169	Víðir	Víðir
 4170	Kári	Kári
 4171	Þróttur Vogar	Þróttur V
-4172	Dalvík/Reynir	Dalvík/R
-4173	KFG Garðabær	KFG
+4172	Dalvík/Reynir	Dalvík/Reynir
+4173	Knattspyrnufélag Garðabæjar	KFG
 6076	Afríka	Afríka
 6077	Augnablik	Augnablik
 6078	Berserkir	Berserkir
 6079	Björninn	Björninn
 6080	Einherji	Einherji
 6081	Elliði	Elliði
-6083	GG	GG
+6083	Golfklúbbur Grindavíkur	GG
 6084	Hamar	Hamar
 6085	Hvíti riddarinn	Hvíti r.
 6086	Hörður Ísafjörður	Hörður Í
@@ -75,7 +75,7 @@
 6108	Álafoss	Álafoss
 6109	Álftanes	Álftanes
 6110	Árborg	Árborg
-6112	ÍH	ÍH
+6112	Íþróttafélag Hafnarfjarðar	ÍH
 6113	Ísbjörninn	Ísbjörninn
 6114	Úlfarnir	Úlfarnir
 6115	Ýmir	Ýmir

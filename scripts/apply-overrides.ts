@@ -1,7 +1,11 @@
 /**
  * Applies name overrides from TSV files to:
  *   1. supabase/seed.sql — patches the INSERT statements in-place
- *   2. Live DB — generates and executes UPDATE statements
+ *   2. Live DB — generates UPDATE statements (apply-overrides.sql)
+ *
+ * Also handles schema migration of seed.sql:
+ *   - Adds api_football_id to team INSERTs (extracted from logo URL)
+ *   - Converts opponent_name → opponent_team_id in fixture INSERTs
  *
  * Usage:
  *   npx tsx scripts/apply-overrides.ts
@@ -48,44 +52,41 @@ console.log(`Loaded ${teamOverrides.size} team overrides, ${groundOverrides.size
 
 // ---- Patch seed.sql ----
 
-let seed = readFileSync('supabase/seed.sql', 'utf-8');
+const seed = readFileSync('supabase/seed.sql', 'utf-8');
 const lines = seed.split('\n');
 
-// Build a map: for each team INSERT line, find the API name used and replace it
-// Teams: INSERT INTO public.teams (name, short_name, logo_url, city) VALUES ('FH hafnarfjordur', 'HAF', ...);
-// We need to figure out which API ID corresponds to which team line.
-// The seed doesn't include API IDs for teams, so we match by team order (sequential IDs).
-
-// First, let's read api-football-data.json which has the API ID → name mapping
+// Load API data
 const apiData = JSON.parse(readFileSync('scripts/api-football-data.json', 'utf-8'));
 
-// Build API team ID → API name map
-const apiTeamNames = new Map<number, string>();
+// Build team name → API ID maps (for opponent_name → opponent_team_id conversion)
+const teamNameToApiId = new Map<string, number>();
 for (const t of apiData.teams) {
-  apiTeamNames.set(t.apiId, t.name);
+  teamNameToApiId.set(t.name, t.apiId);
+}
+// Also map override names → API ID
+for (const [apiId, override] of teamOverrides) {
+  teamNameToApiId.set(override.name, apiId);
+  teamNameToApiId.set(override.shortName, apiId);
 }
 
-// Build API team name → overridden name map (for opponent name replacement in fixtures)
-const nameReplacements = new Map<string, string>();
-
-// Teams are inserted in alphabetical order by API name, with sequential IDs
-const sortedApiTeams = [...apiData.teams].sort((a: any, b: any) => a.name.localeCompare(b.name));
+function esc(val: string): string {
+  return val.replace(/'/g, "''");
+}
 
 let patchedTeams = 0;
 let patchedGrounds = 0;
 let patchedImages = 0;
-let patchedOpponents = 0;
+let migratedTeams = 0;
+let migratedFixtures = 0;
 
-for (const apiTeam of sortedApiTeams) {
-  const override = teamOverrides.get(apiTeam.apiId);
-  if (override) {
-    nameReplacements.set(apiTeam.name, override.name);
+// First pass: read current team names in seed (may be overridden names from previous runs)
+for (const line of lines) {
+  if (!line.startsWith("INSERT INTO public.teams")) continue;
+  const logoMatch = line.match(/api-sports\.io\/football\/teams\/(\d+)\.png/);
+  const nameMatch = line.match(/VALUES \(?(?:\d+, )?'([^']*(?:''[^']*)*)'/);
+  if (logoMatch && nameMatch) {
+    teamNameToApiId.set(nameMatch[1].replace(/''/g, "'"), Number(logoMatch[1]));
   }
-}
-
-// Patch team lines
-function esc(val: string): string {
-  return val.replace(/'/g, "''");
 }
 
 for (let i = 0; i < lines.length; i++) {
@@ -93,32 +94,38 @@ for (let i = 0; i < lines.length; i++) {
 
   // Patch team INSERTs
   if (line.startsWith("INSERT INTO public.teams")) {
-    // Extract current name from VALUES ('name', 'short_name', ...)
-    const match = line.match(/VALUES \('([^']*(?:''[^']*)*)', '([^']*(?:''[^']*)*)',/);
-    if (match) {
-      const currentName = match[1].replace(/''/g, "'");
-      // Find this team in API data
-      const apiTeam = sortedApiTeams.find((t: any) => t.name === currentName);
-      if (apiTeam) {
-        const override = teamOverrides.get(apiTeam.apiId);
-        if (override) {
-          lines[i] = line
-            .replace(`'${match[1]}'`, `'${esc(override.name)}'`)
-            .replace(`, '${match[2]}'`, `, '${esc(override.shortName)}'`);
-          patchedTeams++;
-        }
+    const logoMatch = line.match(/api-sports\.io\/football\/teams\/(\d+)\.png/);
+    if (!logoMatch) continue;
+    const apiId = Number(logoMatch[1]);
+
+    // Migrate: add api_football_id column if not present
+    if (!line.includes('api_football_id')) {
+      lines[i] = lines[i]
+        .replace('(name,', '(api_football_id, name,')
+        .replace(/VALUES \('/, `VALUES (${apiId}, '`);
+      migratedTeams++;
+    }
+
+    // Apply name overrides
+    const override = teamOverrides.get(apiId);
+    if (override) {
+      // Match both old format: VALUES ('name', 'short', ... and new format: VALUES (id, 'name', 'short', ...
+      const nameMatch = lines[i].match(/VALUES \((?:\d+, )?'([^']*(?:''[^']*)*)', '([^']*(?:''[^']*)*)',/);
+      if (nameMatch) {
+        lines[i] = lines[i]
+          .replace(`'${nameMatch[1]}'`, `'${esc(override.name)}'`)
+          .replace(`, '${nameMatch[2]}'`, `, '${esc(override.shortName)}'`);
+        patchedTeams++;
       }
     }
   }
 
   // Patch ground INSERTs
   if (line.startsWith("INSERT INTO public.grounds")) {
-    // Extract venue ID from notes: 'api_football_venue_id: 821'
     const venueMatch = line.match(/api_football_venue_id: (\d+)/);
     if (venueMatch) {
       const venueId = Number(venueMatch[1]);
 
-      // Apply name override if present
       const override = groundOverrides.get(venueId);
       if (override) {
         const nameMatch = line.match(/VALUES \('([^']*(?:''[^']*)*)',/);
@@ -128,7 +135,6 @@ for (let i = 0; i < lines.length; i++) {
         }
       }
 
-      // Ensure image_url is in the INSERT (add column + value if missing)
       const localImg = localImages.get(venueId);
       const imageUrl = localImg ?? `https://media.api-sports.io/football/venues/${venueId}.png`;
       if (!lines[i].includes('image_url')) {
@@ -137,7 +143,6 @@ for (let i = 0; i < lines.length; i++) {
           .replace(/, 'api_football_venue_id:/, `, '${imageUrl}', 'api_football_venue_id:`);
         patchedImages++;
       } else if (localImg) {
-        // Replace existing image_url with local override
         lines[i] = lines[i].replace(
           /https:\/\/media\.api-sports\.io\/football\/venues\/\d+\.png/,
           localImg,
@@ -147,39 +152,46 @@ for (let i = 0; i < lines.length; i++) {
     }
   }
 
-  // Patch opponent names in fixture INSERTs
-  if (line.startsWith("INSERT INTO public.fixtures")) {
-    for (const [apiName, overrideName] of nameReplacements) {
-      if (line.includes(`'${esc(apiName)}'`)) {
-        lines[i] = lines[i].replace(`'${esc(apiName)}'`, `'${esc(overrideName)}'`);
-        patchedOpponents++;
-        break;
-      }
+  // Migrate fixture INSERTs: opponent_name → opponent_team_id
+  if (line.startsWith("INSERT INTO public.fixtures") && line.includes('opponent_name')) {
+    // Extract the opponent name string from the SELECT clause
+    // Format: ..., opponent_name, ...) SELECT ..., 'OpponentName', ...
+    const opNameMatch = line.match(/, '([^']*(?:''[^']*)*)', (NULL|\d+), (NULL|\d+), '([^']+)' FROM/);
+    if (opNameMatch) {
+      const opponentName = opNameMatch[1].replace(/''/g, "'");
+      const opponentApiId = teamNameToApiId.get(opponentName);
+      const opponentExpr = opponentApiId
+        ? `(SELECT id FROM public.teams WHERE api_football_id = ${opponentApiId})`
+        : 'NULL';
+
+      // Replace column name
+      lines[i] = lines[i].replace('opponent_name,', 'opponent_team_id,');
+      // Replace the quoted name with the subquery
+      lines[i] = lines[i].replace(
+        `, '${esc(opponentName)}', ${opNameMatch[2]}, ${opNameMatch[3]}, '${opNameMatch[4]}' FROM`,
+        `, ${opponentExpr}, ${opNameMatch[2]}, ${opNameMatch[3]}, '${opNameMatch[4]}' FROM`,
+      );
+      migratedFixtures++;
     }
   }
 }
 
 writeFileSync('supabase/seed.sql', lines.join('\n'));
 console.log(`\nPatched supabase/seed.sql:`);
-console.log(`  ${patchedTeams} team names`);
-console.log(`  ${patchedGrounds} ground names`);
-console.log(`  ${patchedImages} ground image URLs added`);
-console.log(`  ${patchedOpponents} opponent names in fixtures`);
+console.log(`  ${patchedTeams} team names overridden`);
+console.log(`  ${patchedGrounds} ground names overridden`);
+console.log(`  ${patchedImages} ground image URLs`);
+if (migratedTeams > 0) console.log(`  ${migratedTeams} teams migrated (added api_football_id)`);
+if (migratedFixtures > 0) console.log(`  ${migratedFixtures} fixtures migrated (opponent_name → opponent_team_id)`);
 
 // ---- Generate SQL for live DB ----
 
 const updateSql: string[] = [];
 updateSql.push('-- Name overrides for live DB');
 
-// Team updates: we need the DB team ID. Teams were inserted sequentially.
-// DB ID 1 = first alphabetically sorted team, etc.
-for (let idx = 0; idx < sortedApiTeams.length; idx++) {
-  const apiTeam = sortedApiTeams[idx];
-  const override = teamOverrides.get(apiTeam.apiId);
-  if (override) {
-    const dbId = idx + 1;
-    updateSql.push(`UPDATE public.teams SET name = '${esc(override.name)}', short_name = '${esc(override.shortName)}' WHERE id = ${dbId};`);
-  }
+// Team updates: match by api_football_id
+for (const [apiId, override] of teamOverrides) {
+  updateSql.push(`UPDATE public.teams SET name = '${esc(override.name)}', short_name = '${esc(override.shortName)}' WHERE api_football_id = ${apiId};`);
 }
 
 // Ground name updates: match by notes field
@@ -187,8 +199,7 @@ for (const [venueId, override] of groundOverrides) {
   updateSql.push(`UPDATE public.grounds SET name = '${esc(override.name)}' WHERE notes LIKE '%api_football_venue_id: ${venueId}%';`);
 }
 
-// Ground image_url updates: set for all grounds based on venue ID in notes
-// Local images take priority over API images
+// Ground image_url updates
 for (const ground of apiData.grounds) {
   const localImg = localImages.get(ground.apiId);
   if (localImg) {
@@ -197,11 +208,6 @@ for (const ground of apiData.grounds) {
     const imageUrl = `https://media.api-sports.io/football/venues/${ground.apiId}.png`;
     updateSql.push(`UPDATE public.grounds SET image_url = '${imageUrl}' WHERE notes LIKE '%api_football_venue_id: ${ground.apiId}%' AND image_url IS NULL;`);
   }
-}
-
-// Opponent name updates in fixtures
-for (const [apiName, overrideName] of nameReplacements) {
-  updateSql.push(`UPDATE public.fixtures SET opponent_name = '${esc(overrideName)}' WHERE opponent_name = '${esc(apiName)}';`);
 }
 
 const liveSqlFile = 'scripts/apply-overrides.sql';

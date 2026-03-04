@@ -27,14 +27,15 @@ comment on table public.grounds is 'Physical football venues in Iceland';
 
 -- Teams: the 48 clubs
 create table public.teams (
-  id           bigint generated always as identity primary key,
-  name         text not null,
-  short_name   text not null,           -- e.g. 'KR', 'FH', 'ÍBV'
-  logo_url     text,
-  founded      integer,
-  city         text,
-  created_at   timestamptz default now(),
-  updated_at   timestamptz default now()
+  id               bigint generated always as identity primary key,
+  api_football_id  bigint unique,          -- external ID from API-Football
+  name             text not null,
+  short_name       text not null,          -- e.g. 'KR', 'FH', 'ÍBV'
+  logo_url         text,
+  founded          integer,
+  city             text,
+  created_at       timestamptz default now(),
+  updated_at       timestamptz default now()
 );
 
 comment on table public.teams is 'Icelandic football clubs tracked by the 48 Club';
@@ -70,7 +71,7 @@ create table public.fixtures (
   round            integer,              -- matchday number
   match_date       date not null,
   kickoff_time     time,
-  opponent_name    text not null,
+  opponent_team_id bigint references public.teams(id),
   home_goals       integer,              -- null if not yet played
   away_goals       integer,
   status           text not null default 'NS',  -- 'NS' (not started), 'FT' (full time), 'LIVE', 'PST' (postponed), 'CANC'
@@ -291,17 +292,18 @@ create or replace function public.get_team_fixtures(
   p_season integer
 )
 returns table (
-  fixture_id      bigint,
-  round           integer,
-  match_date      date,
-  kickoff_time    time,
-  opponent_name   text,
-  home_goals      integer,
-  away_goals      integer,
-  status          text,
-  attended        boolean,
-  visit_notes     text,
-  visit_rating    integer
+  fixture_id          bigint,
+  round               integer,
+  match_date          date,
+  kickoff_time        time,
+  opponent_name       text,
+  opponent_short_name text,
+  home_goals          integer,
+  away_goals          integer,
+  status              text,
+  attended            boolean,
+  visit_notes         text,
+  visit_rating        integer
 )
 language sql
 security definer
@@ -312,7 +314,8 @@ as $$
     f.round,
     f.match_date,
     f.kickoff_time,
-    f.opponent_name,
+    opp.name as opponent_name,
+    opp.short_name as opponent_short_name,
     f.home_goals,
     f.away_goals,
     f.status,
@@ -321,6 +324,7 @@ as $$
     v.rating as visit_rating
   from public.team_seasons ts
   join public.fixtures f on f.team_season_id = ts.id
+  left join public.teams opp on opp.id = f.opponent_team_id
   left join public.visits v on v.fixture_id = f.id and v.user_id = p_user_id
   where ts.team_id = p_team_id
     and ts.season = p_season

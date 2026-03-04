@@ -158,12 +158,12 @@ interface TeamSeason {
 interface Fixture {
   apiFootballId: number;
   teamApiId: number; // home team
+  opponentApiId: number; // away team
   season: number;
   leagueApiId: number;
   round: string;
   matchDate: string;
   kickoffTime: string;
-  opponentName: string;
   homeGoals: number | null;
   awayGoals: number | null;
   status: string;
@@ -389,12 +389,12 @@ async function main() {
           allFixtures.push({
             apiFootballId: f.fixture.id,
             teamApiId: homeTeamId,
+            opponentApiId: f.teams.away.id,
             season,
             leagueApiId: league.apiId,
             round: roundNum ?? f.league.round,
             matchDate,
             kickoffTime,
-            opponentName: f.teams.away.name,
             homeGoals: f.goals.home,
             awayGoals: f.goals.away,
             status,
@@ -437,12 +437,12 @@ async function main() {
           allFixtures.push({
             apiFootballId: f.fixture.id,
             teamApiId: homeTeamId,
+            opponentApiId: f.teams.away.id,
             season,
             leagueApiId: cupLeague.apiId,
             round: f.league.round,
             matchDate,
             kickoffTime,
-            opponentName: f.teams.away.name,
             homeGoals: f.goals.home,
             awayGoals: f.goals.away,
             status,
@@ -500,16 +500,12 @@ async function main() {
 
   const sortedTeams = [...allTeams.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name));
 
-  // Build a reverse lookup: API team name → overridden name (for opponent names in fixtures)
-  const teamNameLookup = new Map<string, string>();
-
   for (const [apiId, team] of sortedTeams) {
     teamIdMap.set(apiId, teamId);
     const tOverride = teamOverrides.get(apiId);
     const teamName = tOverride?.name ?? team.name;
     const shortName = tOverride?.shortName ?? team.shortName;
-    teamNameLookup.set(team.name, teamName);
-    sql.push(`INSERT INTO public.teams (name, short_name, logo_url, city) VALUES (${esc(teamName)}, ${esc(shortName)}, ${esc(team.logoUrl)}, ${esc(team.city)});`);
+    sql.push(`INSERT INTO public.teams (api_football_id, name, short_name, logo_url, city) VALUES (${apiId}, ${esc(teamName)}, ${esc(shortName)}, ${esc(team.logoUrl)}, ${esc(team.city)});`);
     teamId++;
   }
 
@@ -578,11 +574,9 @@ async function main() {
     const roundMatch = fix.round.match(/(\d+)/);
     const roundVal = roundMatch ? roundMatch[1] : 'NULL';
 
-    // Apply opponent name override
-    const opponentName = teamNameLookup.get(fix.opponentName) ?? fix.opponentName;
-
     // Use INSERT...SELECT to gracefully skip rows where team_season doesn't exist
-    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_name, home_goals, away_goals, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', ${esc(opponentName)}, ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
+    // opponent_team_id is resolved via subquery on api_football_id
+    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
   }
 
   sql.push('');

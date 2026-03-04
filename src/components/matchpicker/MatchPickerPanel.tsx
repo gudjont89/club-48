@@ -130,7 +130,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onCl
                             <span className={styles.fixMon}>{MONTHS[d.getMonth()]}</span>
                           </div>
                           <div>
-                            <div className={styles.opponent}>v {fix.opponentName}</div>
+                            <div className={styles.opponent}>v {fix.opponentShortName}</div>
                             <div className={styles.meta}>
                               {fix.round ? `R${fix.round}` : 'Cup'} &middot; {fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
