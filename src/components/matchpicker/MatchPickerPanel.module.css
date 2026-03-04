@@ -213,6 +213,7 @@
 }
 
 .isCup {
+  background: var(--cup-bg);
   border-left: 3px solid var(--cup);
 }
 

@@ -34,8 +34,29 @@ export interface Fixture {
   awayGoals: number | null;
   status: 'NS' | 'FT' | 'LIVE' | 'PST' | 'CANC';
   attended: boolean;
-  competition: 'league' | 'cup';
+  competition: Competition;
 }
+
+export type Competition =
+  | 'league'
+  | 'cup'
+  | 'league_cup'
+  | 'super_cup'
+  | 'reykjavik_cup'
+  | 'champions_league'
+  | 'europa_league'
+  | 'conference_league';
+
+export const COMPETITION_LABELS: Record<Competition, string> = {
+  league: 'League',
+  cup: 'Cup',
+  league_cup: 'League Cup',
+  super_cup: 'Super Cup',
+  reykjavik_cup: 'Reykjavik Cup',
+  champions_league: 'Champions League',
+  europa_league: 'Europa League',
+  conference_league: 'Conference League',
+};
 
 export type MatchResult = 'W' | 'D' | 'L' | null;
 

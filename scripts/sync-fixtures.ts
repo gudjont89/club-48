@@ -34,10 +34,11 @@ const CURRENT_SEASON = now.getMonth() < 3 ? now.getFullYear() - 1 : now.getFullY
 
 // League IDs confirmed from API-Football
 const LEAGUES = [
-  { id: 164, name: 'Úrvalsdeild', division: 1 },
-  { id: 165, name: '1. Deild', division: 2 },
-  { id: 166, name: '2. Deild', division: 3 },
-  { id: 167, name: 'Cup', division: 0 },
+  { id: 164, name: 'Úrvalsdeild', division: 1, competition: 'league' },
+  { id: 165, name: '1. Deild', division: 2, competition: 'league' },
+  { id: 166, name: '2. Deild', division: 3, competition: 'league' },
+  { id: 167, name: 'Cup', division: 0, competition: 'cup' },
+  { id: 168, name: 'League Cup', division: 0, competition: 'league_cup' },
 ];
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
@@ -184,6 +185,7 @@ async function main() {
         opponent_team_id: opponentTeamId,
         home_goals: f.goals.home,
         away_goals: f.goals.away,
+        competition: league.competition,
         status: mapStatus(f.fixture.status.short),
         fetched_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),

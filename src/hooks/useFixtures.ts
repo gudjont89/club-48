@@ -45,7 +45,7 @@ export function useFixtures(teamId: number | null, season: number): UseFixturesR
 
       const { data, error: fErr } = await supabase
         .from('fixtures')
-        .select('id, round, match_date, kickoff_time, opponent_team:teams!opponent_team_id(short_name), home_goals, away_goals, status')
+        .select('id, round, match_date, kickoff_time, opponent_team:teams!opponent_team_id(short_name), home_goals, away_goals, competition, status')
         .eq('team_season_id', tsData.id)
         .order('match_date');
 
@@ -67,7 +67,7 @@ export function useFixtures(teamId: number | null, season: number): UseFixturesR
         awayGoals: row.away_goals,
         status: row.status,
         attended: false,
-        competition: 'league' as const,
+        competition: row.competition ?? 'league',
       }));
 
       setFixtures(mapped);

@@ -3,7 +3,7 @@ import { DIVISION_MAP } from '../../data/divisions';
 import { useVisits } from '../../context/VisitsContext';
 import { useFixtures } from '../../hooks/useFixtures';
 import { useKeyboard } from '../../hooks/useKeyboard';
-import { getMatchResult } from '../../types';
+import { getMatchResult, COMPETITION_LABELS } from '../../types';
 import type { GroundProgress } from '../../types';
 import styles from './MatchPickerPanel.module.css';
 
@@ -112,11 +112,15 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const result = getMatchResult(fix.homeGoals, fix.awayGoals);
                       const played = fix.status === 'FT';
                       const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
+                      const isCup = fix.competition !== 'league';
+                      const metaLabel = isCup
+                        ? COMPETITION_LABELS[fix.competition]
+                        : fix.round ? `R${fix.round}` : '';
 
                       return (
                         <div
                           key={fix.fixtureId}
-                          className={`${styles.fixtureRow} ${attended ? styles.attended : ''} ${!played ? styles.upcoming : ''}`}
+                          className={`${styles.fixtureRow} ${attended ? styles.attended : ''} ${!played ? styles.upcoming : ''} ${isCup ? styles.isCup : ''}`}
                           onClick={() => played && teamId && toggleAttendance(fix.fixtureId, teamId)}
                         >
                           <div className={styles.fixDate}>
@@ -126,7 +130,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                           <div>
                             <div className={styles.opponent}>v {fix.opponentShortName}</div>
                             <div className={styles.meta}>
-                              {fix.round ? `R${fix.round}` : 'Cup'} &middot; {fix.kickoffTime ?? ''} &middot; {ground.groundName}
+                              {metaLabel}{metaLabel && ' \u00B7 '}{fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
                           </div>
                           <div className={styles.fixRight}>

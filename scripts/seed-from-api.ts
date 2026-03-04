@@ -188,14 +188,18 @@ async function main() {
 
   // Identify the leagues we care about
   // These are the known Icelandic league names — match by name since IDs can vary
-  const leagueMatchers: { division: number; patterns: string[] }[] = [
-    { division: 1, patterns: ['úrvalsdeild', 'besta deild', 'premier league'] },
-    { division: 2, patterns: ['1. deild', 'first division', '1 deild'] },
-    { division: 3, patterns: ['2. deild', 'second division', '2 deild'] },
-    { division: 0, patterns: ['cup', 'bikar', 'borgunarbikar'] }, // Cup = division 0 (special)
+  // competition: stored in fixtures to distinguish league from cup matches
+  const leagueMatchers: { division: number; competition: string; patterns: string[] }[] = [
+    { division: 1, competition: 'league', patterns: ['úrvalsdeild', 'besta deild', 'premier league'] },
+    { division: 2, competition: 'league', patterns: ['1. deild', 'first division', '1 deild'] },
+    { division: 3, competition: 'league', patterns: ['2. deild', 'second division', '2 deild'] },
+    { division: 0, competition: 'league_cup', patterns: ['league cup', 'deildabikar'] },
+    { division: 0, competition: 'super_cup', patterns: ['super cup'] },
+    { division: 0, competition: 'reykjavik_cup', patterns: ['reykjavik cup'] },
+    { division: 0, competition: 'cup', patterns: ['cup', 'bikar', 'borgunarbikar'] }, // Catch-all cup last
   ];
 
-  const leagueMap = new Map<number, { apiId: number; name: string; division: number }>();
+  const leagueMap = new Map<number, { apiId: number; name: string; division: number; competition: string }>();
 
   for (const l of leagues) {
     const nameLower = l.league.name.toLowerCase();
@@ -205,15 +209,16 @@ async function main() {
           apiId: l.league.id,
           name: l.league.name,
           division: matcher.division,
+          competition: matcher.competition,
         });
-        console.log(`  ✓ Matched: ${l.league.name} (ID ${l.league.id}) → division ${matcher.division}`);
+        console.log(`  ✓ Matched: ${l.league.name} (ID ${l.league.id}) → ${matcher.competition}`);
         break;
       }
     }
   }
 
   const divisionLeagues = [...leagueMap.values()].filter(l => l.division >= 1);
-  const cupLeague = [...leagueMap.values()].find(l => l.division === 0);
+  const cupLeagues = [...leagueMap.values()].filter(l => l.division === 0);
 
   if (divisionLeagues.length === 0) {
     console.error('ERROR: Could not find any Icelandic league divisions');
@@ -263,42 +268,44 @@ async function main() {
   }
 
   // Step 3: Fetch cup teams to discover 3. deild clubs
-  if (cupLeague) {
+  if (cupLeagues.length > 0) {
     console.log('\nStep 3: Fetching cup teams for 3. deild discovery...');
     const cupTeamIds = new Set<number>();
 
-    for (const season of SEASONS) {
-      console.log(`  Cup / ${season}...`);
-      try {
-        const teams = await apiFetch<ApiTeam[]>('/teams', {
-          league: cupLeague.apiId,
-          season,
-        });
+    for (const cupLeague of cupLeagues) {
+      for (const season of SEASONS) {
+        console.log(`  ${cupLeague.name} / ${season}...`);
+        try {
+          const teams = await apiFetch<ApiTeam[]>('/teams', {
+            league: cupLeague.apiId,
+            season,
+          });
 
-        for (const t of teams) {
-          if (!allTeams.has(t.team.id)) {
-            // This team wasn't in divisions 1-3, so it's likely 3. deild or lower
-            allTeams.set(t.team.id, {
-              apiFootballId: t.team.id,
-              name: t.team.name,
-              shortName: t.team.code ?? t.team.name.slice(0, 3).toUpperCase(),
-              logoUrl: t.team.logo,
-              city: t.venue?.city ?? '',
-              venueId: t.venue?.id ?? null,
-              venueName: t.venue?.name ?? null,
-            });
-            cupTeamIds.add(t.team.id);
-            teamVenueMap.set(t.team.id, t.venue?.id ?? null);
+          for (const t of teams) {
+            if (!allTeams.has(t.team.id)) {
+              // This team wasn't in divisions 1-3, so it's likely 3. deild or lower
+              allTeams.set(t.team.id, {
+                apiFootballId: t.team.id,
+                name: t.team.name,
+                shortName: t.team.code ?? t.team.name.slice(0, 3).toUpperCase(),
+                logoUrl: t.team.logo,
+                city: t.venue?.city ?? '',
+                venueId: t.venue?.id ?? null,
+                venueName: t.venue?.name ?? null,
+              });
+              cupTeamIds.add(t.team.id);
+              teamVenueMap.set(t.team.id, t.venue?.id ?? null);
+            }
           }
+        } catch (e) {
+          console.log(`    ⚠ Skipped (${(e as Error).message})`);
         }
-      } catch (e) {
-        console.log(`    ⚠ Skipped (${(e as Error).message})`);
       }
     }
 
     console.log(`  Found ${cupTeamIds.size} additional teams from cup data`);
   } else {
-    console.log('\nStep 3: No cup league found, skipping 3. deild discovery');
+    console.log('\nStep 3: No cup leagues found, skipping 3. deild discovery');
   }
 
   // Step 4: Fetch venue details
@@ -409,47 +416,49 @@ async function main() {
   console.log(`  Total home fixtures: ${allFixtures.length}`);
 
   // Step 6: Also fetch cup fixtures
-  if (cupLeague) {
+  if (cupLeagues.length > 0) {
     console.log('\nStep 5b: Fetching cup fixtures...');
-    for (const season of SEASONS) {
-      console.log(`  Cup / ${season}...`);
-      try {
-        const fixtures = await apiFetch<ApiFixture[]>('/fixtures', {
-          league: cupLeague.apiId,
-          season,
-        });
-
-        for (const f of fixtures) {
-          const homeTeamId = f.teams.home.id;
-          if (!allTeams.has(homeTeamId)) continue;
-
-          const date = new Date(f.fixture.date);
-          const matchDate = date.toISOString().split('T')[0];
-          const kickoffTime = date.toTimeString().slice(0, 5);
-
-          let status = 'NS';
-          const apiStatus = f.fixture.status.short;
-          if (['FT', 'AET', 'PEN'].includes(apiStatus)) status = 'FT';
-          else if (['LIVE', '1H', '2H', 'HT', 'ET', 'BT', 'P'].includes(apiStatus)) status = 'LIVE';
-          else if (['PST', 'SUSP', 'INT'].includes(apiStatus)) status = 'PST';
-          else if (['CANC', 'ABD', 'AWD', 'WO'].includes(apiStatus)) status = 'CANC';
-
-          allFixtures.push({
-            apiFootballId: f.fixture.id,
-            teamApiId: homeTeamId,
-            opponentApiId: f.teams.away.id,
+    for (const cupLeague of cupLeagues) {
+      for (const season of SEASONS) {
+        console.log(`  ${cupLeague.name} / ${season}...`);
+        try {
+          const fixtures = await apiFetch<ApiFixture[]>('/fixtures', {
+            league: cupLeague.apiId,
             season,
-            leagueApiId: cupLeague.apiId,
-            round: f.league.round,
-            matchDate,
-            kickoffTime,
-            homeGoals: f.goals.home,
-            awayGoals: f.goals.away,
-            status,
           });
+
+          for (const f of fixtures) {
+            const homeTeamId = f.teams.home.id;
+            if (!allTeams.has(homeTeamId)) continue;
+
+            const date = new Date(f.fixture.date);
+            const matchDate = date.toISOString().split('T')[0];
+            const kickoffTime = date.toTimeString().slice(0, 5);
+
+            let status = 'NS';
+            const apiStatus = f.fixture.status.short;
+            if (['FT', 'AET', 'PEN'].includes(apiStatus)) status = 'FT';
+            else if (['LIVE', '1H', '2H', 'HT', 'ET', 'BT', 'P'].includes(apiStatus)) status = 'LIVE';
+            else if (['PST', 'SUSP', 'INT'].includes(apiStatus)) status = 'PST';
+            else if (['CANC', 'ABD', 'AWD', 'WO'].includes(apiStatus)) status = 'CANC';
+
+            allFixtures.push({
+              apiFootballId: f.fixture.id,
+              teamApiId: homeTeamId,
+              opponentApiId: f.teams.away.id,
+              season,
+              leagueApiId: cupLeague.apiId,
+              round: f.league.round,
+              matchDate,
+              kickoffTime,
+              homeGoals: f.goals.home,
+              awayGoals: f.goals.away,
+              status,
+            });
+          }
+        } catch (e) {
+          console.log(`    ⚠ Skipped (${(e as Error).message})`);
         }
-      } catch (e) {
-        console.log(`    ⚠ Skipped (${(e as Error).message})`);
       }
     }
   }
@@ -576,7 +585,8 @@ async function main() {
 
     // Use INSERT...SELECT to gracefully skip rows where team_season doesn't exist
     // opponent_team_id is resolved via subquery on api_football_id
-    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
+    const competition = leagueMap.get(fix.leagueApiId)?.competition ?? 'league';
+    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, competition, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(competition)}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
   }
 
   sql.push('');

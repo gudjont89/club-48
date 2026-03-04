@@ -6,6 +6,7 @@
  * Also handles schema migration of seed.sql:
  *   - Adds api_football_id to team INSERTs (extracted from logo URL)
  *   - Converts opponent_name → opponent_team_id in fixture INSERTs
+ *   - Adds competition column to fixture INSERTs (defaults to 'league')
  *
  * Usage:
  *   npx tsx scripts/apply-overrides.ts
@@ -78,6 +79,7 @@ let patchedGrounds = 0;
 let patchedImages = 0;
 let migratedTeams = 0;
 let migratedFixtures = 0;
+let migratedCompetition = 0;
 
 // First pass: read current team names in seed (may be overridden names from previous runs)
 for (const line of lines) {
@@ -174,6 +176,14 @@ for (let i = 0; i < lines.length; i++) {
       migratedFixtures++;
     }
   }
+
+  // Migrate fixture INSERTs: add competition column (defaults to 'league')
+  if (lines[i].startsWith("INSERT INTO public.fixtures") && !lines[i].includes('competition')) {
+    lines[i] = lines[i]
+      .replace('home_goals, away_goals, status)', 'home_goals, away_goals, competition, status)')
+      .replace(/(NULL|\d+), (NULL|\d+), '(NS|FT|LIVE|PST|CANC)' FROM/, `$1, $2, 'league', '$3' FROM`);
+    migratedCompetition++;
+  }
 }
 
 writeFileSync('supabase/seed.sql', lines.join('\n'));
@@ -183,6 +193,7 @@ console.log(`  ${patchedGrounds} ground names overridden`);
 console.log(`  ${patchedImages} ground image URLs`);
 if (migratedTeams > 0) console.log(`  ${migratedTeams} teams migrated (added api_football_id)`);
 if (migratedFixtures > 0) console.log(`  ${migratedFixtures} fixtures migrated (opponent_name → opponent_team_id)`);
+if (migratedCompetition > 0) console.log(`  ${migratedCompetition} fixtures migrated (added competition)`);
 
 // ---- Generate SQL for live DB ----
 

@@ -74,6 +74,7 @@ create table public.fixtures (
   opponent_team_id bigint references public.teams(id),
   home_goals       integer,              -- null if not yet played
   away_goals       integer,
+  competition      text not null default 'league',  -- 'league', 'cup', 'league_cup', 'super_cup', 'reykjavik_cup', 'champions_league', 'europa_league', 'conference_league'
   status           text not null default 'NS',  -- 'NS' (not started), 'FT' (full time), 'LIVE', 'PST' (postponed), 'CANC'
   fetched_at       timestamptz default now(),
   created_at       timestamptz default now(),
@@ -300,6 +301,7 @@ returns table (
   opponent_short_name text,
   home_goals          integer,
   away_goals          integer,
+  competition         text,
   status              text,
   attended            boolean,
   visit_notes         text,
@@ -318,6 +320,7 @@ as $$
     opp.short_name as opponent_short_name,
     f.home_goals,
     f.away_goals,
+    f.competition,
     f.status,
     (v.id is not null) as attended,
     v.notes as visit_notes,
