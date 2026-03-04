@@ -1,0 +1,129 @@
+# Ground coordinate overrides
+# Format: api_venue_id<TAB>latitude<TAB>longitude
+# Lines starting with # are ignored.
+# Laugardalsvöllur
+819 64.14374683906966   -21.877835672910056
+# Kópavogsvöllur
+820 64.10384553286964   -21.895273774616804
+# Kaplakriki
+821
+# Würth-völlurinn (Hlíðarendi)
+822
+# Mustad-völlurinn (Grindavík)
+823
+# Kórinn
+824
+# Norðurálsvöllurinn (Akranes)
+825
+# Hásteinsvöllur (Vestmannaeyjar)
+826
+# Akureyrarvöllur
+827
+# Samsung-völlurinn (Garðabær)
+829
+# Valsvöllur
+830
+# Víkingsvöllur
+831
+# Extra-völlurinn
+1956
+# Ólafsvíkurvöllur
+2313
+# Vivaldivöllurinn (Seltjarnarnes)
+2314
+# Rafholtsvöllurinn (Njarðvík)
+2317
+# Eimskipsvöllurinn
+2318
+# Lambhagavöllur
+2319
+# Leiknisvöllur
+2320
+# JÁVERK-völlurinn (Selfoss)
+2321
+# Hertz-völlurinn
+2322
+# Fjarðabyggðarhöllin (Reyðarfjörður)
+2747
+# Eskjuvöllur (Eskifjörður)
+2748
+# Ólafsfjarðarvöllur
+3178
+# Kerecis-völlurinn (Hnífsdalur)
+3180
+# Sauðárkróksvöllur
+3183
+# Nesfisk-völlurinn (Garður)
+3184
+# Akraneshöllin
+3185
+# Vogabæjarvöllur
+3186
+# Dalvíkurvöllur
+3187
+# Estadio Enrique Roca de Murcia
+3989
+# Fjölnisvöllur Gervigras
+4519
+# Vopnafjarðarvöllur
+4520
+# Grýluvöllur (Hveragerði)
+4521
+# Tungubakkavöllur (Mosfellsbær)
+4522
+# SS-völlurinn (Hvolsvöllur)
+4524
+# Týsvöllur (Vestmannaeyjar)
+4525
+# Gervigrasvöllur Laugardal (Þróttarvöllur)
+4527
+# Hrafnagilsvöllur
+4529
+# Skallagrímsvöllur (Borgarnes)
+4530
+# Stykkishólmsvöllur
+4531
+# Fagrilundur (Kópavogur)
+4532
+# Bessastaðavöllur (Álftanes)
+4533
+# Kórinn Gervigrasvöllur
+4534
+# Framvöllur Úlfarsárdal
+4535
+# Stokkseyrarvöllur
+7123
+# Würth-völlurinn (Hlíðarendi, duplicate)
+9799
+# KR-völlur
+10591
+# Skessan (Hafnarfjörður)
+11562   64.07553983418917   -21.931512275312887
+# Nettóhöllin (Keflavík)
+18455
+# HS Orku völlurinn (Keflavík)
+19615
+# VÍS-völlurinn (Akureyri)
+20542
+# Varmárvöllur (Mosfellsbær)
+20543
+# Jökulfellsvöllurinn (Höfn)
+20544
+# Fífan (Kópavogur)
+20545
+# Fellavöllur (Fellabær)
+20546
+# Brons-völlurinn (Sandgerði)
+20548
+# AVIS-völlurinn
+20549
+# OnePlus-völlurinn (Álftanes)
+20550
+# BIRTU-völlurinn (Hafnarfjörður)
+21596
+# Boginn (Akureyri)
+21597
+# PCC-völlurinn (Húsavík)
+21598
+# GeoSalmo-völlurinn (Þorlákshöfn)
+21599
