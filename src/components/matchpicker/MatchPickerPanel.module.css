@@ -278,6 +278,25 @@
   font-weight: 600;
 }
 
+.fixCancelled {
+  color: var(--loss);
+  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.fixPostponed {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.cancelled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .attendedCheck {
   display: none;
   font-size: 0.6rem;

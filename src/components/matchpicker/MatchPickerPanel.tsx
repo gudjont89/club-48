@@ -111,6 +111,8 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const attended = isAttended(fix.fixtureId);
                       const result = getMatchResult(fix.homeGoals, fix.awayGoals);
                       const played = fix.status === 'FT';
+                      const cancelled = fix.status === 'CANC';
+                      const postponed = fix.status === 'PST';
                       const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
                       const isCup = fix.competition !== 'league';
                       const metaLabel = isCup
@@ -138,6 +140,10 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                               <div className={`${styles.fixScore} ${scoreCls}`}>
                                 {fix.homeGoals} &ndash; {fix.awayGoals}
                               </div>
+                            ) : cancelled ? (
+                              <div className={styles.fixCancelled}>cancelled</div>
+                            ) : postponed ? (
+                              <div className={styles.fixPostponed}>postponed</div>
                             ) : (
                               <div className={styles.fixUpcoming}>upcoming</div>
                             )}
