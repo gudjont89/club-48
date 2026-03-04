@@ -61,7 +61,7 @@ export function useFixtures(teamId: number | null, season: number): UseFixturesR
         fixtureId: row.id,
         round: row.round,
         matchDate: row.match_date,
-        kickoffTime: row.kickoff_time,
+        kickoffTime: row.kickoff_time?.slice(0, 5) ?? null,
         opponentName: row.opponent_team?.name ?? '?',
         opponentShortName: row.opponent_team?.short_name ?? '?',
         homeGoals: row.home_goals,
