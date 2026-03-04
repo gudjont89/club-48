@@ -25,7 +25,11 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
   const ground = teamId ? grounds.find(g => g.teamId === teamId) : null;
   const division = ground ? DIVISION_MAP[ground.division] : null;
 
-  const { fixtures, loading } = useFixtures(teamId, season);
+  const { fixtures: allFixtures, loading } = useFixtures(teamId, season);
+  // Only show fixtures played at this ground (or with unknown venue)
+  const fixtures = ground
+    ? allFixtures.filter(f => f.groundId === null || f.groundId === ground.groundId)
+    : allFixtures;
   const attendedCount = fixtures.filter(f => isAttended(f.fixtureId)).length;
 
   // Body scroll lock

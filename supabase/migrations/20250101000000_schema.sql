@@ -74,6 +74,7 @@ create table public.fixtures (
   opponent_team_id bigint references public.teams(id),
   home_goals       integer,              -- null if not yet played
   away_goals       integer,
+  ground_id        bigint references public.grounds(id),  -- actual venue; NULL = use team_season ground
   competition      text not null default 'league',  -- 'league', 'cup', 'league_cup', 'super_cup', 'reykjavik_cup', 'champions_league', 'europa_league', 'conference_league'
   status           text not null default 'NS',  -- 'NS' (not started), 'FT' (full time), 'LIVE', 'PST' (postponed), 'CANC'
   fetched_at       timestamptz default now(),
@@ -125,6 +126,7 @@ create index idx_team_seasons_ground on public.team_seasons(ground_id);
 
 -- Fixtures: look up by team_season and by date
 create index idx_fixtures_team_season on public.fixtures(team_season_id);
+create index idx_fixtures_ground on public.fixtures(ground_id);
 create index idx_fixtures_date on public.fixtures(match_date);
 create index idx_fixtures_status on public.fixtures(status);
 
@@ -301,6 +303,7 @@ returns table (
   opponent_short_name text,
   home_goals          integer,
   away_goals          integer,
+  ground_id           bigint,
   competition         text,
   status              text,
   attended            boolean,
@@ -320,6 +323,7 @@ as $$
     opp.short_name as opponent_short_name,
     f.home_goals,
     f.away_goals,
+    f.ground_id,
     f.competition,
     f.status,
     (v.id is not null) as attended,

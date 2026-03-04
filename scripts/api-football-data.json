@@ -75,6 +75,16 @@
   ],
   "grounds": [
     {
+      "apiId": 3989,
+      "apiFootballVenueId": 3989,
+      "name": "Estadio Enrique Roca de Murcia",
+      "city": "Murcia",
+      "capacity": 31179,
+      "surface": "grass",
+      "latitude": null,
+      "longitude": null
+    },
+    {
       "apiId": 822,
       "apiFootballVenueId": 822,
       "name": "Würth völlurinn",
@@ -535,16 +545,6 @@
       "longitude": null
     },
     {
-      "apiId": 20547,
-      "apiFootballVenueId": 20547,
-      "name": "N1-völlurinn Hlíðarenda",
-      "city": "Reykjavík",
-      "capacity": 2489,
-      "surface": "artificial",
-      "latitude": null,
-      "longitude": null
-    },
-    {
       "apiId": 4527,
       "apiFootballVenueId": 4527,
       "name": "Gervigrasvöllur Laugardal (Þróttarvöllur)",
@@ -651,6 +651,16 @@
       "city": "Reykjavík",
       "capacity": 1722,
       "surface": "artificial",
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "apiId": 819,
+      "apiFootballVenueId": 819,
+      "name": "Laugardalsvöllur",
+      "city": "Reykjavík",
+      "capacity": 15427,
+      "surface": "grass",
       "latitude": null,
       "longitude": null
     },

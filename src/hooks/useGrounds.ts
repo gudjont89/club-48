@@ -27,7 +27,7 @@ export function useGrounds(season: number): UseGroundsResult {
           team_id,
           division,
           teams ( id, name, short_name, logo_url ),
-          grounds ( name, city, latitude, longitude, capacity, surface, image_url )
+          grounds ( id, name, city, latitude, longitude, capacity, surface, image_url )
         `)
         .eq('season', season)
         .order('division');
@@ -47,6 +47,7 @@ export function useGrounds(season: number): UseGroundsResult {
           teamName: row.teams.name,
           shortName: row.teams.short_name,
           division: row.division as DivisionId,
+          groundId: row.grounds.id,
           groundName: row.grounds.name,
           groundCity: row.grounds.city,
           latitude: row.grounds.latitude ?? 0,

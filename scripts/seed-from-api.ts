@@ -62,7 +62,21 @@ async function loadOverrides() {
     console.log(`  Loaded ${groundOverrides.size} ground name overrides`);
   }
 
-  return { teamOverrides, groundOverrides };
+  // Ground aliases: alias venue ID → canonical venue ID
+  const groundAliases = new Map<number, number>();
+  const aliasesFile = 'scripts/overrides/ground-aliases.tsv';
+  if (existsSync(aliasesFile)) {
+    for (const line of readFileSync(aliasesFile, 'utf-8').split('\n')) {
+      if (!line.trim() || line.startsWith('#')) continue;
+      const [aliasId, canonicalId] = line.split('\t');
+      if (aliasId && canonicalId) {
+        groundAliases.set(Number(aliasId.trim()), Number(canonicalId.trim()));
+      }
+    }
+    console.log(`  Loaded ${groundAliases.size} ground aliases`);
+  }
+
+  return { teamOverrides, groundOverrides, groundAliases };
 }
 
 // Rate limit tracking
@@ -120,7 +134,7 @@ interface ApiVenue {
 }
 
 interface ApiFixture {
-  fixture: { id: number; date: string; timestamp: number; status: { short: string } };
+  fixture: { id: number; date: string; timestamp: number; status: { short: string }; venue: { id: number | null; name: string | null } | null };
   league: { id: number; season: number; round: string };
   teams: { home: { id: number; name: string }; away: { id: number; name: string } };
   goals: { home: number | null; away: number | null };
@@ -167,6 +181,7 @@ interface Fixture {
   homeGoals: number | null;
   awayGoals: number | null;
   status: string;
+  venueApiId: number | null; // actual venue where match was played
 }
 
 // ---- Main ----
@@ -175,7 +190,13 @@ async function main() {
   console.log('=== 48 Klúbburinn — API-Football Seed Script ===\n');
 
   // Load name overrides from TSV files
-  const { teamOverrides, groundOverrides } = await loadOverrides();
+  const { teamOverrides, groundOverrides, groundAliases } = await loadOverrides();
+
+  // Helper: resolve venue ID through aliases to canonical ID
+  function resolveVenue(venueId: number | null): number | null {
+    if (venueId === null) return null;
+    return groundAliases.get(venueId) ?? venueId;
+  }
 
   // Step 1: Discover Icelandic leagues
   console.log('Step 1: Discovering Icelandic leagues...');
@@ -308,40 +329,43 @@ async function main() {
     console.log('\nStep 3: No cup leagues found, skipping 3. deild discovery');
   }
 
-  // Step 4: Fetch venue details
+  // Step 4: Fetch venue details — include ALL Icelandic venues
   console.log('\nStep 4: Fetching venue details...');
-  const allGrounds = new Map<number, Ground>(); // keyed by venue API ID
+  const allGrounds = new Map<number, Ground>(); // keyed by canonical venue API ID
 
-  // Collect unique venue IDs
-  const venueIds = new Set<number>();
-  for (const [, venueId] of teamVenueMap) {
-    if (venueId) venueIds.add(venueId);
+  // Resolve team venue IDs through aliases
+  for (const [teamId, venueId] of teamVenueMap) {
+    if (venueId) {
+      const resolved = resolveVenue(venueId);
+      if (resolved !== venueId) teamVenueMap.set(teamId, resolved);
+    }
   }
 
-  // Fetch venues by country (more efficient than per-venue)
+  // Fetch ALL venues by country (not just team home venues)
   try {
     const venues = await apiFetch<ApiVenue[]>('/venues', { country: 'Iceland' });
     for (const v of venues) {
-      if (venueIds.has(v.id)) {
-        allGrounds.set(v.id, {
-          apiFootballVenueId: v.id,
-          name: v.name,
-          city: v.city,
-          capacity: v.capacity,
-          surface: v.surface?.toLowerCase().includes('grass') ? 'grass'
-            : v.surface?.toLowerCase().includes('artif') ? 'artificial'
-            : 'artificial',
-          latitude: null,
-          longitude: null,
-        });
-      }
+      // Skip alias venues — they'll resolve to their canonical ground
+      if (groundAliases.has(v.id)) continue;
+
+      allGrounds.set(v.id, {
+        apiFootballVenueId: v.id,
+        name: v.name,
+        city: v.city,
+        capacity: v.capacity,
+        surface: v.surface?.toLowerCase().includes('grass') ? 'grass'
+          : v.surface?.toLowerCase().includes('artif') ? 'artificial'
+          : 'artificial',
+        latitude: null,
+        longitude: null,
+      });
     }
-    console.log(`  Found ${allGrounds.size} venues from API`);
+    console.log(`  Found ${allGrounds.size} venues from API (${groundAliases.size} aliases excluded)`);
   } catch (e) {
     console.log(`  ⚠ Venue fetch failed: ${(e as Error).message}`);
   }
 
-  // For venues not found via country search, create from team data
+  // For team venues not found via country search, create from team data
   for (const [teamId, venueId] of teamVenueMap) {
     if (venueId && !allGrounds.has(venueId)) {
       const team = allTeams.get(teamId);
@@ -405,6 +429,7 @@ async function main() {
             homeGoals: f.goals.home,
             awayGoals: f.goals.away,
             status,
+            venueApiId: f.fixture.venue?.id ?? null,
           });
         }
       } catch (e) {
@@ -454,6 +479,7 @@ async function main() {
               homeGoals: f.goals.home,
               awayGoals: f.goals.away,
               status,
+              venueApiId: f.fixture.venue?.id ?? null,
             });
           }
         } catch (e) {
@@ -534,6 +560,7 @@ async function main() {
             homeGoals: f.goals.home,
             awayGoals: f.goals.away,
             status,
+            venueApiId: f.fixture.venue?.id ?? null,
           });
           euroFixtures++;
         }
@@ -544,6 +571,24 @@ async function main() {
   }
 
   console.log(`  ${euroFixtures} European home fixtures for Icelandic teams`);
+
+  // Diagnostic: report fixture venues that won't resolve to a ground
+  const unresolvedVenues = new Map<number, { name: string; count: number }>();
+  for (const fix of allFixtures) {
+    if (!fix.venueApiId) continue;
+    const resolved = resolveVenue(fix.venueApiId);
+    if (resolved && !allGrounds.has(resolved)) {
+      const entry = unresolvedVenues.get(fix.venueApiId) ?? { name: '?', count: 0 };
+      entry.count++;
+      unresolvedVenues.set(fix.venueApiId, entry);
+    }
+  }
+  if (unresolvedVenues.size > 0) {
+    console.log(`\n⚠ ${unresolvedVenues.size} fixture venue IDs not in grounds table:`);
+    for (const [venueId, info] of [...unresolvedVenues.entries()].sort((a, b) => b[1].count - a[1].count)) {
+      console.log(`  Venue ${venueId} — ${info.count} fixtures`);
+    }
+  }
 
   // ---- Step 6: Generate SQL ----
   console.log('\nStep 6: Generating SQL...');
@@ -575,8 +620,20 @@ async function main() {
     const gOverride = groundOverrides.get(venueApiId);
     const groundName = gOverride?.name ?? ground.name;
     const imageUrl = `https://media.api-sports.io/football/venues/${venueApiId}.png`;
-    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, image_url, notes) VALUES (${esc(groundName)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(imageUrl)}, ${esc(`api_football_venue_id: ${venueApiId}`)});`);
+    // Collect aliases that point to this venue
+    const aliases = [...groundAliases.entries()]
+      .filter(([, canonical]) => canonical === venueApiId)
+      .map(([alias]) => alias);
+    const noteParts = [`api_football_venue_id: ${venueApiId}`];
+    if (aliases.length > 0) noteParts.push(`aliases: ${aliases.join(',')}`);
+    sql.push(`INSERT INTO public.grounds (name, city, capacity, surface, image_url, notes) VALUES (${esc(groundName)}, ${esc(ground.city)}, ${ground.capacity ?? 'NULL'}, ${esc(ground.surface)}, ${esc(imageUrl)}, ${esc(noteParts.join('; '))});`);
     groundId++;
+  }
+
+  // Map alias venue IDs to the same ground DB IDs
+  for (const [aliasId, canonicalId] of groundAliases) {
+    const gid = groundIdMap.get(canonicalId);
+    if (gid) groundIdMap.set(aliasId, gid);
   }
 
   sql.push('');
@@ -667,8 +724,11 @@ async function main() {
 
     // Use INSERT...SELECT to gracefully skip rows where team_season doesn't exist
     // opponent_team_id is resolved via subquery on api_football_id
+    // ground_id is set when the fixture venue differs from team's home ground (or always when known)
     const competition = leagueMap.get(fix.leagueApiId)?.competition ?? 'league';
-    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, competition, status) SELECT ${fix.apiFootballId}, ts.id, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(competition)}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
+    const fixtureGroundId = fix.venueApiId ? groundIdMap.get(fix.venueApiId) ?? null : null;
+    const groundIdExpr = fixtureGroundId !== null ? String(fixtureGroundId) : 'NULL';
+    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, ground_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, competition, status) SELECT ${fix.apiFootballId}, ts.id, ${groundIdExpr}, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(competition)}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
   }
 
   sql.push('');

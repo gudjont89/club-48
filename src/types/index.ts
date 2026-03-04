@@ -11,6 +11,7 @@ export interface GroundProgress {
   teamName: string;
   shortName: string;
   division: DivisionId;
+  groundId: number;
   groundName: string;
   groundCity: string;
   latitude: number;
@@ -34,6 +35,7 @@ export interface Fixture {
   homeGoals: number | null;
   awayGoals: number | null;
   status: 'NS' | 'FT' | 'LIVE' | 'PST' | 'CANC';
+  groundId: number | null;
   attended: boolean;
   competition: Competition;
 }

@@ -1,0 +1,10 @@
+# Ground aliases — maps alternate API venue IDs to canonical venue IDs
+# When the same physical ground has multiple IDs in API-Football
+# (e.g. sponsor renames), the alias is resolved to the canonical entry.
+# Format: alias_venue_id<TAB>canonical_venue_id<TAB># optional comment
+#
+# Only the canonical venue gets a row in the grounds table.
+# The alias just redirects fixture venue lookups.
+#
+20547	830	# N1-völlurinn Hlíðarenda → Valsvöllur
+2318    20549 # Eimskipsvöllurinn → AVIS-völlurinn
