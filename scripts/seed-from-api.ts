@@ -33,8 +33,8 @@ const OUTPUT_FILE = 'supabase/seed.sql';
 interface TeamOverride { name: string; shortName: string }
 interface GroundOverride { name: string }
 
-function loadOverrides() {
-  const { readFileSync, existsSync } = require('fs') as typeof import('fs');
+async function loadOverrides() {
+  const { readFileSync, existsSync } = await import('fs');
   const teamOverrides = new Map<number, TeamOverride>();
   const groundOverrides = new Map<number, GroundOverride>();
 
@@ -175,7 +175,7 @@ async function main() {
   console.log('=== 48 Klúbburinn — API-Football Seed Script ===\n');
 
   // Load name overrides from TSV files
-  const { teamOverrides, groundOverrides } = loadOverrides();
+  const { teamOverrides, groundOverrides } = await loadOverrides();
 
   // Step 1: Discover Icelandic leagues
   console.log('Step 1: Discovering Icelandic leagues...');
@@ -462,6 +462,88 @@ async function main() {
       }
     }
   }
+
+  // Step 5c: Fetch European competition fixtures (home matches by Icelandic teams)
+  // These are global competitions — we fetch all fixtures and filter for our tracked teams
+  const EUROPEAN_COMPETITIONS = [
+    { id: 2, competition: 'champions_league', name: 'Champions League' },
+    { id: 3, competition: 'europa_league', name: 'Europa League' },
+    { id: 848, competition: 'conference_league', name: 'Conference League' },
+  ];
+
+  console.log('\nStep 5c: Fetching European competition fixtures...');
+  let euroFixtures = 0;
+
+  for (const euro of EUROPEAN_COMPETITIONS) {
+    for (const season of SEASONS) {
+      console.log(`  ${euro.name} / ${season}...`);
+      try {
+        const fixtures = await apiFetch<ApiFixture[]>('/fixtures', {
+          league: euro.id,
+          season,
+        });
+
+        for (const f of fixtures) {
+          const homeTeamId = f.teams.home.id;
+          if (!allTeams.has(homeTeamId)) continue; // Not an Icelandic team
+
+          // Add the foreign opponent to allTeams if not already known
+          const awayTeamId = f.teams.away.id;
+          if (!allTeams.has(awayTeamId)) {
+            allTeams.set(awayTeamId, {
+              apiFootballId: awayTeamId,
+              name: f.teams.away.name,
+              shortName: f.teams.away.name.slice(0, 3).toUpperCase(),
+              logoUrl: `https://media.api-sports.io/football/teams/${awayTeamId}.png`,
+              city: '',
+              venueId: null,
+              venueName: null,
+            });
+          }
+
+          const date = new Date(f.fixture.date);
+          const matchDate = date.toISOString().split('T')[0];
+          const kickoffTime = date.toTimeString().slice(0, 5);
+
+          let status = 'NS';
+          const apiStatus = f.fixture.status.short;
+          if (['FT', 'AET', 'PEN'].includes(apiStatus)) status = 'FT';
+          else if (['LIVE', '1H', '2H', 'HT', 'ET', 'BT', 'P'].includes(apiStatus)) status = 'LIVE';
+          else if (['PST', 'SUSP', 'INT'].includes(apiStatus)) status = 'PST';
+          else if (['CANC', 'ABD', 'AWD', 'WO'].includes(apiStatus)) status = 'CANC';
+
+          // Add to leagueMap so fixture generation picks up the competition
+          if (!leagueMap.has(euro.id)) {
+            leagueMap.set(euro.id, {
+              apiId: euro.id,
+              name: euro.name,
+              division: 0,
+              competition: euro.competition,
+            });
+          }
+
+          allFixtures.push({
+            apiFootballId: f.fixture.id,
+            teamApiId: homeTeamId,
+            opponentApiId: awayTeamId,
+            season,
+            leagueApiId: euro.id,
+            round: f.league.round,
+            matchDate,
+            kickoffTime,
+            homeGoals: f.goals.home,
+            awayGoals: f.goals.away,
+            status,
+          });
+          euroFixtures++;
+        }
+      } catch (e) {
+        console.log(`    ⚠ Skipped (${(e as Error).message})`);
+      }
+    }
+  }
+
+  console.log(`  ${euroFixtures} European home fixtures for Icelandic teams`);
 
   // ---- Step 6: Generate SQL ----
   console.log('\nStep 6: Generating SQL...');

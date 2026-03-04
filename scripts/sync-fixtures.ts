@@ -39,6 +39,10 @@ const LEAGUES = [
   { id: 166, name: '2. Deild', division: 3, competition: 'league' },
   { id: 167, name: 'Cup', division: 0, competition: 'cup' },
   { id: 168, name: 'League Cup', division: 0, competition: 'league_cup' },
+  // European competitions — only home fixtures for tracked teams will be stored
+  { id: 2, name: 'Champions League', division: 0, competition: 'champions_league' },
+  { id: 3, name: 'Europa League', division: 0, competition: 'europa_league' },
+  { id: 848, name: 'Conference League', division: 0, competition: 'conference_league' },
 ];
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);

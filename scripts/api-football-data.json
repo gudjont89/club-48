@@ -3,47 +3,74 @@
     {
       "apiId": 164,
       "name": "Úrvalsdeild",
-      "division": 1
+      "division": 1,
+      "competition": "league"
     },
     {
       "apiId": 165,
       "name": "1. Deild",
-      "division": 2
+      "division": 2,
+      "competition": "league"
     },
     {
       "apiId": 166,
       "name": "2. Deild",
-      "division": 3
+      "division": 3,
+      "competition": "league"
     },
     {
       "apiId": 167,
       "name": "Cup",
-      "division": 0
+      "division": 0,
+      "competition": "cup"
     },
     {
       "apiId": 168,
       "name": "League Cup",
-      "division": 0
+      "division": 0,
+      "competition": "league_cup"
     },
     {
       "apiId": 639,
       "name": "Super Cup",
-      "division": 0
+      "division": 0,
+      "competition": "super_cup"
     },
     {
       "apiId": 671,
       "name": "Úrvalsdeild Women",
-      "division": 1
+      "division": 1,
+      "competition": "league"
     },
     {
       "apiId": 814,
       "name": "Reykjavik Cup",
-      "division": 0
+      "division": 0,
+      "competition": "reykjavik_cup"
     },
     {
       "apiId": 815,
       "name": "Fotbolti.net Cup A",
-      "division": 0
+      "division": 0,
+      "competition": "cup"
+    },
+    {
+      "apiId": 2,
+      "name": "Champions League",
+      "division": 0,
+      "competition": "champions_league"
+    },
+    {
+      "apiId": 3,
+      "name": "Europa League",
+      "division": 0,
+      "competition": "europa_league"
+    },
+    {
+      "apiId": 848,
+      "name": "Conference League",
+      "division": 0,
+      "competition": "conference_league"
     }
   ],
   "grounds": [
@@ -1798,6 +1825,4116 @@
       "city": "",
       "venueId": null,
       "venueName": null
+    },
+    {
+      "apiId": 620,
+      "apiFootballId": 620,
+      "name": "Dinamo Zagreb",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/620.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3402,
+      "apiFootballId": 3402,
+      "name": "Omonia Nicosia",
+      "shortName": "OMO",
+      "logoUrl": "https://media.api-sports.io/football/teams/3402.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 339,
+      "apiFootballId": 339,
+      "name": "Legia Warszawa",
+      "shortName": "LEG",
+      "logoUrl": "https://media.api-sports.io/football/teams/339.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 568,
+      "apiFootballId": 568,
+      "name": "Sheriff Tiraspol",
+      "shortName": "SHE",
+      "logoUrl": "https://media.api-sports.io/football/teams/568.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 550,
+      "apiFootballId": 550,
+      "name": "Shakhtar Donetsk",
+      "shortName": "SHA",
+      "logoUrl": "https://media.api-sports.io/football/teams/550.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 505,
+      "apiFootballId": 505,
+      "name": "Inter",
+      "shortName": "INT",
+      "logoUrl": "https://media.api-sports.io/football/teams/505.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 541,
+      "apiFootballId": 541,
+      "name": "Real Madrid",
+      "shortName": "REA",
+      "logoUrl": "https://media.api-sports.io/football/teams/541.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 40,
+      "apiFootballId": 40,
+      "name": "Liverpool",
+      "shortName": "LIV",
+      "logoUrl": "https://media.api-sports.io/football/teams/40.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 85,
+      "apiFootballId": 85,
+      "name": "Paris Saint Germain",
+      "shortName": "PAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/85.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 49,
+      "apiFootballId": 49,
+      "name": "Chelsea",
+      "shortName": "CHE",
+      "logoUrl": "https://media.api-sports.io/football/teams/49.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 211,
+      "apiFootballId": 211,
+      "name": "Benfica",
+      "shortName": "BEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/211.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 533,
+      "apiFootballId": 533,
+      "name": "Villarreal",
+      "shortName": "VIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/533.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 50,
+      "apiFootballId": 50,
+      "name": "Manchester City",
+      "shortName": "MAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/50.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 588,
+      "apiFootballId": 588,
+      "name": "Zrinjski",
+      "shortName": "ZRI",
+      "logoUrl": "https://media.api-sports.io/football/teams/588.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 375,
+      "apiFootballId": 375,
+      "name": "Malmo FF",
+      "shortName": "MAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/375.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2265,
+      "apiFootballId": 2265,
+      "name": "Shkupi 1927",
+      "shortName": "SHK",
+      "logoUrl": "https://media.api-sports.io/football/teams/2265.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 552,
+      "apiFootballId": 552,
+      "name": "Maribor",
+      "shortName": "MAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/552.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 586,
+      "apiFootballId": 586,
+      "name": "FK Zalgiris Vilnius",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/586.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 567,
+      "apiFootballId": 567,
+      "name": "Plzen",
+      "shortName": "PLZ",
+      "logoUrl": "https://media.api-sports.io/football/teams/567.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 397,
+      "apiFootballId": 397,
+      "name": "FC Midtjylland",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/397.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 327,
+      "apiFootballId": 327,
+      "name": "Bodo/Glimt",
+      "shortName": "BOD",
+      "logoUrl": "https://media.api-sports.io/football/teams/327.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 566,
+      "apiFootballId": 566,
+      "name": "Ludogorets",
+      "shortName": "LUD",
+      "logoUrl": "https://media.api-sports.io/football/teams/566.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 572,
+      "apiFootballId": 572,
+      "name": "Dynamo Kyiv",
+      "shortName": "DYN",
+      "logoUrl": "https://media.api-sports.io/football/teams/572.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 556,
+      "apiFootballId": 556,
+      "name": "Qarabag",
+      "shortName": "QAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/556.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 496,
+      "apiFootballId": 496,
+      "name": "Juventus",
+      "shortName": "JUV",
+      "logoUrl": "https://media.api-sports.io/football/teams/496.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4195,
+      "apiFootballId": 4195,
+      "name": "Maccabi Haifa",
+      "shortName": "MAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/4195.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 157,
+      "apiFootballId": 157,
+      "name": "Bayern Munich",
+      "shortName": "BAY",
+      "logoUrl": "https://media.api-sports.io/football/teams/157.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 194,
+      "apiFootballId": 194,
+      "name": "Ajax",
+      "shortName": "AJA",
+      "logoUrl": "https://media.api-sports.io/football/teams/194.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 529,
+      "apiFootballId": 529,
+      "name": "Barcelona",
+      "shortName": "BAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/529.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 247,
+      "apiFootballId": 247,
+      "name": "Celtic",
+      "shortName": "CEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/247.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 571,
+      "apiFootballId": 571,
+      "name": "Red Bull Salzburg",
+      "shortName": "RED",
+      "logoUrl": "https://media.api-sports.io/football/teams/571.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 165,
+      "apiFootballId": 165,
+      "name": "Borussia Dortmund",
+      "shortName": "BOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/165.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 173,
+      "apiFootballId": 173,
+      "name": "RB Leipzig",
+      "shortName": "RB ",
+      "logoUrl": "https://media.api-sports.io/football/teams/173.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 257,
+      "apiFootballId": 257,
+      "name": "Rangers",
+      "shortName": "RAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/257.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 492,
+      "apiFootballId": 492,
+      "name": "Napoli",
+      "shortName": "NAP",
+      "logoUrl": "https://media.api-sports.io/football/teams/492.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 489,
+      "apiFootballId": 489,
+      "name": "AC Milan",
+      "shortName": "AC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/489.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 400,
+      "apiFootballId": 400,
+      "name": "FC Copenhagen",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/400.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 536,
+      "apiFootballId": 536,
+      "name": "Sevilla",
+      "shortName": "SEV",
+      "logoUrl": "https://media.api-sports.io/football/teams/536.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 47,
+      "apiFootballId": 47,
+      "name": "Tottenham",
+      "shortName": "TOT",
+      "logoUrl": "https://media.api-sports.io/football/teams/47.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 212,
+      "apiFootballId": 212,
+      "name": "FC Porto",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/212.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 569,
+      "apiFootballId": 569,
+      "name": "Club Brugge KV",
+      "shortName": "CLU",
+      "logoUrl": "https://media.api-sports.io/football/teams/569.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 169,
+      "apiFootballId": 169,
+      "name": "Eintracht Frankfurt",
+      "shortName": "EIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/169.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4346,
+      "apiFootballId": 4346,
+      "name": "Struga",
+      "shortName": "STR",
+      "logoUrl": "https://media.api-sports.io/football/teams/4346.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2596,
+      "apiFootballId": 2596,
+      "name": "Farul Constanta",
+      "shortName": "FAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/2596.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4626,
+      "apiFootballId": 4626,
+      "name": "Hamrun Spartans",
+      "shortName": "HAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/4626.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2276,
+      "apiFootballId": 2276,
+      "name": "FC Urartu",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/2276.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 652,
+      "apiFootballId": 652,
+      "name": "Shamrock Rovers",
+      "shortName": "SHA",
+      "logoUrl": "https://media.api-sports.io/football/teams/652.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 667,
+      "apiFootballId": 667,
+      "name": "Lincoln Red Imps FC",
+      "shortName": "LIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/667.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 12733,
+      "apiFootballId": 12733,
+      "name": "Ballkani",
+      "shortName": "BAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/12733.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 645,
+      "apiFootballId": 645,
+      "name": "Galatasaray",
+      "shortName": "GAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/645.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 562,
+      "apiFootballId": 562,
+      "name": "FC Astana",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/562.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 656,
+      "apiFootballId": 656,
+      "name": "Slovan Bratislava",
+      "shortName": "SLO",
+      "logoUrl": "https://media.api-sports.io/football/teams/656.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 677,
+      "apiFootballId": 677,
+      "name": "Olimpija Ljubljana",
+      "shortName": "OLI",
+      "logoUrl": "https://media.api-sports.io/football/teams/677.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3491,
+      "apiFootballId": 3491,
+      "name": "Raków Częstochowa",
+      "shortName": "RAK",
+      "logoUrl": "https://media.api-sports.io/football/teams/3491.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 628,
+      "apiFootballId": 628,
+      "name": "Sparta Praha",
+      "shortName": "SPA",
+      "logoUrl": "https://media.api-sports.io/football/teams/628.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3408,
+      "apiFootballId": 3408,
+      "name": "Aris",
+      "shortName": "ARI",
+      "logoUrl": "https://media.api-sports.io/football/teams/3408.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2184,
+      "apiFootballId": 2184,
+      "name": "Servette FC",
+      "shortName": "SER",
+      "logoUrl": "https://media.api-sports.io/football/teams/2184.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 575,
+      "apiFootballId": 575,
+      "name": "AEK Athens FC",
+      "shortName": "AEK",
+      "logoUrl": "https://media.api-sports.io/football/teams/575.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 197,
+      "apiFootballId": 197,
+      "name": "PSV Eindhoven",
+      "shortName": "PSV",
+      "logoUrl": "https://media.api-sports.io/football/teams/197.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 565,
+      "apiFootballId": 565,
+      "name": "BSC Young Boys",
+      "shortName": "BSC",
+      "logoUrl": "https://media.api-sports.io/football/teams/565.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 329,
+      "apiFootballId": 329,
+      "name": "Molde",
+      "shortName": "MOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/329.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 740,
+      "apiFootballId": 740,
+      "name": "Antwerp",
+      "shortName": "ANT",
+      "logoUrl": "https://media.api-sports.io/football/teams/740.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 34,
+      "apiFootballId": 34,
+      "name": "Newcastle",
+      "shortName": "NEW",
+      "logoUrl": "https://media.api-sports.io/football/teams/34.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 598,
+      "apiFootballId": 598,
+      "name": "FK Crvena Zvezda",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/598.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 182,
+      "apiFootballId": 182,
+      "name": "Union Berlin",
+      "shortName": "UNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/182.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 33,
+      "apiFootballId": 33,
+      "name": "Manchester United",
+      "shortName": "MAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/33.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 116,
+      "apiFootballId": 116,
+      "name": "Lens",
+      "shortName": "LEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/116.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 217,
+      "apiFootballId": 217,
+      "name": "SC Braga",
+      "shortName": "SC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/217.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 548,
+      "apiFootballId": 548,
+      "name": "Real Sociedad",
+      "shortName": "REA",
+      "logoUrl": "https://media.api-sports.io/football/teams/548.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 42,
+      "apiFootballId": 42,
+      "name": "Arsenal",
+      "shortName": "ARS",
+      "logoUrl": "https://media.api-sports.io/football/teams/42.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 487,
+      "apiFootballId": 487,
+      "name": "Lazio",
+      "shortName": "LAZ",
+      "logoUrl": "https://media.api-sports.io/football/teams/487.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 530,
+      "apiFootballId": 530,
+      "name": "Atletico Madrid",
+      "shortName": "ATL",
+      "logoUrl": "https://media.api-sports.io/football/teams/530.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 209,
+      "apiFootballId": 209,
+      "name": "Feyenoord",
+      "shortName": "FEY",
+      "logoUrl": "https://media.api-sports.io/football/teams/209.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 705,
+      "apiFootballId": 705,
+      "name": "Dinamo Batumi",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/705.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 703,
+      "apiFootballId": 703,
+      "name": "UE Santa Coloma",
+      "shortName": "UE ",
+      "logoUrl": "https://media.api-sports.io/football/teams/703.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4160,
+      "apiFootballId": 4160,
+      "name": "Rīgas FS",
+      "shortName": "RĪG",
+      "logoUrl": "https://media.api-sports.io/football/teams/4160.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 701,
+      "apiFootballId": 701,
+      "name": "KI Klaksvik",
+      "shortName": "KI ",
+      "logoUrl": "https://media.api-sports.io/football/teams/701.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 573,
+      "apiFootballId": 573,
+      "name": "FK Partizan",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/573.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 394,
+      "apiFootballId": 394,
+      "name": "Dinamo Minsk",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/394.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4360,
+      "apiFootballId": 4360,
+      "name": "Celje",
+      "shortName": "CEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/4360.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 619,
+      "apiFootballId": 619,
+      "name": "PAOK",
+      "shortName": "PAO",
+      "logoUrl": "https://media.api-sports.io/football/teams/619.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 651,
+      "apiFootballId": 651,
+      "name": "Ferencvarosi TC",
+      "shortName": "FER",
+      "logoUrl": "https://media.api-sports.io/football/teams/651.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 559,
+      "apiFootballId": 559,
+      "name": "FCSB",
+      "shortName": "FCS",
+      "logoUrl": "https://media.api-sports.io/football/teams/559.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 415,
+      "apiFootballId": 415,
+      "name": "Twente",
+      "shortName": "TWE",
+      "logoUrl": "https://media.api-sports.io/football/teams/415.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2247,
+      "apiFootballId": 2247,
+      "name": "Apoel Nicosia",
+      "shortName": "APO",
+      "logoUrl": "https://media.api-sports.io/football/teams/2247.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 336,
+      "apiFootballId": 336,
+      "name": "Jagiellonia",
+      "shortName": "JAG",
+      "logoUrl": "https://media.api-sports.io/football/teams/336.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 66,
+      "apiFootballId": 66,
+      "name": "Aston Villa",
+      "shortName": "AST",
+      "logoUrl": "https://media.api-sports.io/football/teams/66.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 172,
+      "apiFootballId": 172,
+      "name": "VfB Stuttgart",
+      "shortName": "VFB",
+      "logoUrl": "https://media.api-sports.io/football/teams/172.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 547,
+      "apiFootballId": 547,
+      "name": "Girona",
+      "shortName": "GIR",
+      "logoUrl": "https://media.api-sports.io/football/teams/547.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 168,
+      "apiFootballId": 168,
+      "name": "Bayer Leverkusen",
+      "shortName": "BAY",
+      "logoUrl": "https://media.api-sports.io/football/teams/168.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 106,
+      "apiFootballId": 106,
+      "name": "Stade Brestois 29",
+      "shortName": "STA",
+      "logoUrl": "https://media.api-sports.io/football/teams/106.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 228,
+      "apiFootballId": 228,
+      "name": "Sporting CP",
+      "shortName": "SPO",
+      "logoUrl": "https://media.api-sports.io/football/teams/228.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 499,
+      "apiFootballId": 499,
+      "name": "Atalanta",
+      "shortName": "ATA",
+      "logoUrl": "https://media.api-sports.io/football/teams/499.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 500,
+      "apiFootballId": 500,
+      "name": "Bologna",
+      "shortName": "BOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/500.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 91,
+      "apiFootballId": 91,
+      "name": "Monaco",
+      "shortName": "MON",
+      "logoUrl": "https://media.api-sports.io/football/teams/91.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 79,
+      "apiFootballId": 79,
+      "name": "Lille",
+      "shortName": "LIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/79.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 637,
+      "apiFootballId": 637,
+      "name": "Sturm Graz",
+      "shortName": "STU",
+      "logoUrl": "https://media.api-sports.io/football/teams/637.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 664,
+      "apiFootballId": 664,
+      "name": "Kairat Almaty",
+      "shortName": "KAI",
+      "logoUrl": "https://media.api-sports.io/football/teams/664.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3342,
+      "apiFootballId": 3342,
+      "name": "Inter Club d'Escaldes",
+      "shortName": "INT",
+      "logoUrl": "https://media.api-sports.io/football/teams/3342.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 580,
+      "apiFootballId": 580,
+      "name": "Vikingur Gota",
+      "shortName": "VIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/580.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3502,
+      "apiFootballId": 3502,
+      "name": "Saburtalo",
+      "shortName": "SAB",
+      "logoUrl": "https://media.api-sports.io/football/teams/3502.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2273,
+      "apiFootballId": 2273,
+      "name": "FC Levadia Tallinn",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/2273.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3327,
+      "apiFootballId": 3327,
+      "name": "Egnatia Rrogozhinë",
+      "shortName": "EGN",
+      "logoUrl": "https://media.api-sports.io/football/teams/3327.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5308,
+      "apiFootballId": 5308,
+      "name": "Virtus",
+      "shortName": "VIR",
+      "logoUrl": "https://media.api-sports.io/football/teams/5308.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14281,
+      "apiFootballId": 14281,
+      "name": "Drita",
+      "shortName": "DRI",
+      "logoUrl": "https://media.api-sports.io/football/teams/14281.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 617,
+      "apiFootballId": 617,
+      "name": "Panathinaikos",
+      "shortName": "PAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/617.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1165,
+      "apiFootballId": 1165,
+      "name": "KuPS",
+      "shortName": "KUP",
+      "logoUrl": "https://media.api-sports.io/football/teams/1165.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3854,
+      "apiFootballId": 3854,
+      "name": "Shelbourne",
+      "shortName": "SHE",
+      "logoUrl": "https://media.api-sports.io/football/teams/3854.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 609,
+      "apiFootballId": 609,
+      "name": "Shkendija",
+      "shortName": "SHK",
+      "logoUrl": "https://media.api-sports.io/football/teams/609.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 561,
+      "apiFootballId": 561,
+      "name": "HNK Rijeka",
+      "shortName": "HNK",
+      "logoUrl": "https://media.api-sports.io/football/teams/561.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3684,
+      "apiFootballId": 3684,
+      "name": "FC Noah",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/3684.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 347,
+      "apiFootballId": 347,
+      "name": "Lech Poznan",
+      "shortName": "LEC",
+      "logoUrl": "https://media.api-sports.io/football/teams/347.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 319,
+      "apiFootballId": 319,
+      "name": "Brann",
+      "shortName": "BRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/319.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3403,
+      "apiFootballId": 3403,
+      "name": "Pafos",
+      "shortName": "PAF",
+      "logoUrl": "https://media.api-sports.io/football/teams/3403.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 611,
+      "apiFootballId": 611,
+      "name": "Fenerbahçe",
+      "shortName": "FEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/611.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 84,
+      "apiFootballId": 84,
+      "name": "Nice",
+      "shortName": "NIC",
+      "logoUrl": "https://media.api-sports.io/football/teams/84.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 551,
+      "apiFootballId": 551,
+      "name": "FC Basel 1893",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/551.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1393,
+      "apiFootballId": 1393,
+      "name": "Union St. Gilloise",
+      "shortName": "UNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/1393.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 81,
+      "apiFootballId": 81,
+      "name": "Marseille",
+      "shortName": "MAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/81.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 560,
+      "apiFootballId": 560,
+      "name": "Slavia Praha",
+      "shortName": "SLA",
+      "logoUrl": "https://media.api-sports.io/football/teams/560.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 553,
+      "apiFootballId": 553,
+      "name": "Olympiakos Piraeus",
+      "shortName": "OLY",
+      "logoUrl": "https://media.api-sports.io/football/teams/553.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 531,
+      "apiFootballId": 531,
+      "name": "Athletic Club",
+      "shortName": "ATH",
+      "logoUrl": "https://media.api-sports.io/football/teams/531.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 680,
+      "apiFootballId": 680,
+      "name": "Prishtina",
+      "shortName": "PRI",
+      "logoUrl": "https://media.api-sports.io/football/teams/680.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 349,
+      "apiFootballId": 349,
+      "name": "Piast Gliwice",
+      "shortName": "PIA",
+      "logoUrl": "https://media.api-sports.io/football/teams/349.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2032,
+      "apiFootballId": 2032,
+      "name": "Union Titus Petange",
+      "shortName": "UNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2032.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3872,
+      "apiFootballId": 3872,
+      "name": "Kauno Žalgiris",
+      "shortName": "KAU",
+      "logoUrl": "https://media.api-sports.io/football/teams/3872.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 350,
+      "apiFootballId": 350,
+      "name": "Cracovia Krakow",
+      "shortName": "CRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/350.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3528,
+      "apiFootballId": 3528,
+      "name": "Paide",
+      "shortName": "PAI",
+      "logoUrl": "https://media.api-sports.io/football/teams/3528.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2257,
+      "apiFootballId": 2257,
+      "name": "Dunajska Streda",
+      "shortName": "DUN",
+      "logoUrl": "https://media.api-sports.io/football/teams/2257.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 684,
+      "apiFootballId": 684,
+      "name": "FC Differdange 03",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/684.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3549,
+      "apiFootballId": 3549,
+      "name": "Ružomberok",
+      "shortName": "RUŽ",
+      "logoUrl": "https://media.api-sports.io/football/teams/3549.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3686,
+      "apiFootballId": 3686,
+      "name": "Shirak",
+      "shortName": "SHI",
+      "logoUrl": "https://media.api-sports.io/football/teams/3686.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 669,
+      "apiFootballId": 669,
+      "name": "Coleraine FC",
+      "shortName": "COL",
+      "logoUrl": "https://media.api-sports.io/football/teams/669.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4153,
+      "apiFootballId": 4153,
+      "name": "Valmiera / BSS",
+      "shortName": "VAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/4153.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1163,
+      "apiFootballId": 1163,
+      "name": "Ilves",
+      "shortName": "ILV",
+      "logoUrl": "https://media.api-sports.io/football/teams/1163.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 654,
+      "apiFootballId": 654,
+      "name": "Zeljeznicar Sarajevo",
+      "shortName": "ZEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/654.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 579,
+      "apiFootballId": 579,
+      "name": "Buducnost Podgorica",
+      "shortName": "BUD",
+      "logoUrl": "https://media.api-sports.io/football/teams/579.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 584,
+      "apiFootballId": 584,
+      "name": "Dundalk",
+      "shortName": "DUN",
+      "logoUrl": "https://media.api-sports.io/football/teams/584.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1072,
+      "apiFootballId": 1072,
+      "name": "TSV Hartberg",
+      "shortName": "TSV",
+      "logoUrl": "https://media.api-sports.io/football/teams/1072.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 256,
+      "apiFootballId": 256,
+      "name": "Motherwell",
+      "shortName": "MOT",
+      "logoUrl": "https://media.api-sports.io/football/teams/256.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 93,
+      "apiFootballId": 93,
+      "name": "Reims",
+      "shortName": "REI",
+      "logoUrl": "https://media.api-sports.io/football/teams/93.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1122,
+      "apiFootballId": 1122,
+      "name": "FK Jablonec",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/1122.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 612,
+      "apiFootballId": 612,
+      "name": "Suduva Marijampole",
+      "shortName": "SUD",
+      "logoUrl": "https://media.api-sports.io/football/teams/612.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 396,
+      "apiFootballId": 396,
+      "name": "Sonderjyske",
+      "shortName": "SON",
+      "logoUrl": "https://media.api-sports.io/football/teams/396.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1017,
+      "apiFootballId": 1017,
+      "name": "NK Lokomotiva Zagreb",
+      "shortName": "NK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/1017.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 782,
+      "apiFootballId": 782,
+      "name": "Slovan Liberec",
+      "shortName": "SLO",
+      "logoUrl": "https://media.api-sports.io/football/teams/782.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 608,
+      "apiFootballId": 608,
+      "name": "HNK Hajduk Split",
+      "shortName": "HNK",
+      "logoUrl": "https://media.api-sports.io/football/teams/608.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2262,
+      "apiFootballId": 2262,
+      "name": "Dinamo Tbilisi",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/2262.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2269,
+      "apiFootballId": 2269,
+      "name": "Anorthosis",
+      "shortName": "ANO",
+      "logoUrl": "https://media.api-sports.io/football/teams/2269.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3627,
+      "apiFootballId": 3627,
+      "name": "Kolos Kovalivka",
+      "shortName": "KOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3627.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 252,
+      "apiFootballId": 252,
+      "name": "Aberdeen",
+      "shortName": "ABE",
+      "logoUrl": "https://media.api-sports.io/football/teams/252.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 715,
+      "apiFootballId": 715,
+      "name": "Granada CF",
+      "shortName": "GRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/715.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 687,
+      "apiFootballId": 687,
+      "name": "Flora Tallinn",
+      "shortName": "FLO",
+      "logoUrl": "https://media.api-sports.io/football/teams/687.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 853,
+      "apiFootballId": 853,
+      "name": "CSKA Sofia",
+      "shortName": "CSK",
+      "logoUrl": "https://media.api-sports.io/football/teams/853.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 694,
+      "apiFootballId": 694,
+      "name": "Tirana",
+      "shortName": "TIR",
+      "logoUrl": "https://media.api-sports.io/football/teams/694.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 161,
+      "apiFootballId": 161,
+      "name": "VfL Wolfsburg",
+      "shortName": "VFL",
+      "logoUrl": "https://media.api-sports.io/football/teams/161.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1026,
+      "apiFootballId": 1026,
+      "name": "Lask Linz",
+      "shortName": "LAS",
+      "logoUrl": "https://media.api-sports.io/football/teams/1026.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 201,
+      "apiFootballId": 201,
+      "name": "AZ Alkmaar",
+      "shortName": "AZ ",
+      "logoUrl": "https://media.api-sports.io/football/teams/201.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 497,
+      "apiFootballId": 497,
+      "name": "AS Roma",
+      "shortName": "AS ",
+      "logoUrl": "https://media.api-sports.io/football/teams/497.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2246,
+      "apiFootballId": 2246,
+      "name": "CFR 1907 Cluj",
+      "shortName": "CFR",
+      "logoUrl": "https://media.api-sports.io/football/teams/2246.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1002,
+      "apiFootballId": 1002,
+      "name": "Sivasspor",
+      "shortName": "SIV",
+      "logoUrl": "https://media.api-sports.io/football/teams/1002.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 631,
+      "apiFootballId": 631,
+      "name": "Gent",
+      "shortName": "GEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/631.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1025,
+      "apiFootballId": 1025,
+      "name": "Wolfsberger AC",
+      "shortName": "WOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/1025.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 46,
+      "apiFootballId": 46,
+      "name": "Leicester",
+      "shortName": "LEI",
+      "logoUrl": "https://media.api-sports.io/football/teams/46.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 167,
+      "apiFootballId": 167,
+      "name": "1899 Hoffenheim",
+      "shortName": "189",
+      "logoUrl": "https://media.api-sports.io/football/teams/167.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 604,
+      "apiFootballId": 604,
+      "name": "Maccabi Tel Aviv",
+      "shortName": "MAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/604.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 563,
+      "apiFootballId": 563,
+      "name": "Hapoel Beer Sheva",
+      "shortName": "HAP",
+      "logoUrl": "https://media.api-sports.io/football/teams/563.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 733,
+      "apiFootballId": 733,
+      "name": "Standard Liege",
+      "shortName": "STA",
+      "logoUrl": "https://media.api-sports.io/football/teams/733.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 781,
+      "apiFootballId": 781,
+      "name": "Rapid Vienna",
+      "shortName": "RAP",
+      "logoUrl": "https://media.api-sports.io/football/teams/781.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 555,
+      "apiFootballId": 555,
+      "name": "CSKA Moscow",
+      "shortName": "CSK",
+      "logoUrl": "https://media.api-sports.io/football/teams/555.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 599,
+      "apiFootballId": 599,
+      "name": "Zorya Luhansk",
+      "shortName": "ZOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/599.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 621,
+      "apiFootballId": 621,
+      "name": "Krasnodar",
+      "shortName": "KRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/621.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 582,
+      "apiFootballId": 582,
+      "name": "Alashkert",
+      "shortName": "ALA",
+      "logoUrl": "https://media.api-sports.io/football/teams/582.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 258,
+      "apiFootballId": 258,
+      "name": "ST Johnstone",
+      "shortName": "ST ",
+      "logoUrl": "https://media.api-sports.io/football/teams/258.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4197,
+      "apiFootballId": 4197,
+      "name": "Mura",
+      "shortName": "MUR",
+      "logoUrl": "https://media.api-sports.io/football/teams/4197.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 649,
+      "apiFootballId": 649,
+      "name": "HJK helsinki",
+      "shortName": "HJK",
+      "logoUrl": "https://media.api-sports.io/football/teams/649.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 401,
+      "apiFootballId": 401,
+      "name": "Randers FC",
+      "shortName": "RAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/401.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 48,
+      "apiFootballId": 48,
+      "name": "West Ham",
+      "shortName": "WES",
+      "logoUrl": "https://media.api-sports.io/football/teams/48.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 742,
+      "apiFootballId": 742,
+      "name": "Genk",
+      "shortName": "GEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/742.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 80,
+      "apiFootballId": 80,
+      "name": "Lyon",
+      "shortName": "LYO",
+      "logoUrl": "https://media.api-sports.io/football/teams/80.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 407,
+      "apiFootballId": 407,
+      "name": "Brondby",
+      "shortName": "BRO",
+      "logoUrl": "https://media.api-sports.io/football/teams/407.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 558,
+      "apiFootballId": 558,
+      "name": "Spartak Moscow",
+      "shortName": "SPA",
+      "logoUrl": "https://media.api-sports.io/football/teams/558.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 597,
+      "apiFootballId": 597,
+      "name": "Lokomotiv Moscow",
+      "shortName": "LOK",
+      "logoUrl": "https://media.api-sports.io/football/teams/597.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 543,
+      "apiFootballId": 543,
+      "name": "Real Betis",
+      "shortName": "REA",
+      "logoUrl": "https://media.api-sports.io/football/teams/543.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 596,
+      "apiFootballId": 596,
+      "name": "Zenit Saint Petersburg",
+      "shortName": "ZEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/596.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 578,
+      "apiFootballId": 578,
+      "name": "F91 Dudelange",
+      "shortName": "F91",
+      "logoUrl": "https://media.api-sports.io/football/teams/578.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3719,
+      "apiFootballId": 3719,
+      "name": "Slovácko",
+      "shortName": "SLO",
+      "logoUrl": "https://media.api-sports.io/football/teams/3719.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 614,
+      "apiFootballId": 614,
+      "name": "AEK Larnaca",
+      "shortName": "AEK",
+      "logoUrl": "https://media.api-sports.io/football/teams/614.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2073,
+      "apiFootballId": 2073,
+      "name": "Silkeborg",
+      "shortName": "SIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/2073.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3623,
+      "apiFootballId": 3623,
+      "name": "Dnipro-1",
+      "shortName": "DNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/3623.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 709,
+      "apiFootballId": 709,
+      "name": "Pyunik Yerevan",
+      "shortName": "PYU",
+      "logoUrl": "https://media.api-sports.io/football/teams/709.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 601,
+      "apiFootballId": 601,
+      "name": "Austria Vienna",
+      "shortName": "AUS",
+      "logoUrl": "https://media.api-sports.io/football/teams/601.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 602,
+      "apiFootballId": 602,
+      "name": "Apollon Limassol",
+      "shortName": "APO",
+      "logoUrl": "https://media.api-sports.io/football/teams/602.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 94,
+      "apiFootballId": 94,
+      "name": "Rennes",
+      "shortName": "REN",
+      "logoUrl": "https://media.api-sports.io/football/teams/94.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 998,
+      "apiFootballId": 998,
+      "name": "Trabzonspor",
+      "shortName": "TRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/998.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 160,
+      "apiFootballId": 160,
+      "name": "SC Freiburg",
+      "shortName": "SC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/160.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 83,
+      "apiFootballId": 83,
+      "name": "Nantes",
+      "shortName": "NAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/83.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 783,
+      "apiFootballId": 783,
+      "name": "FC Zurich",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/783.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 367,
+      "apiFootballId": 367,
+      "name": "BK Hacken",
+      "shortName": "BK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/367.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 388,
+      "apiFootballId": 388,
+      "name": "Bate Borisov",
+      "shortName": "BAT",
+      "logoUrl": "https://media.api-sports.io/football/teams/388.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 606,
+      "apiFootballId": 606,
+      "name": "FC Lugano",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/606.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2656,
+      "apiFootballId": 2656,
+      "name": "Cukaricki",
+      "shortName": "CUK",
+      "logoUrl": "https://media.api-sports.io/football/teams/2656.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 96,
+      "apiFootballId": 96,
+      "name": "Toulouse",
+      "shortName": "TOU",
+      "logoUrl": "https://media.api-sports.io/football/teams/96.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2646,
+      "apiFootballId": 2646,
+      "name": "TSC Backa Topola",
+      "shortName": "TSC",
+      "logoUrl": "https://media.api-sports.io/football/teams/2646.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 51,
+      "apiFootballId": 51,
+      "name": "Brighton",
+      "shortName": "BRI",
+      "logoUrl": "https://media.api-sports.io/football/teams/51.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 648,
+      "apiFootballId": 648,
+      "name": "Zira",
+      "shortName": "ZIR",
+      "logoUrl": "https://media.api-sports.io/football/teams/648.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2259,
+      "apiFootballId": 2259,
+      "name": "FK Tobol Kostanay",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/2259.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 372,
+      "apiFootballId": 372,
+      "name": "IF Elfsborg",
+      "shortName": "IF ",
+      "logoUrl": "https://media.api-sports.io/football/teams/372.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 634,
+      "apiFootballId": 634,
+      "name": "Botev Plovdiv",
+      "shortName": "BOT",
+      "logoUrl": "https://media.api-sports.io/football/teams/634.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 702,
+      "apiFootballId": 702,
+      "name": "Vojvodina",
+      "shortName": "VOJ",
+      "logoUrl": "https://media.api-sports.io/football/teams/702.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4495,
+      "apiFootballId": 4495,
+      "name": "Maccabi Petah Tikva",
+      "shortName": "MAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/4495.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 20034,
+      "apiFootballId": 20034,
+      "name": "Corvinul Hunedoara",
+      "shortName": "COR",
+      "logoUrl": "https://media.api-sports.io/football/teams/20034.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 338,
+      "apiFootballId": 338,
+      "name": "Wisla Krakow",
+      "shortName": "WIS",
+      "logoUrl": "https://media.api-sports.io/football/teams/338.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 741,
+      "apiFootballId": 741,
+      "name": "Cercle Brugge",
+      "shortName": "CER",
+      "logoUrl": "https://media.api-sports.io/football/teams/741.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3364,
+      "apiFootballId": 3364,
+      "name": "Borac Banja Luka",
+      "shortName": "BOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/3364.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 6489,
+      "apiFootballId": 6489,
+      "name": "Kryvbas KR",
+      "shortName": "KRY",
+      "logoUrl": "https://media.api-sports.io/football/teams/6489.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3874,
+      "apiFootballId": 3874,
+      "name": "Panevėžys",
+      "shortName": "PAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/3874.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 254,
+      "apiFootballId": 254,
+      "name": "Heart Of Midlothian",
+      "shortName": "HEA",
+      "logoUrl": "https://media.api-sports.io/football/teams/254.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2271,
+      "apiFootballId": 2271,
+      "name": "Petrocub",
+      "shortName": "PET",
+      "logoUrl": "https://media.api-sports.io/football/teams/2271.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 549,
+      "apiFootballId": 549,
+      "name": "Beşiktaş",
+      "shortName": "BEŞ",
+      "logoUrl": "https://media.api-sports.io/football/teams/549.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 554,
+      "apiFootballId": 554,
+      "name": "Anderlecht",
+      "shortName": "AND",
+      "logoUrl": "https://media.api-sports.io/football/teams/554.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4563,
+      "apiFootballId": 4563,
+      "name": "Aktobe",
+      "shortName": "AKT",
+      "logoUrl": "https://media.api-sports.io/football/teams/4563.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1120,
+      "apiFootballId": 1120,
+      "name": "Spartak Trnava",
+      "shortName": "SPA",
+      "logoUrl": "https://media.api-sports.io/football/teams/1120.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2390,
+      "apiFootballId": 2390,
+      "name": "Paks",
+      "shortName": "PAK",
+      "logoUrl": "https://media.api-sports.io/football/teams/2390.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 646,
+      "apiFootballId": 646,
+      "name": "Levski Sofia",
+      "shortName": "LEV",
+      "logoUrl": "https://media.api-sports.io/football/teams/646.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 13976,
+      "apiFootballId": 13976,
+      "name": "Sabah FA",
+      "shortName": "SAB",
+      "logoUrl": "https://media.api-sports.io/football/teams/13976.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 207,
+      "apiFootballId": 207,
+      "name": "Utrecht",
+      "shortName": "UTR",
+      "logoUrl": "https://media.api-sports.io/football/teams/207.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 249,
+      "apiFootballId": 249,
+      "name": "Hibernian",
+      "shortName": "HIB",
+      "logoUrl": "https://media.api-sports.io/football/teams/249.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3713,
+      "apiFootballId": 3713,
+      "name": "Baník Ostrava",
+      "shortName": "BAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/3713.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2149,
+      "apiFootballId": 2149,
+      "name": "Fredrikstad",
+      "shortName": "FRE",
+      "logoUrl": "https://media.api-sports.io/football/teams/2149.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2250,
+      "apiFootballId": 2250,
+      "name": "Sigma Olomouc",
+      "shortName": "SIG",
+      "logoUrl": "https://media.api-sports.io/football/teams/2250.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3603,
+      "apiFootballId": 3603,
+      "name": "Samsunspor",
+      "shortName": "SAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/3603.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 65,
+      "apiFootballId": 65,
+      "name": "Nottingham Forest",
+      "shortName": "NOT",
+      "logoUrl": "https://media.api-sports.io/football/teams/65.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 538,
+      "apiFootballId": 538,
+      "name": "Celta Vigo",
+      "shortName": "CEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/538.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 410,
+      "apiFootballId": 410,
+      "name": "GO Ahead Eagles",
+      "shortName": "GO ",
+      "logoUrl": "https://media.api-sports.io/football/teams/410.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 698,
+      "apiFootballId": 698,
+      "name": "St Joseph S Fc",
+      "shortName": "ST ",
+      "logoUrl": "https://media.api-sports.io/football/teams/698.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 358,
+      "apiFootballId": 358,
+      "name": "Newtown AFC",
+      "shortName": "NEW",
+      "logoUrl": "https://media.api-sports.io/football/teams/358.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3842,
+      "apiFootballId": 3842,
+      "name": "Sligo Rovers",
+      "shortName": "SLI",
+      "logoUrl": "https://media.api-sports.io/football/teams/3842.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14395,
+      "apiFootballId": 14395,
+      "name": "Llapi",
+      "shortName": "LLA",
+      "logoUrl": "https://media.api-sports.io/football/teams/14395.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 337,
+      "apiFootballId": 337,
+      "name": "Slask Wroclaw",
+      "shortName": "SLA",
+      "logoUrl": "https://media.api-sports.io/football/teams/337.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3745,
+      "apiFootballId": 3745,
+      "name": "Dečić",
+      "shortName": "DEČ",
+      "logoUrl": "https://media.api-sports.io/football/teams/3745.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3840,
+      "apiFootballId": 3840,
+      "name": "Bohemians",
+      "shortName": "BOH",
+      "logoUrl": "https://media.api-sports.io/football/teams/3840.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 661,
+      "apiFootballId": 661,
+      "name": "FK Liepaja",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/661.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 10125,
+      "apiFootballId": 10125,
+      "name": "Europa",
+      "shortName": "EUR",
+      "logoUrl": "https://media.api-sports.io/football/teams/10125.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 700,
+      "apiFootballId": 700,
+      "name": "Tre Penne",
+      "shortName": "TRE",
+      "logoUrl": "https://media.api-sports.io/football/teams/700.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4331,
+      "apiFootballId": 4331,
+      "name": "Sileks",
+      "shortName": "SIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/4331.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4627,
+      "apiFootballId": 4627,
+      "name": "Mosta",
+      "shortName": "MOS",
+      "logoUrl": "https://media.api-sports.io/football/teams/4627.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2030,
+      "apiFootballId": 2030,
+      "name": "Racing FC Union Luxembourg",
+      "shortName": "RAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/2030.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3381,
+      "apiFootballId": 3381,
+      "name": "Velež",
+      "shortName": "VEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3381.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 357,
+      "apiFootballId": 357,
+      "name": "GAP Connah S Quay FC",
+      "shortName": "GAP",
+      "logoUrl": "https://media.api-sports.io/football/teams/357.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 354,
+      "apiFootballId": 354,
+      "name": "The New Saints",
+      "shortName": "THE",
+      "logoUrl": "https://media.api-sports.io/football/teams/354.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5503,
+      "apiFootballId": 5503,
+      "name": "Sumqayıt",
+      "shortName": "SUM",
+      "logoUrl": "https://media.api-sports.io/football/teams/5503.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1123,
+      "apiFootballId": 1123,
+      "name": "Aris Thessalonikis",
+      "shortName": "ARI",
+      "logoUrl": "https://media.api-sports.io/football/teams/1123.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4507,
+      "apiFootballId": 4507,
+      "name": "Ashdod",
+      "shortName": "ASH",
+      "logoUrl": "https://media.api-sports.io/football/teams/4507.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2277,
+      "apiFootballId": 2277,
+      "name": "Birkirkara",
+      "shortName": "BIR",
+      "logoUrl": "https://media.api-sports.io/football/teams/2277.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1121,
+      "apiFootballId": 1121,
+      "name": "Vorskla Poltava",
+      "shortName": "VOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/1121.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2391,
+      "apiFootballId": 2391,
+      "name": "Puskas Academy",
+      "shortName": "PUS",
+      "logoUrl": "https://media.api-sports.io/football/teams/2391.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 691,
+      "apiFootballId": 691,
+      "name": "Milsami Orhei",
+      "shortName": "MIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/691.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 385,
+      "apiFootballId": 385,
+      "name": "Torpedo Zhodino",
+      "shortName": "TOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/385.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 386,
+      "apiFootballId": 386,
+      "name": "Dinamo Brest",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/386.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3554,
+      "apiFootballId": 3554,
+      "name": "Žilina",
+      "shortName": "ŽIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3554.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2585,
+      "apiFootballId": 2585,
+      "name": "Sepsi OSK Sfantu Gheorghe",
+      "shortName": "SEP",
+      "logoUrl": "https://media.api-sports.io/football/teams/2585.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 227,
+      "apiFootballId": 227,
+      "name": "Santa Clara",
+      "shortName": "SAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/227.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 708,
+      "apiFootballId": 708,
+      "name": "Partizani",
+      "shortName": "PAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/708.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4566,
+      "apiFootballId": 4566,
+      "name": "Shakhter Karagandy",
+      "shortName": "SHA",
+      "logoUrl": "https://media.api-sports.io/football/teams/4566.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 326,
+      "apiFootballId": 326,
+      "name": "Valerenga",
+      "shortName": "VAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/326.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 591,
+      "apiFootballId": 591,
+      "name": "FC Santa Coloma",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/591.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 331,
+      "apiFootballId": 331,
+      "name": "Rosenborg",
+      "shortName": "ROS",
+      "logoUrl": "https://media.api-sports.io/football/teams/331.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3320,
+      "apiFootballId": 3320,
+      "name": "Teuta Durrës",
+      "shortName": "TEU",
+      "logoUrl": "https://media.api-sports.io/football/teams/3320.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4133,
+      "apiFootballId": 4133,
+      "name": "HB Torshavn",
+      "shortName": "HB ",
+      "logoUrl": "https://media.api-sports.io/football/teams/4133.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1430,
+      "apiFootballId": 1430,
+      "name": "Arda Kardzhali",
+      "shortName": "ARD",
+      "logoUrl": "https://media.api-sports.io/football/teams/1430.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 858,
+      "apiFootballId": 858,
+      "name": "Lokomotiv Plovdiv",
+      "shortName": "LOK",
+      "logoUrl": "https://media.api-sports.io/football/teams/858.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 673,
+      "apiFootballId": 673,
+      "name": "Sutjeska",
+      "shortName": "SUT",
+      "logoUrl": "https://media.api-sports.io/football/teams/673.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3682,
+      "apiFootballId": 3682,
+      "name": "Ararat",
+      "shortName": "ARA",
+      "logoUrl": "https://media.api-sports.io/football/teams/3682.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2264,
+      "apiFootballId": 2264,
+      "name": "Gzira United",
+      "shortName": "GZI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2264.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 10124,
+      "apiFootballId": 10124,
+      "name": "Riga",
+      "shortName": "RIG",
+      "logoUrl": "https://media.api-sports.io/football/teams/10124.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 583,
+      "apiFootballId": 583,
+      "name": "Linfield",
+      "shortName": "LIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/583.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 363,
+      "apiFootballId": 363,
+      "name": "Hammarby FF",
+      "shortName": "HAM",
+      "logoUrl": "https://media.api-sports.io/football/teams/363.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 626,
+      "apiFootballId": 626,
+      "name": "Fola Esch",
+      "shortName": "FOL",
+      "logoUrl": "https://media.api-sports.io/football/teams/626.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 615,
+      "apiFootballId": 615,
+      "name": "NK Domzale",
+      "shortName": "NK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/615.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 616,
+      "apiFootballId": 616,
+      "name": "NK Osijek",
+      "shortName": "NK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/616.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3884,
+      "apiFootballId": 3884,
+      "name": "Hibernians",
+      "shortName": "HIB",
+      "logoUrl": "https://media.api-sports.io/football/teams/3884.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1083,
+      "apiFootballId": 1083,
+      "name": "Rubin",
+      "shortName": "RUB",
+      "logoUrl": "https://media.api-sports.io/football/teams/1083.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3396,
+      "apiFootballId": 3396,
+      "name": "AEL",
+      "shortName": "AEL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3396.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2255,
+      "apiFootballId": 2255,
+      "name": "Ujpest",
+      "shortName": "UJP",
+      "logoUrl": "https://media.api-sports.io/football/teams/2255.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 644,
+      "apiFootballId": 644,
+      "name": "FC Luzern",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/644.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2256,
+      "apiFootballId": 2256,
+      "name": "Laci",
+      "shortName": "LAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/2256.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2012,
+      "apiFootballId": 2012,
+      "name": "PFC Sochi",
+      "shortName": "PFC",
+      "logoUrl": "https://media.api-sports.io/football/teams/2012.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 200,
+      "apiFootballId": 200,
+      "name": "Vitesse",
+      "shortName": "VIT",
+      "logoUrl": "https://media.api-sports.io/football/teams/200.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2270,
+      "apiFootballId": 2270,
+      "name": "Neftchi Baku",
+      "shortName": "NEF",
+      "logoUrl": "https://media.api-sports.io/football/teams/2270.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 234,
+      "apiFootballId": 234,
+      "name": "Pacos Ferreira",
+      "shortName": "PAC",
+      "logoUrl": "https://media.api-sports.io/football/teams/234.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5354,
+      "apiFootballId": 5354,
+      "name": "Larne",
+      "shortName": "LAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/5354.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3345,
+      "apiFootballId": 3345,
+      "name": "Atlètic Club d'Escaldes",
+      "shortName": "ATL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3345.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 689,
+      "apiFootballId": 689,
+      "name": "SJK",
+      "shortName": "SJK",
+      "logoUrl": "https://media.api-sports.io/football/teams/689.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3499,
+      "apiFootballId": 3499,
+      "name": "Dila",
+      "shortName": "DIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3499.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 678,
+      "apiFootballId": 678,
+      "name": "B36 Torshavn",
+      "shortName": "B36",
+      "logoUrl": "https://media.api-sports.io/football/teams/678.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2260,
+      "apiFootballId": 2260,
+      "name": "Tre Fiori",
+      "shortName": "TRE",
+      "logoUrl": "https://media.api-sports.io/football/teams/2260.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3738,
+      "apiFootballId": 3738,
+      "name": "Iskra",
+      "shortName": "ISK",
+      "logoUrl": "https://media.api-sports.io/football/teams/3738.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2266,
+      "apiFootballId": 2266,
+      "name": "Cliftonville FC",
+      "shortName": "CLI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2266.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3361,
+      "apiFootballId": 3361,
+      "name": "Tuzla City",
+      "shortName": "TUZ",
+      "logoUrl": "https://media.api-sports.io/football/teams/3361.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1164,
+      "apiFootballId": 1164,
+      "name": "Inter Turku",
+      "shortName": "INT",
+      "logoUrl": "https://media.api-sports.io/football/teams/1164.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 12772,
+      "apiFootballId": 12772,
+      "name": "Gjilani",
+      "shortName": "GJI",
+      "logoUrl": "https://media.api-sports.io/football/teams/12772.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4625,
+      "apiFootballId": 4625,
+      "name": "Floriana",
+      "shortName": "FLO",
+      "logoUrl": "https://media.api-sports.io/football/teams/4625.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 670,
+      "apiFootballId": 670,
+      "name": "Derry City",
+      "shortName": "DER",
+      "logoUrl": "https://media.api-sports.io/football/teams/670.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 352,
+      "apiFootballId": 352,
+      "name": "Bala Town",
+      "shortName": "BAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/352.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4632,
+      "apiFootballId": 4632,
+      "name": "Sfîntul Gheorghe",
+      "shortName": "SFÎ",
+      "logoUrl": "https://media.api-sports.io/football/teams/4632.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 348,
+      "apiFootballId": 348,
+      "name": "Pogon Szczecin",
+      "shortName": "POG",
+      "logoUrl": "https://media.api-sports.io/football/teams/348.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2394,
+      "apiFootballId": 2394,
+      "name": "Kisvarda FC",
+      "shortName": "KIS",
+      "logoUrl": "https://media.api-sports.io/football/teams/2394.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 321,
+      "apiFootballId": 321,
+      "name": "Lillestrom",
+      "shortName": "LIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/321.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2070,
+      "apiFootballId": 2070,
+      "name": "Viborg",
+      "shortName": "VIB",
+      "logoUrl": "https://media.api-sports.io/football/teams/2070.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 697,
+      "apiFootballId": 697,
+      "name": "Crusaders FC",
+      "shortName": "CRU",
+      "logoUrl": "https://media.api-sports.io/football/teams/697.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 759,
+      "apiFootballId": 759,
+      "name": "Viking",
+      "shortName": "VIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/759.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 343,
+      "apiFootballId": 343,
+      "name": "Lechia Gdansk",
+      "shortName": "LEC",
+      "logoUrl": "https://media.api-sports.io/football/teams/343.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 377,
+      "apiFootballId": 377,
+      "name": "AIK Stockholm",
+      "shortName": "AIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/377.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2254,
+      "apiFootballId": 2254,
+      "name": "Radnicki NIS",
+      "shortName": "RAD",
+      "logoUrl": "https://media.api-sports.io/football/teams/2254.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 389,
+      "apiFootballId": 389,
+      "name": "FC Gomel",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/389.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 364,
+      "apiFootballId": 364,
+      "name": "Djurgardens IF",
+      "shortName": "DJU",
+      "logoUrl": "https://media.api-sports.io/football/teams/364.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 607,
+      "apiFootballId": 607,
+      "name": "Konyaspor",
+      "shortName": "KON",
+      "logoUrl": "https://media.api-sports.io/football/teams/607.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2249,
+      "apiFootballId": 2249,
+      "name": "La Fiorita",
+      "shortName": "LA ",
+      "logoUrl": "https://media.api-sports.io/football/teams/2249.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3683,
+      "apiFootballId": 3683,
+      "name": "Ararat-Armenia",
+      "shortName": "ARA",
+      "logoUrl": "https://media.api-sports.io/football/teams/3683.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4196,
+      "apiFootballId": 4196,
+      "name": "Makedonija GjP",
+      "shortName": "MAK",
+      "logoUrl": "https://media.api-sports.io/football/teams/4196.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3843,
+      "apiFootballId": 3843,
+      "name": "St Patrick's Athl.",
+      "shortName": "ST ",
+      "logoUrl": "https://media.api-sports.io/football/teams/3843.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4554,
+      "apiFootballId": 4554,
+      "name": "Kyzyl-Zhar",
+      "shortName": "KYZ",
+      "logoUrl": "https://media.api-sports.io/football/teams/4554.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 224,
+      "apiFootballId": 224,
+      "name": "Guimaraes",
+      "shortName": "GUI",
+      "logoUrl": "https://media.api-sports.io/football/teams/224.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 762,
+      "apiFootballId": 762,
+      "name": "GIL Vicente",
+      "shortName": "GIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/762.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 632,
+      "apiFootballId": 632,
+      "name": "Universitatea Craiova",
+      "shortName": "UNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/632.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 564,
+      "apiFootballId": 564,
+      "name": "Başakşehir",
+      "shortName": "BAŞ",
+      "logoUrl": "https://media.api-sports.io/football/teams/564.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 660,
+      "apiFootballId": 660,
+      "name": "FC Vaduz",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/660.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 392,
+      "apiFootballId": 392,
+      "name": "Shakhter Soligorsk",
+      "shortName": "SHA",
+      "logoUrl": "https://media.api-sports.io/football/teams/392.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 610,
+      "apiFootballId": 610,
+      "name": "Fehérvár FC",
+      "shortName": "FEH",
+      "logoUrl": "https://media.api-sports.io/football/teams/610.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1386,
+      "apiFootballId": 1386,
+      "name": "Dundee Utd",
+      "shortName": "DUN",
+      "logoUrl": "https://media.api-sports.io/football/teams/1386.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 502,
+      "apiFootballId": 502,
+      "name": "Fiorentina",
+      "shortName": "FIO",
+      "logoUrl": "https://media.api-sports.io/football/teams/502.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 192,
+      "apiFootballId": 192,
+      "name": "1. FC Köln",
+      "shortName": "1. ",
+      "logoUrl": "https://media.api-sports.io/football/teams/192.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2274,
+      "apiFootballId": 2274,
+      "name": "Trans Narva",
+      "shortName": "TRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/2274.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1169,
+      "apiFootballId": 1169,
+      "name": "Honka",
+      "shortName": "HON",
+      "logoUrl": "https://media.api-sports.io/football/teams/1169.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3742,
+      "apiFootballId": 3742,
+      "name": "Arsenal Tivat",
+      "shortName": "ARS",
+      "logoUrl": "https://media.api-sports.io/football/teams/3742.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 696,
+      "apiFootballId": 696,
+      "name": "Balzan FC",
+      "shortName": "BAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/696.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5352,
+      "apiFootballId": 5352,
+      "name": "Glentoran",
+      "shortName": "GLE",
+      "logoUrl": "https://media.api-sports.io/football/teams/5352.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2194,
+      "apiFootballId": 2194,
+      "name": "Haverfordwest County AFC",
+      "shortName": "HAV",
+      "logoUrl": "https://media.api-sports.io/football/teams/2194.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 387,
+      "apiFootballId": 387,
+      "name": "Neman",
+      "shortName": "NEM",
+      "logoUrl": "https://media.api-sports.io/football/teams/387.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5298,
+      "apiFootballId": 5298,
+      "name": "Cosmos",
+      "shortName": "COS",
+      "logoUrl": "https://media.api-sports.io/football/teams/5298.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3339,
+      "apiFootballId": 3339,
+      "name": "Vllaznia Shkodër",
+      "shortName": "VLL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3339.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4633,
+      "apiFootballId": 4633,
+      "name": "Zimbru",
+      "shortName": "ZIM",
+      "logoUrl": "https://media.api-sports.io/football/teams/4633.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2191,
+      "apiFootballId": 2191,
+      "name": "Penybont",
+      "shortName": "PEN",
+      "logoUrl": "https://media.api-sports.io/football/teams/2191.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14393,
+      "apiFootballId": 14393,
+      "name": "Dukagjini",
+      "shortName": "DUK",
+      "logoUrl": "https://media.api-sports.io/football/teams/14393.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 658,
+      "apiFootballId": 658,
+      "name": "Progres Niederkorn",
+      "shortName": "PRO",
+      "logoUrl": "https://media.api-sports.io/football/teams/658.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 16135,
+      "apiFootballId": 16135,
+      "name": "Magpies",
+      "shortName": "MAG",
+      "logoUrl": "https://media.api-sports.io/football/teams/16135.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2080,
+      "apiFootballId": 2080,
+      "name": "Haka",
+      "shortName": "HAK",
+      "logoUrl": "https://media.api-sports.io/football/teams/2080.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3861,
+      "apiFootballId": 3861,
+      "name": "Hegelmann Litauen",
+      "shortName": "HEG",
+      "logoUrl": "https://media.api-sports.io/football/teams/3861.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 11907,
+      "apiFootballId": 11907,
+      "name": "Swift Hesperange",
+      "shortName": "SWI",
+      "logoUrl": "https://media.api-sports.io/football/teams/11907.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2392,
+      "apiFootballId": 2392,
+      "name": "Debreceni VSC",
+      "shortName": "DEB",
+      "logoUrl": "https://media.api-sports.io/football/teams/2392.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3714,
+      "apiFootballId": 3714,
+      "name": "Bohemians 1905",
+      "shortName": "BOH",
+      "logoUrl": "https://media.api-sports.io/football/teams/3714.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 657,
+      "apiFootballId": 657,
+      "name": "Beitar Jerusalem",
+      "shortName": "BEI",
+      "logoUrl": "https://media.api-sports.io/football/teams/657.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3563,
+      "apiFootballId": 3563,
+      "name": "Adana Demirspor",
+      "shortName": "ADA",
+      "logoUrl": "https://media.api-sports.io/football/teams/3563.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 406,
+      "apiFootballId": 406,
+      "name": "Aarhus",
+      "shortName": "AAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/406.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2414,
+      "apiFootballId": 2414,
+      "name": "Zalaegerszegi TE",
+      "shortName": "ZAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/2414.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 374,
+      "apiFootballId": 374,
+      "name": "Kalmar FF",
+      "shortName": "KAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/374.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4135,
+      "apiFootballId": 4135,
+      "name": "Auda",
+      "shortName": "AUD",
+      "logoUrl": "https://media.api-sports.io/football/teams/4135.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 685,
+      "apiFootballId": 685,
+      "name": "Torpedo Kutaisi",
+      "shortName": "TOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/685.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 627,
+      "apiFootballId": 627,
+      "name": "Qabala",
+      "shortName": "QAB",
+      "logoUrl": "https://media.api-sports.io/football/teams/627.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5111,
+      "apiFootballId": 5111,
+      "name": "Kecskeméti TE",
+      "shortName": "KEC",
+      "logoUrl": "https://media.api-sports.io/football/teams/5111.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1426,
+      "apiFootballId": 1426,
+      "name": "CSKA 1948",
+      "shortName": "CSK",
+      "logoUrl": "https://media.api-sports.io/football/teams/1426.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 692,
+      "apiFootballId": 692,
+      "name": "Ordabasy",
+      "shortName": "ORD",
+      "logoUrl": "https://media.api-sports.io/football/teams/692.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 398,
+      "apiFootballId": 398,
+      "name": "FC Nordsjaelland",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/398.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 240,
+      "apiFootballId": 240,
+      "name": "Arouca",
+      "shortName": "ARO",
+      "logoUrl": "https://media.api-sports.io/football/teams/240.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 727,
+      "apiFootballId": 727,
+      "name": "Osasuna",
+      "shortName": "OSA",
+      "logoUrl": "https://media.api-sports.io/football/teams/727.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 679,
+      "apiFootballId": 679,
+      "name": "FK Sarajevo",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/679.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14507,
+      "apiFootballId": 14507,
+      "name": "Marsaxlokk",
+      "shortName": "MAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/14507.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 391,
+      "apiFootballId": 391,
+      "name": "FC Isloch Minsk R.",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/391.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 356,
+      "apiFootballId": 356,
+      "name": "Caernarfon Town",
+      "shortName": "CAE",
+      "logoUrl": "https://media.api-sports.io/football/teams/356.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2036,
+      "apiFootballId": 2036,
+      "name": "UNA Strassen",
+      "shortName": "UNA",
+      "logoUrl": "https://media.api-sports.io/football/teams/2036.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3529,
+      "apiFootballId": 3529,
+      "name": "Tallinna Kalev",
+      "shortName": "TAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/3529.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 650,
+      "apiFootballId": 650,
+      "name": "VPS",
+      "shortName": "VPS",
+      "logoUrl": "https://media.api-sports.io/football/teams/650.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3870,
+      "apiFootballId": 3870,
+      "name": "Šiauliai",
+      "shortName": "ŠIA",
+      "logoUrl": "https://media.api-sports.io/football/teams/3870.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3740,
+      "apiFootballId": 3740,
+      "name": "Mornar",
+      "shortName": "MOR",
+      "logoUrl": "https://media.api-sports.io/football/teams/3740.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4359,
+      "apiFootballId": 4359,
+      "name": "Bravo",
+      "shortName": "BRA",
+      "logoUrl": "https://media.api-sports.io/football/teams/4359.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 15576,
+      "apiFootballId": 15576,
+      "name": "Malisheva",
+      "shortName": "MAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/15576.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4348,
+      "apiFootballId": 4348,
+      "name": "Tikveš",
+      "shortName": "TIK",
+      "logoUrl": "https://media.api-sports.io/football/teams/4348.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 325,
+      "apiFootballId": 325,
+      "name": "Tromso",
+      "shortName": "TRO",
+      "logoUrl": "https://media.api-sports.io/football/teams/325.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4628,
+      "apiFootballId": 4628,
+      "name": "Sliema Wanderers",
+      "shortName": "SLI",
+      "logoUrl": "https://media.api-sports.io/football/teams/4628.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 851,
+      "apiFootballId": 851,
+      "name": "Cherno More Varna",
+      "shortName": "CHE",
+      "logoUrl": "https://media.api-sports.io/football/teams/851.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 6496,
+      "apiFootballId": 6496,
+      "name": "Polessya",
+      "shortName": "POL",
+      "logoUrl": "https://media.api-sports.io/football/teams/6496.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 251,
+      "apiFootballId": 251,
+      "name": "ST Mirren",
+      "shortName": "ST ",
+      "logoUrl": "https://media.api-sports.io/football/teams/251.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2644,
+      "apiFootballId": 2644,
+      "name": "Radnicki 1923",
+      "shortName": "RAD",
+      "logoUrl": "https://media.api-sports.io/football/teams/2644.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1011,
+      "apiFootballId": 1011,
+      "name": "FC ST. Gallen",
+      "shortName": "FC ",
+      "logoUrl": "https://media.api-sports.io/football/teams/1011.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 250,
+      "apiFootballId": 250,
+      "name": "Kilmarnock",
+      "shortName": "KIL",
+      "logoUrl": "https://media.api-sports.io/football/teams/250.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 640,
+      "apiFootballId": 640,
+      "name": "Mlada Boleslav",
+      "shortName": "MLA",
+      "logoUrl": "https://media.api-sports.io/football/teams/640.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 180,
+      "apiFootballId": 180,
+      "name": "1. FC Heidenheim",
+      "shortName": "1. ",
+      "logoUrl": "https://media.api-sports.io/football/teams/180.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 663,
+      "apiFootballId": 663,
+      "name": "FK Rabotnicki",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/663.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4149,
+      "apiFootballId": 4149,
+      "name": "BFC Daugavpils",
+      "shortName": "BFC",
+      "logoUrl": "https://media.api-sports.io/football/teams/4149.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 4374,
+      "apiFootballId": 4374,
+      "name": "Koper",
+      "shortName": "KOP",
+      "logoUrl": "https://media.api-sports.io/football/teams/4374.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 682,
+      "apiFootballId": 682,
+      "name": "NSI Runavik",
+      "shortName": "NSI",
+      "logoUrl": "https://media.api-sports.io/football/teams/682.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 662,
+      "apiFootballId": 662,
+      "name": "Kalju Nomme",
+      "shortName": "KAL",
+      "logoUrl": "https://media.api-sports.io/football/teams/662.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 574,
+      "apiFootballId": 574,
+      "name": "Vardar Skopje",
+      "shortName": "VAR",
+      "logoUrl": "https://media.api-sports.io/football/teams/574.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3326,
+      "apiFootballId": 3326,
+      "name": "Dinamo Tirana",
+      "shortName": "DIN",
+      "logoUrl": "https://media.api-sports.io/football/teams/3326.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3858,
+      "apiFootballId": 3858,
+      "name": "Banga",
+      "shortName": "BAN",
+      "logoUrl": "https://media.api-sports.io/football/teams/3858.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2402,
+      "apiFootballId": 2402,
+      "name": "Gyori ETO FC",
+      "shortName": "GYO",
+      "logoUrl": "https://media.api-sports.io/football/teams/2402.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2599,
+      "apiFootballId": 2599,
+      "name": "Universitatea Cluj",
+      "shortName": "UNI",
+      "logoUrl": "https://media.api-sports.io/football/teams/2599.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 736,
+      "apiFootballId": 736,
+      "name": "Charleroi",
+      "shortName": "CHA",
+      "logoUrl": "https://media.api-sports.io/football/teams/736.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 5351,
+      "apiFootballId": 5351,
+      "name": "Dungannon Swifts",
+      "shortName": "DUN",
+      "logoUrl": "https://media.api-sports.io/football/teams/5351.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1014,
+      "apiFootballId": 1014,
+      "name": "Lausanne",
+      "shortName": "LAU",
+      "logoUrl": "https://media.api-sports.io/football/teams/1014.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 14864,
+      "apiFootballId": 14864,
+      "name": "Spaeri",
+      "shortName": "SPA",
+      "logoUrl": "https://media.api-sports.io/football/teams/14864.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 1483,
+      "apiFootballId": 1483,
+      "name": "NK Varazdin",
+      "shortName": "NK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/1483.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 10534,
+      "apiFootballId": 10534,
+      "name": "FK Košice",
+      "shortName": "FK ",
+      "logoUrl": "https://media.api-sports.io/football/teams/10534.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 2643,
+      "apiFootballId": 2643,
+      "name": "Novi Pazar",
+      "shortName": "NOV",
+      "logoUrl": "https://media.api-sports.io/football/teams/2643.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 11238,
+      "apiFootballId": 11238,
+      "name": "Araz",
+      "shortName": "ARA",
+      "logoUrl": "https://media.api-sports.io/football/teams/11238.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 3619,
+      "apiFootballId": 3619,
+      "name": "Oleksandria",
+      "shortName": "OLE",
+      "logoUrl": "https://media.api-sports.io/football/teams/3619.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 164,
+      "apiFootballId": 164,
+      "name": "FSV Mainz 05",
+      "shortName": "FSV",
+      "logoUrl": "https://media.api-sports.io/football/teams/164.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 728,
+      "apiFootballId": 728,
+      "name": "Rayo Vallecano",
+      "shortName": "RAY",
+      "logoUrl": "https://media.api-sports.io/football/teams/728.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 52,
+      "apiFootballId": 52,
+      "name": "Crystal Palace",
+      "shortName": "CRY",
+      "logoUrl": "https://media.api-sports.io/football/teams/52.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
+    },
+    {
+      "apiId": 95,
+      "apiFootballId": 95,
+      "name": "Strasbourg",
+      "shortName": "STR",
+      "logoUrl": "https://media.api-sports.io/football/teams/95.png",
+      "city": "",
+      "venueId": null,
+      "venueName": null
     }
   ],
   "teamSeasons": [
@@ -3458,5 +7595,5 @@
       "venueApiId": 2313
     }
   ],
-  "fixtureCount": 3564
+  "fixtureCount": 8002
 }
