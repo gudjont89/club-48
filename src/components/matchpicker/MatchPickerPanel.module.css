@@ -298,14 +298,14 @@
 }
 
 .attendedCheck {
-  display: none;
+  visibility: hidden;
   font-size: 0.6rem;
   color: var(--visited);
   margin-top: 1px;
 }
 
 .attended .attendedCheck {
-  display: block;
+  visibility: visible;
 }
 
 @media (max-width: 640px) {
