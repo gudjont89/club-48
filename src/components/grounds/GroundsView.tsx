@@ -26,6 +26,7 @@ export default function GroundsView() {
 
   const openPanel = useCallback((teamId: number) => {
     setPanelTeamId(teamId);
+    setPanelSeason(MAX_SEASON);
   }, []);
 
   const closePanel = useCallback(() => {
