@@ -8,19 +8,18 @@ import type { GroundProgress } from '../../types';
 import styles from './MatchPickerPanel.module.css';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const MIN_YEAR = 2020;
-const MAX_YEAR = 2025;
-
 interface MatchPickerPanelProps {
   isOpen: boolean;
   teamId: number | null;
   grounds: GroundProgress[];
   season: number;
+  minSeason: number;
+  maxSeason: number;
   onClose: () => void;
   onChangeSeason: (delta: number) => void;
 }
 
-export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onClose, onChangeSeason }: MatchPickerPanelProps) {
+export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minSeason, maxSeason, onClose, onChangeSeason }: MatchPickerPanelProps) {
   const { isAttended, toggleAttendance } = useVisits();
 
   const ground = teamId ? grounds.find(g => g.teamId === teamId) : null;
@@ -74,7 +73,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onCl
               <button
                 className={styles.yearArrow}
                 onClick={() => onChangeSeason(-1)}
-                disabled={season <= MIN_YEAR}
+                disabled={season <= minSeason}
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <polyline points="9,2 4,7 9,12" />
@@ -87,7 +86,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, onCl
               <button
                 className={styles.yearArrow}
                 onClick={() => onChangeSeason(1)}
-                disabled={season >= MAX_YEAR}
+                disabled={season >= maxSeason}
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <polyline points="5,2 10,7 5,12" />

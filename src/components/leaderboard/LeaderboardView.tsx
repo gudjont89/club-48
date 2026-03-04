@@ -1,4 +1,5 @@
 import { useLeaderboard } from '../../hooks/useLeaderboard';
+import { useSeasons } from '../../hooks/useSeasons';
 import styles from './LeaderboardView.module.css';
 
 const DIVS = [
@@ -9,7 +10,8 @@ const DIVS = [
 ];
 
 export default function LeaderboardView() {
-  const { entries, loading, error } = useLeaderboard(2025);
+  const { maxSeason } = useSeasons();
+  const { entries, loading, error } = useLeaderboard(maxSeason);
 
   if (loading) {
     return <div className={styles.message}>Loading leaderboard...</div>;

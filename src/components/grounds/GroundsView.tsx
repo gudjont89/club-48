@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { DIVISIONS } from '../../data/divisions';
 import { useVisits } from '../../context/VisitsContext';
 import { useGrounds, getGroundsByDivision } from '../../hooks/useGrounds';
+import { useSeasons } from '../../hooks/useSeasons';
 import GroundCard from './GroundCard';
 import MatchPickerPanel from '../matchpicker/MatchPickerPanel';
 import styles from './GroundsView.module.css';
@@ -13,21 +14,19 @@ const CSS_KEY_MAP: Record<string, string> = {
   thridi: styles.divThridi,
 };
 
-const MIN_SEASON = 2020;
-const MAX_SEASON = 2025;
-
 export default function GroundsView() {
   const { isTeamVisited } = useVisits();
+  const { minSeason, maxSeason } = useSeasons();
   const [panelTeamId, setPanelTeamId] = useState<number | null>(null);
-  const [panelSeason, setPanelSeason] = useState(MAX_SEASON);
+  const [panelSeason, setPanelSeason] = useState(maxSeason);
 
-  const { grounds, loading, error } = useGrounds(MAX_SEASON);
+  const { grounds, loading, error } = useGrounds(maxSeason);
   const groundsByDivision = getGroundsByDivision(grounds);
 
   const openPanel = useCallback((teamId: number) => {
     setPanelTeamId(teamId);
-    setPanelSeason(MAX_SEASON);
-  }, []);
+    setPanelSeason(maxSeason);
+  }, [maxSeason]);
 
   const closePanel = useCallback(() => {
     setPanelTeamId(null);
@@ -36,10 +35,10 @@ export default function GroundsView() {
   const changeSeason = useCallback((delta: number) => {
     setPanelSeason(prev => {
       const next = prev + delta;
-      if (next < MIN_SEASON || next > MAX_SEASON) return prev;
+      if (next < minSeason || next > maxSeason) return prev;
       return next;
     });
-  }, []);
+  }, [minSeason, maxSeason]);
 
   if (loading) {
     return <div className={styles.loading}>Loading grounds...</div>;
@@ -86,6 +85,8 @@ export default function GroundsView() {
         teamId={panelTeamId}
         grounds={grounds}
         season={panelSeason}
+        minSeason={minSeason}
+        maxSeason={maxSeason}
         onClose={closePanel}
         onChangeSeason={changeSeason}
       />
