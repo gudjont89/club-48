@@ -231,16 +231,6 @@
       "longitude": null
     },
     {
-      "apiId": 2318,
-      "apiFootballVenueId": 2318,
-      "name": "Eimskipsvöllurinn",
-      "city": "Reykjavík",
-      "capacity": 5478,
-      "surface": "grass",
-      "latitude": null,
-      "longitude": null
-    },
-    {
       "apiId": 20549,
       "apiFootballVenueId": 20549,
       "name": "AVIS völlurinn",
