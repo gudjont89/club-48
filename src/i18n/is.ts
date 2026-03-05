@@ -64,6 +64,19 @@ const is = {
   'competition.europa_league': 'Evrópudeildin',
   'competition.conference_league': 'Sambandsdeildin',
 
+  // Phase labels
+  'phase.regular_season': '{{competition}} - {{round}}. umferð',
+  'phase.championship': '{{competition}} (efri) - {{round}}. umferð',
+  'phase.relegation': '{{competition}} (neðri) - {{round}}. umferð',
+  'phase.promotion_playoffs': '{{competition}} - Uppgangsleikir',
+  'phase.group_stage': '{{competition}} - Riðill ({{round}}. umferð)',
+  'phase.qualifying': '{{competition}} - {{round}}. undankeppni',
+  'phase.playoffs': '{{competition}} - Umspil',
+  'phase.knockout': '{{competition}} - {{n}} liða úrslit',
+  'phase.quarter_finals': '{{competition}} - Áttundarúrslit',
+  'phase.semi_finals': '{{competition}} - Undanúrslit',
+  'phase.final': '{{competition}} - Úrslit',
+
   // Matchday
   'matchday': '{{round}}. umferð',
 

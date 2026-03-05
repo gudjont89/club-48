@@ -190,12 +190,29 @@ interface Fixture {
   season: number;
   leagueApiId: number;
   round: string;
+  phase: string;
   matchDate: string;
   kickoffTime: string;
   homeGoals: number | null;
   awayGoals: number | null;
   status: string;
   venueApiId: number | null; // actual venue where match was played
+}
+
+// Parse API-Football round string into a phase enum value
+function parsePhase(roundStr: string): string {
+  if (roundStr.startsWith('Regular Season')) return 'regular_season';
+  if (roundStr.startsWith('Championship Round')) return 'championship';
+  if (roundStr.startsWith('Relegation Round')) return 'relegation';
+  if (roundStr.startsWith('Promotion Play-offs')) return 'promotion_playoffs';
+  if (roundStr.startsWith('Group Stage') || /^Group [A-Z\d]/.test(roundStr)) return 'group_stage';
+  if (roundStr.includes('Qualifying Round')) return 'qualifying';
+  if (roundStr.includes('Play-offs') || roundStr.includes('Playoff round') || roundStr.includes('Knockout Round')) return 'playoffs';
+  if (roundStr === 'Quarter-finals') return 'quarter_finals';
+  if (roundStr === 'Semi-finals') return 'semi_finals';
+  if (roundStr.includes('Final')) return 'final';
+  if (/Round of \d+/.test(roundStr) || /\d+(st|nd|rd|th) (Round|Finals)/.test(roundStr)) return 'knockout';
+  return 'regular_season';
 }
 
 // ---- Main ----
@@ -438,6 +455,7 @@ async function main() {
             season,
             leagueApiId: league.apiId,
             round: roundNum ?? f.league.round,
+            phase: parsePhase(f.league.round),
             matchDate,
             kickoffTime,
             homeGoals: f.goals.home,
@@ -488,6 +506,7 @@ async function main() {
               season,
               leagueApiId: cupLeague.apiId,
               round: f.league.round,
+              phase: parsePhase(f.league.round),
               matchDate,
               kickoffTime,
               homeGoals: f.goals.home,
@@ -569,6 +588,7 @@ async function main() {
             season,
             leagueApiId: euro.id,
             round: f.league.round,
+            phase: parsePhase(f.league.round),
             matchDate,
             kickoffTime,
             homeGoals: f.goals.home,
@@ -617,6 +637,7 @@ async function main() {
         season: f.season,
         leagueApiId: 0, // no API-Football league ID for 3. deild
         round: '',
+        phase: 'regular_season',
         matchDate: f.matchDate,
         kickoffTime: f.kickoffTime,
         homeGoals: f.homeGoals,
@@ -793,7 +814,7 @@ async function main() {
     const competition = leagueMap.get(fix.leagueApiId)?.competition ?? 'league';
     const fixtureGroundId = fix.venueApiId ? groundIdMap.get(fix.venueApiId) ?? null : null;
     const groundIdExpr = fixtureGroundId !== null ? String(fixtureGroundId) : 'NULL';
-    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, ground_id, round, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, competition, status) SELECT ${fix.apiFootballId}, ts.id, ${groundIdExpr}, ${roundVal}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(competition)}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
+    sql.push(`INSERT INTO public.fixtures (api_football_id, team_season_id, ground_id, round, phase, match_date, kickoff_time, opponent_team_id, home_goals, away_goals, competition, status) SELECT ${fix.apiFootballId}, ts.id, ${groundIdExpr}, ${roundVal}, ${esc(fix.phase)}, '${fix.matchDate}', '${fix.kickoffTime}', (SELECT id FROM public.teams WHERE api_football_id = ${fix.opponentApiId}), ${fix.homeGoals ?? 'NULL'}, ${fix.awayGoals ?? 'NULL'}, ${esc(competition)}, ${esc(fix.status)} FROM public.team_seasons ts WHERE ts.team_id = ${ourTeamId} AND ts.season = ${fix.season} LIMIT 1 ON CONFLICT (api_football_id) DO NOTHING;`);
   }
 
   sql.push('');

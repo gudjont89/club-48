@@ -25,9 +25,23 @@ export interface GroundProgress {
   fixtureCount: number;
 }
 
+export type Phase =
+  | 'regular_season'
+  | 'championship'
+  | 'relegation'
+  | 'promotion_playoffs'
+  | 'group_stage'
+  | 'qualifying'
+  | 'playoffs'
+  | 'knockout'
+  | 'quarter_finals'
+  | 'semi_finals'
+  | 'final';
+
 export interface Fixture {
   fixtureId: number;
   round: number | null;
+  phase: Phase;
   matchDate: string;
   kickoffTime: string | null;
   opponentName: string;

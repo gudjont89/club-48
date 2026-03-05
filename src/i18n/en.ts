@@ -66,6 +66,19 @@ const en: Record<TranslationKey, string> = {
   'competition.europa_league': 'Europa League',
   'competition.conference_league': 'Conference League',
 
+  // Phase labels
+  'phase.regular_season': '{{competition}} - Matchday {{round}}',
+  'phase.championship': '{{competition}} (Championship) - Matchday {{round}}',
+  'phase.relegation': '{{competition}} (Relegation) - Matchday {{round}}',
+  'phase.promotion_playoffs': '{{competition}} - Promotion Play-offs',
+  'phase.group_stage': '{{competition}} - Group Stage (Matchday {{round}})',
+  'phase.qualifying': '{{competition}} - Qualifying Round {{round}}',
+  'phase.playoffs': '{{competition}} - Play-offs',
+  'phase.knockout': '{{competition}} - Round of {{n}}',
+  'phase.quarter_finals': '{{competition}} - Quarter-finals',
+  'phase.semi_finals': '{{competition}} - Semi-finals',
+  'phase.final': '{{competition}} - Final',
+
   // Matchday
   'matchday': 'Matchday {{round}}',
 

@@ -89,6 +89,21 @@ async function apiFetch<T>(endpoint: string, params: Record<string, string | num
   return json.response;
 }
 
+function parsePhase(roundStr: string): string {
+  if (roundStr.startsWith('Regular Season')) return 'regular_season';
+  if (roundStr.startsWith('Championship Round')) return 'championship';
+  if (roundStr.startsWith('Relegation Round')) return 'relegation';
+  if (roundStr.startsWith('Promotion Play-offs')) return 'promotion_playoffs';
+  if (roundStr.startsWith('Group Stage') || /^Group [A-Z\d]/.test(roundStr)) return 'group_stage';
+  if (roundStr.includes('Qualifying Round')) return 'qualifying';
+  if (roundStr.includes('Play-offs') || roundStr.includes('Playoff round') || roundStr.includes('Knockout Round')) return 'playoffs';
+  if (roundStr === 'Quarter-finals') return 'quarter_finals';
+  if (roundStr === 'Semi-finals') return 'semi_finals';
+  if (roundStr.includes('Final')) return 'final';
+  if (/Round of \d+/.test(roundStr) || /\d+(st|nd|rd|th) (Round|Finals)/.test(roundStr)) return 'knockout';
+  return 'regular_season';
+}
+
 function mapStatus(apiStatus: string): string {
   if (['FT', 'AET', 'PEN'].includes(apiStatus)) return 'FT';
   if (['LIVE', '1H', '2H', 'HT', 'ET', 'BT', 'P'].includes(apiStatus)) return 'LIVE';
@@ -216,6 +231,7 @@ async function main() {
         team_season_id: teamSeasonId,
         ground_id: groundId,
         round,
+        phase: parsePhase(f.league.round),
         match_date: matchDate,
         kickoff_time: kickoffTime,
         opponent_team_id: opponentTeamId,

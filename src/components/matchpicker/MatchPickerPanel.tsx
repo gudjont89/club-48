@@ -120,9 +120,14 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const postponed = fix.status === 'PST';
                       const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
                       const isCup = fix.competition !== 'league';
-                      const metaLabel = isCup
-                        ? t(`competition.${fix.competition}` as TranslationKey)
-                        : fix.round ? t('matchday', { round: fix.round }) : '';
+                      const competitionLabel = fix.competition === 'league' && division
+                        ? t(`division.${division.cssKey}` as TranslationKey)
+                        : t(`competition.${fix.competition}` as TranslationKey);
+                      const metaLabel = t(`phase.${fix.phase}` as TranslationKey, {
+                        competition: competitionLabel,
+                        round: fix.round ?? '',
+                        n: fix.round ?? '',
+                      });
 
                       return (
                         <div
