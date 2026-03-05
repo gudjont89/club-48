@@ -248,6 +248,7 @@ async function main() {
     { division: 0, competition: 'league_cup', patterns: ['league cup', 'deildabikar'] },
     { division: 0, competition: 'super_cup', patterns: ['super cup'] },
     { division: 0, competition: 'reykjavik_cup', patterns: ['reykjavik cup'] },
+    { division: 0, competition: 'fotboltinet_cup', patterns: ['fotbolti.net'] },
     { division: 0, competition: 'cup', patterns: ['cup', 'bikar', 'borgunarbikar'] }, // Catch-all cup last
   ];
 

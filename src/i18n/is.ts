@@ -57,6 +57,7 @@ const is = {
   // Competitions
   'competition.league': 'Deild',
   'competition.cup': 'Bikar',
+  'competition.fotboltinet_cup': 'Fotbolti.net bikar',
   'competition.league_cup': 'Deildabikar',
   'competition.super_cup': 'Ofurbikar',
   'competition.reykjavik_cup': 'Reykjavíkurbikar',

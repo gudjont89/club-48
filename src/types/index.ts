@@ -57,6 +57,7 @@ export interface Fixture {
 export type Competition =
   | 'league'
   | 'cup'
+  | 'fotboltinet_cup'
   | 'league_cup'
   | 'super_cup'
   | 'reykjavik_cup'
@@ -67,6 +68,7 @@ export type Competition =
 export const COMPETITION_LABELS: Record<Competition, string> = {
   league: 'League',
   cup: 'Cup',
+  fotboltinet_cup: 'Fotbolti.net Cup',
   league_cup: 'League Cup',
   super_cup: 'Super Cup',
   reykjavik_cup: 'Reykjavik Cup',

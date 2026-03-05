@@ -59,6 +59,7 @@ const en: Record<TranslationKey, string> = {
   // Competitions
   'competition.league': 'League',
   'competition.cup': 'Cup',
+  'competition.fotboltinet_cup': 'Fotbolti.net Cup',
   'competition.league_cup': 'League Cup',
   'competition.super_cup': 'Super Cup',
   'competition.reykjavik_cup': 'Reykjavik Cup',
