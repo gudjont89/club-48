@@ -64,6 +64,9 @@ const is = {
   'competition.europa_league': 'Evrópudeildin',
   'competition.conference_league': 'Sambandsdeildin',
 
+  // Matchday
+  'matchday': '{{round}}. umferð',
+
   // Divisions
   'division.besta': 'Besta deild',
   'division.fyrsta': '1. deild',

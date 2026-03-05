@@ -122,7 +122,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const isCup = fix.competition !== 'league';
                       const metaLabel = isCup
                         ? t(`competition.${fix.competition}` as TranslationKey)
-                        : fix.round ? `R${fix.round}` : '';
+                        : fix.round ? t('matchday', { round: fix.round }) : '';
 
                       return (
                         <div

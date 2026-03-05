@@ -66,6 +66,9 @@ const en: Record<TranslationKey, string> = {
   'competition.europa_league': 'Europa League',
   'competition.conference_league': 'Conference League',
 
+  // Matchday
+  'matchday': 'Matchday {{round}}',
+
   // Divisions
   'division.besta': 'Besta deild',
   'division.fyrsta': '1. deild',
