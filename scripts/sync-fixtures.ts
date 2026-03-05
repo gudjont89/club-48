@@ -99,8 +99,8 @@ function parsePhase(roundStr: string): string {
   if (roundStr.includes('Play-offs') || roundStr.includes('Playoff round') || roundStr.includes('Knockout Round')) return 'playoffs';
   if (roundStr === 'Quarter-finals') return 'quarter_finals';
   if (roundStr === 'Semi-finals') return 'semi_finals';
+  if (/Round of \d+/.test(roundStr) || /\d+(st|nd|rd|th) Finals/.test(roundStr)) return 'knockout';
   if (roundStr.includes('Final')) return 'final';
-  if (/Round of \d+/.test(roundStr) || /\d+(st|nd|rd|th) (Round|Finals)/.test(roundStr)) return 'knockout';
   return 'regular_season';
 }
 
