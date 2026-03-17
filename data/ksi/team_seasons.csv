@@ -14,7 +14,7 @@ ksi_team_id,team_name,season,home_ground_id
 5976,Haukar,2023,46
 5732,HK,2023,10
 6123,Hvíti riddarinn,2023,21
-6281,Höttur/Huginn Fullorðnir Karlar,2023,54
+6281,Höttur/Huginn,2023,54
 5735,ÍA,2023,25
 5388,ÍBV,2023,11
 5383,ÍH,2023,63
@@ -23,7 +23,7 @@ ksi_team_id,team_name,season,home_ground_id
 5987,Kári,2023,18
 5964,Keflavík,2023,14
 5216,KF,2023,52
-6330,KFA Fullorðnir Karlar,2023,47
+6330,KFA,2023,47
 6189,KFG,2023,5
 5980,KFS,2023,68
 5227,Kormákur/Hvöt,2023,58
@@ -62,7 +62,7 @@ ksi_team_id,team_name,season,home_ground_id
 5976,Haukar,2024,56
 5732,HK,2024,10
 6123,Hvíti riddarinn,2024,21
-6281,Höttur/Huginn Fullorðnir Karlar,2024,54
+6281,Höttur/Huginn,2024,54
 5735,ÍA,2024,19
 5388,ÍBV,2024,11
 5383,ÍH,2024,63
@@ -71,9 +71,9 @@ ksi_team_id,team_name,season,home_ground_id
 5987,Kári,2024,18
 5964,Keflavík,2024,14
 5216,KF,2024,52
-6330,KFA Fullorðnir Karlar,2024,47
+6330,KFA,2024,47
 6189,KFG,2024,5
-6353,KFK Fullorðnir Karlar,2024,73
+6353,KFK,2024,73
 5227,Kormákur/Hvöt,2024,58
 5698,KR,2024,13
 6131,KV,2024,50
@@ -109,7 +109,7 @@ ksi_team_id,team_name,season,home_ground_id
 5976,Haukar,2025,56
 5732,HK,2025,10
 6123,Hvíti riddarinn,2025,21
-6281,Höttur/Huginn Fullorðnir Karlar,2025,51
+6281,Höttur/Huginn,2025,51
 5735,ÍA,2025,19
 5388,ÍBV,2025,22
 5383,ÍH,2025,63
@@ -118,9 +118,9 @@ ksi_team_id,team_name,season,home_ground_id
 5987,Kári,2025,18
 5964,Keflavík,2025,14
 5216,KF,2025,52
-6330,KFA Fullorðnir Karlar,2025,62
+6330,KFA,2025,62
 6189,KFG,2025,5
-6353,KFK Fullorðnir Karlar,2025,73
+6353,KFK,2025,73
 5227,Kormákur/Hvöt,2025,58
 5698,KR,2025,17
 6131,KV,2025,50
