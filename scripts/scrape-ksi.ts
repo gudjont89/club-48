@@ -5,7 +5,8 @@
  * Usage: npx tsx scripts/scrape-ksi.ts
  */
 
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
 // Competition IDs from ksi.is
 const COMPETITIONS: { season: number; id: number; name: string }[] = [
@@ -85,7 +86,7 @@ function parseTime(dateStr: string): string {
   return match ? match[1].padStart(5, '0') : '';
 }
 
-function parseFixtures(html: string, season: number): RawMatch[] {
+function parseFixtures(html: string, season: number, teamLogos: Map<string, string>): RawMatch[] {
   const matches: RawMatch[] = [];
 
   // Extract dates: <span class="body-5">Fös 2. maí  20:00</span>
@@ -151,6 +152,15 @@ function parseFixtures(html: string, season: number): RawMatch[] {
     matchIds.push(rawMatchIds[i]);
   }
 
+  // Extract team logos: team link followed by img src
+  // Pattern: lid?id=TEAM_ID...><...><img src="https://comet.ksi.is/file?id=UUID"
+  const logoRegex = /lid\?id=(\d+)(?:&amp;|&#38;)competitionId=\d+[^>]*>[\s\S]*?<img src="(https:\/\/comet\.ksi\.is\/file\?id=[^"]+)"/g;
+  while ((m = logoRegex.exec(html)) !== null) {
+    const teamId = m[1];
+    const logoUrl = m[2];
+    if (!teamLogos.has(teamId)) teamLogos.set(teamId, logoUrl);
+  }
+
   const count = Math.min(dates.length, venues.length, homeTeams.length, scores.length, awayTeams.length);
 
   for (let i = 0; i < count; i++) {
@@ -180,7 +190,7 @@ function parseFixtures(html: string, season: number): RawMatch[] {
   return matches;
 }
 
-async function scrapeCompetition(season: number, motId: number): Promise<RawMatch[]> {
+async function scrapeCompetition(season: number, motId: number, teamLogos: Map<string, string>): Promise<RawMatch[]> {
   const allMatches: RawMatch[] = [];
 
   const firstHtml = await fetchPage(motId, 1);
@@ -190,14 +200,14 @@ async function scrapeCompetition(season: number, motId: number): Promise<RawMatc
   const totalPages = pageCountMatch ? parseInt(pageCountMatch[2]) : 1;
   console.log(`  Total pages: ${totalPages}`);
 
-  const firstMatches = parseFixtures(firstHtml, season);
+  const firstMatches = parseFixtures(firstHtml, season, teamLogos);
   allMatches.push(...firstMatches);
   console.log(`  Page 1: ${firstMatches.length} matches`);
 
   for (let page = 2; page <= totalPages; page++) {
     await delay(500);
     const html = await fetchPage(motId, page);
-    const matches = parseFixtures(html, season);
+    const matches = parseFixtures(html, season, teamLogos);
     allMatches.push(...matches);
     console.log(`  Page ${page}: ${matches.length} matches`);
   }
@@ -216,10 +226,11 @@ async function main() {
   console.log('=== KSÍ Besta deild karla scraper ===\n');
 
   const allMatches: RawMatch[] = [];
+  const teamLogos = new Map<string, string>(); // ksiId → logo URL
 
   for (const comp of COMPETITIONS) {
     console.log(`\n${comp.name} ${comp.season} (id=${comp.id})...`);
-    const matches = await scrapeCompetition(comp.season, comp.id);
+    const matches = await scrapeCompetition(comp.season, comp.id, teamLogos);
     allMatches.push(...matches);
     console.log(`  Total: ${matches.length} matches`);
     await delay(1000);
@@ -366,6 +377,26 @@ async function main() {
   }
   writeFileSync('data/ksi/teams.csv', teamsCsv);
   console.log(`\nWrote data/ksi/teams.csv (${teamMap.size} teams)`);
+
+  // Download team logos
+  const logosDir = 'data/ksi/logos';
+  mkdirSync(logosDir, { recursive: true });
+  let logosDownloaded = 0;
+  for (const [ksiId, logoUrl] of teamLogos) {
+    const logoPath = join(logosDir, `${ksiId}.png`);
+    if (existsSync(logoPath)) continue;
+    try {
+      const res = await fetch(logoUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const buf = Buffer.from(await res.arrayBuffer());
+      writeFileSync(logoPath, buf);
+      logosDownloaded++;
+      await delay(200);
+    } catch (e) {
+      console.log(`  ⚠ Failed to download logo for team ${ksiId}: ${(e as Error).message}`);
+    }
+  }
+  console.log(`Downloaded ${logosDownloaded} new logos (${teamLogos.size} total teams with logos)`);
 
   // grounds.csv — id,name,city,latitude,longitude,capacity,surface
   let groundsCsv = 'id,name,city,latitude,longitude,capacity,surface\n';
