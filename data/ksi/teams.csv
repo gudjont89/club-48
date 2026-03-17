@@ -5,35 +5,35 @@ ksi_id,name,short_name
 5387,Breiðablik,
 7125,Dalvík/Reynir,
 5224,Elliði,
-5733,Fimleikafélag Hafnarfjarðar,FH
+5733,FH,
 5385,Fjölnir,
 5366,Fram,
 5386,Fylkir,
 5963,Grindavík,
 6031,Grótta,
 5976,Haukar,
-5732,Handknattleiksfélag Kópavogs,HK
+5732,HK,
 6123,Hvíti riddarinn,
-6281,Höttur/Huginn,
-5735,Íþróttabandalag Akraness,ÍA
-5388,Íþróttabandalag Vestmannaeyja,ÍBV
-5383,Íþróttafélag Hafnarfjarðar,ÍH
-5699,Íþróttafélag Reykjavíkur,ÍR
-5731,Knattspyrnufélag Akureyrar,KA
+6281,Höttur/Huginn Fullorðnir Karlar,
+5735,ÍA,
+5388,ÍBV,
+5383,ÍH,
+5699,ÍR,
+5731,KA,
 5987,Kári,
 5964,Keflavík,
-5216,Knattspyrnufélag Fjallabyggðar,KF
-6330,Knattspyrnufélag Austfjarða,KFA
-6189,Knattspyrnufélag Garðabæjar,KFG
-6353,Knattspyrnufélag Kópavogs,KFK
-5980,Knattspyrnufélagið Framherjar-Smástund,KFS
+5216,KF,
+6330,KFA Fullorðnir Karlar,
+6189,KFG,
+6353,KFK Fullorðnir Karlar,
+5980,KFS,
 5227,Kormákur/Hvöt,
-5698,Knattspyrnufélag Reykjavíkur,KR
-6131,Knattspyrnufélag Vesturbæjar,KV
-5365,Leiknir Reykjavík,Leiknir R.
+5698,KR,
+6131,KV,
+5365,Leiknir R.,
 5221,Magni,
 5981,Njarðvík,
-5989,Reynir Sandgerði,Reynir S.
+5989,Reynir S.,
 5971,Selfoss,
 5973,Sindri,
 5730,Stjarnan,
@@ -47,6 +47,6 @@ ksi_id,name,short_name
 5217,Völsungur,
 6124,Ýmir,
 5965,Þór,
-5389,Þróttur Reykjavík,Þróttur R.
-5172,Þróttur Vogum,Þróttur V.
+5389,Þróttur R.,
+5172,Þróttur V.,
 5219,Ægir,
