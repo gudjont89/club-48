@@ -1,134 +1,66 @@
 /**
- * 48 Klúbburinn — KSI.is Fixture Scraper
+ * Scrape KSÍ website for Icelandic men's league fixtures
+ * Produces CSV files: teams.csv, grounds.csv, fixtures.csv, team_seasons.csv
  *
- * Scrapes 3. deild fixtures from ksi.is and outputs JSON
- * that the seed script can consume.
- *
- * Usage:
- *   npx tsx scripts/scrape-ksi.ts
- *
- * Output: scripts/ksi-data.json
+ * Usage: npx tsx scripts/scrape-ksi.ts
  */
 
-const fs = await import('fs');
-const path = await import('path');
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 
-// ---- Config ----
-
-interface KsiCompetition {
-  motId: number;
-  season: number;
-  division: number;
-}
-
-// Add new seasons/competitions here
-const COMPETITIONS: KsiCompetition[] = [
-  { motId: 190363, season: 2025, division: 4 },
+// Competition IDs from ksi.is
+const COMPETITIONS: { season: number; id: number; name: string }[] = [
+  // Besta deild
+  { season: 2023, id: 190224, name: 'Besta deild karla' },
+  { season: 2024, id: 190265, name: 'Besta deild karla' },
+  { season: 2025, id: 190366, name: 'Besta deild karla' },
+  // 1. deild (Lengjudeild)
+  { season: 2023, id: 190223, name: '1. deild karla' },
+  { season: 2024, id: 190134, name: '1. deild karla' },
+  { season: 2025, id: 190359, name: '1. deild karla' },
+  // 2. deild
+  { season: 2023, id: 190219, name: '2. deild karla' },
+  { season: 2024, id: 190124, name: '2. deild karla' },
+  { season: 2025, id: 190365, name: '2. deild karla' },
+  // 3. deild
+  { season: 2023, id: 190227, name: '3. deild karla' },
+  { season: 2024, id: 190139, name: '3. deild karla' },
+  { season: 2025, id: 190363, name: '3. deild karla' },
 ];
 
-const OUTPUT_FILE = path.resolve(import.meta.dirname!, 'ksi-data.json');
-
-// KSI team name → API-Football team ID
-const TEAM_MAP: Record<string, number> = {
-  'Hvíti riddarinn': 6085,
-  'Magni': 2124,
-  'Augnablik': 6077,
-  'Tindastóll': 4168,
-  'Reynir S.': 6101,
-  'Árbær': 18479,
-  'KV': 4163,
-  'Ýmir': 6115,
-  'Sindri': 4164,
-  'KF': 4162,
-  'KFK Fullorðnir Karlar': 18477,
-  'ÍH': 6112,
-};
-
-// KSI venue name → API-Football venue ID
-// Includes sponsor names → canonical ground mapping
-const VENUE_MAP: Record<string, number> = {
-  'Malbikstöðin að Varmá': 20543,     // = Varmárvöllur
-  'Boginn': 21597,
-  'Fífan': 20545,
-  'Sauðárkróksvöllur': 3183,
-  'Brons völlurinn': 20548,            // = Brons-völlurinn
-  'Domusnovavöllurinn': 2320,          // = Leiknisvöllur
-  'KR-völlur': 10591,
-  'Kórinn': 824,
-  'Jökulfellsvöllurinn': 20544,
-  'Dalvíkurvöllur': 3187,
-  'Fagrilundur - gervigras': 4532,     // = Fagrilundur
-  'Skessan': 11562,
-  'Ólafsfjarðarvöllur': 3178,
-  'Grenivíkurvöllur': 2316,
-  'Kópavogsvöllur': 820,
-  'Smárinn': 20545,                   // Side pitch at Dalsmári 5, same complex as Fífan
-};
-
-// KSI team name → home ground API-Football venue ID (primary home ground)
-const HOME_GROUND_MAP: Record<string, number> = {
-  'Hvíti riddarinn': 20543,
-  'Magni': 21597,
-  'Augnablik': 20545,
-  'Tindastóll': 3183,
-  'Reynir S.': 20548,
-  'Árbær': 2320,
-  'KV': 10591,
-  'Ýmir': 824,
-  'Sindri': 20544,
-  'KF': 3187,
-  'KFK Fullorðnir Karlar': 4532,
-  'ÍH': 11562,
-};
-
-// Icelandic month names → month number (0-indexed)
+// Icelandic month names → 1-indexed month number
 const MONTHS: Record<string, number> = {
-  'janúar': 0, 'jan': 0, 'jan.': 0,
-  'febrúar': 1, 'feb': 1, 'feb.': 1,
-  'mars': 2, 'mar': 2, 'mar.': 2,
-  'apríl': 3, 'apr': 3, 'apr.': 3,
-  'maí': 4,
-  'júní': 5, 'jún': 5, 'jún.': 5,
-  'júlí': 6, 'júl': 6, 'júl.': 6,
-  'ágúst': 7, 'ágú': 7, 'ágú.': 7,
-  'september': 8, 'sep': 8, 'sep.': 8,
-  'október': 9, 'okt': 9, 'okt.': 9,
-  'nóvember': 10, 'nóv': 10, 'nóv.': 10,
-  'desember': 11, 'des': 11, 'des.': 11,
+  'janúar': 1, 'jan': 1, 'jan.': 1,
+  'febrúar': 2, 'feb': 2, 'feb.': 2,
+  'mars': 3, 'mar': 3, 'mar.': 3,
+  'apríl': 4, 'apr': 4, 'apr.': 4,
+  'maí': 5,
+  'júní': 6, 'jún': 6, 'jún.': 6,
+  'júlí': 7, 'júl': 7, 'júl.': 7,
+  'ágúst': 8, 'ágú': 8, 'ágú.': 8,
+  'september': 9, 'sep': 9, 'sep.': 9,
+  'október': 10, 'okt': 10, 'okt.': 10,
+  'nóvember': 11, 'nóv': 11, 'nóv.': 11,
+  'desember': 12, 'des': 12, 'des.': 12,
 };
 
-// ---- Types ----
-
-interface KsiFixture {
+interface RawMatch {
   season: number;
-  division: number;
   matchDate: string;       // YYYY-MM-DD
   kickoffTime: string;     // HH:MM
-  homeTeamApiId: number;
-  awayTeamApiId: number;
+  homeTeam: string;
+  homeTeamKsiId: string;
+  awayTeam: string;
+  awayTeamKsiId: string;
   homeGoals: number | null;
   awayGoals: number | null;
-  venueApiId: number | null;
+  venue: string;
   status: 'FT' | 'NS';
+  ksiMatchId: string;
 }
 
-interface KsiTeamSeason {
-  apiTeamId: number;
-  season: number;
-  division: number;
-  homeGroundApiId: number;
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-interface KsiData {
-  scrapedAt: string;
-  competitions: KsiCompetition[];
-  teamSeasons: KsiTeamSeason[];
-  fixtures: KsiFixture[];
-  unmappedTeams: string[];
-  unmappedVenues: string[];
-}
-
-// ---- Scraper ----
 
 async function fetchPage(motId: number, page: number): Promise<string> {
   const url = `https://www.ksi.is/oll-mot/mot?id=${motId}&banner-tab=matches-and-results&page=${page}`;
@@ -139,40 +71,24 @@ async function fetchPage(motId: number, page: number): Promise<string> {
 }
 
 function parseDate(dateStr: string, season: number): string {
-  // Format: "Fös 2. maí  20:00" or "Lau 3. maí  14:00"
   const match = dateStr.match(/(\d+)\.\s+(\S+)/);
   if (!match) return '';
   const day = parseInt(match[1]);
   const monthStr = match[2].toLowerCase();
   const month = MONTHS[monthStr];
   if (month === undefined) return '';
-  const year = season;
-  return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  return `${season}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
 function parseTime(dateStr: string): string {
   const match = dateStr.match(/(\d{1,2}:\d{2})\s*$/);
-  return match ? match[1] : '';
+  return match ? match[1].padStart(5, '0') : '';
 }
 
-function parseFixtures(html: string, comp: KsiCompetition): { fixtures: KsiFixture[]; unmappedTeams: Set<string>; unmappedVenues: Set<string> } {
-  const fixtures: KsiFixture[] = [];
-  const unmappedTeams = new Set<string>();
-  const unmappedVenues = new Set<string>();
+function parseFixtures(html: string, season: number): RawMatch[] {
+  const matches: RawMatch[] = [];
 
-  // Split into match blocks — each match has a date/time span followed by team links and score
-  // Date pattern: <span class="body-5">Fös 2. maí  20:00</span>
-  // We'll find all date spans and then extract teams/score/venue after each
-
-  // Strategy: find all occurrences of date/venue/teams/score in order
-  // The HTML repeats this pattern for each match:
-  // 1. date+time span (body-5, contains day abbreviation + date + time)
-  // 2. venue span (body-5 overflow-hidden)
-  // 3. home team span (body-4 text-right)
-  // 4. score span (body-4 whitespace-nowrap)
-  // 5. away team span (body-4 group-hover:underline, without text-right)
-
-  // Extract dates
+  // Extract dates: <span class="body-5">Fös 2. maí  20:00</span>
   const dateRegex = /<span class="body-5">([^<]+?(?:\d{1,2}:\d{2}))<\/span>/g;
   const dates: string[] = [];
   let m;
@@ -180,7 +96,7 @@ function parseFixtures(html: string, comp: KsiCompetition): { fixtures: KsiFixtu
     dates.push(m[1].trim());
   }
 
-  // Extract venues
+  // Extract venues: <span class="body-5 overflow-hidden whitespace-nowrap text-ellipsis">...</span>
   const venueRegex = /<span class="body-5 overflow-hidden whitespace-nowrap text-ellipsis">([^<]+)<\/span>/g;
   const venues: string[] = [];
   while ((m = venueRegex.exec(html)) !== null) {
@@ -208,119 +124,276 @@ function parseFixtures(html: string, comp: KsiCompetition): { fixtures: KsiFixtu
     awayTeams.push(m[1].trim());
   }
 
+  // Extract team KSÍ IDs from links: /oll-mot/mot/lid?id=TEAM_ID&#38;competitionId=...
+  // Each match has exactly 3 team links: mobile home, desktop home, desktop away.
+  // We take the 1st as home and the 3rd as away from each group of 3.
+  const teamIdRegex = /\/oll-mot\/mot\/lid\?id=(\d+)(?:&amp;|&#38;)competitionId=\d+/g;
+  const rawTeamIds: string[] = [];
+  while ((m = teamIdRegex.exec(html)) !== null) {
+    rawTeamIds.push(m[1]);
+  }
+  // Group into triples: [mobile_home, desktop_home, away]
+  const teamIds: string[] = [];
+  for (let i = 0; i + 2 < rawTeamIds.length; i += 3) {
+    teamIds.push(rawTeamIds[i]);     // home
+    teamIds.push(rawTeamIds[i + 2]); // away
+  }
+
+  // Extract match IDs: /leikir-og-urslit/felagslid/leikur?id=XXXXXX
+  // Each appears twice per match, take every other one
+  const matchIdRegex = /leikir-og-urslit\/felagslid\/leikur\?id=(\d+)/g;
+  const rawMatchIds: string[] = [];
+  while ((m = matchIdRegex.exec(html)) !== null) {
+    rawMatchIds.push(m[1]);
+  }
+  const matchIds: string[] = [];
+  for (let i = 0; i < rawMatchIds.length; i += 2) {
+    matchIds.push(rawMatchIds[i]);
+  }
+
   const count = Math.min(dates.length, venues.length, homeTeams.length, scores.length, awayTeams.length);
 
   for (let i = 0; i < count; i++) {
-    const matchDate = parseDate(dates[i], comp.season);
+    const matchDate = parseDate(dates[i], season);
     const kickoffTime = parseTime(dates[i]);
-    const homeTeamApiId = TEAM_MAP[homeTeams[i]];
-    const awayTeamApiId = TEAM_MAP[awayTeams[i]];
-    const venueApiId = VENUE_MAP[venues[i]] ?? null;
 
-    if (!homeTeamApiId) unmappedTeams.add(homeTeams[i]);
-    if (!awayTeamApiId) unmappedTeams.add(awayTeams[i]);
-    if (!venueApiId) unmappedVenues.add(venues[i]);
-
-    if (!homeTeamApiId || !awayTeamApiId || !matchDate) continue;
-
-    // Parse score
     const scoreParts = scores[i].match(/(\d+)\s*-\s*(\d+)/);
     const homeGoals = scoreParts ? parseInt(scoreParts[1]) : null;
     const awayGoals = scoreParts ? parseInt(scoreParts[2]) : null;
-    const status = homeGoals !== null ? 'FT' as const : 'NS' as const;
 
-    fixtures.push({
-      season: comp.season,
-      division: comp.division,
+    matches.push({
+      season,
       matchDate,
       kickoffTime,
-      homeTeamApiId,
-      awayTeamApiId,
+      homeTeam: homeTeams[i],
+      homeTeamKsiId: teamIds[i * 2] || '',
+      awayTeam: awayTeams[i],
+      awayTeamKsiId: teamIds[i * 2 + 1] || '',
       homeGoals,
       awayGoals,
-      venueApiId,
-      status,
+      venue: venues[i],
+      status: homeGoals !== null ? 'FT' : 'NS',
+      ksiMatchId: matchIds[i] || '',
     });
   }
 
-  return { fixtures, unmappedTeams, unmappedVenues };
+  return matches;
 }
 
-// ---- Main ----
+async function scrapeCompetition(season: number, motId: number): Promise<RawMatch[]> {
+  const allMatches: RawMatch[] = [];
+
+  const firstHtml = await fetchPage(motId, 1);
+
+  // Find total pages from "1 af N"
+  const pageCountMatch = firstHtml.match(/(\d+)\s+af\s+(\d+)/);
+  const totalPages = pageCountMatch ? parseInt(pageCountMatch[2]) : 1;
+  console.log(`  Total pages: ${totalPages}`);
+
+  const firstMatches = parseFixtures(firstHtml, season);
+  allMatches.push(...firstMatches);
+  console.log(`  Page 1: ${firstMatches.length} matches`);
+
+  for (let page = 2; page <= totalPages; page++) {
+    await delay(500);
+    const html = await fetchPage(motId, page);
+    const matches = parseFixtures(html, season);
+    allMatches.push(...matches);
+    console.log(`  Page ${page}: ${matches.length} matches`);
+  }
+
+  return allMatches;
+}
+
+function csvEscape(s: string): string {
+  if (s.includes(',') || s.includes('"') || s.includes('\n')) {
+    return `"${s.replace(/"/g, '""')}"`;
+  }
+  return s;
+}
 
 async function main() {
-  console.log('=== KSI.is Fixture Scraper ===\n');
+  console.log('=== KSÍ Besta deild karla scraper ===\n');
 
-  const allFixtures: KsiFixture[] = [];
-  const allTeamSeasons: KsiTeamSeason[] = [];
-  const allUnmappedTeams = new Set<string>();
-  const allUnmappedVenues = new Set<string>();
+  const allMatches: RawMatch[] = [];
 
   for (const comp of COMPETITIONS) {
-    console.log(`Scraping motId=${comp.motId} (${comp.season}, division ${comp.division})...`);
+    console.log(`\n${comp.name} ${comp.season} (id=${comp.id})...`);
+    const matches = await scrapeCompetition(comp.season, comp.id);
+    allMatches.push(...matches);
+    console.log(`  Total: ${matches.length} matches`);
+    await delay(1000);
+  }
 
-    // Build team_seasons from HOME_GROUND_MAP
-    for (const [teamName, groundApiId] of Object.entries(HOME_GROUND_MAP)) {
-      const apiTeamId = TEAM_MAP[teamName];
-      if (!apiTeamId) continue;
-      allTeamSeasons.push({
-        apiTeamId,
-        season: comp.season,
-        division: comp.division,
-        homeGroundApiId: groundApiId,
+  // ---- Load ground aliases (venue name → canonical ground ID) ----
+  // This file is maintained manually and persists across scraper runs.
+  // Format: alias_name,ground_id
+  // Format: ground_id,alias_name,first_year,is_sponsor
+  const ALIASES_FILE = 'data/ksi/ground_aliases.csv';
+  const aliasToGroundId = new Map<string, number>(); // venue name alias → ground ID
+  if (existsSync(ALIASES_FILE)) {
+    for (const line of readFileSync(ALIASES_FILE, 'utf-8').split('\n').slice(1)) {
+      if (!line.trim()) continue;
+      const match = line.match(/^(\d+),(.+?),/);
+      if (match) aliasToGroundId.set(match[2], parseInt(match[1]));
+    }
+    console.log(`\nLoaded ${aliasToGroundId.size} ground aliases`);
+  }
+
+  // ---- Build unique teams ----
+  const teamMap = new Map<string, string>(); // ksiId -> name
+  for (const m of allMatches) {
+    if (m.homeTeamKsiId) teamMap.set(m.homeTeamKsiId, m.homeTeam);
+    if (m.awayTeamKsiId) teamMap.set(m.awayTeamKsiId, m.awayTeam);
+  }
+
+  // ---- Build grounds with IDs ----
+  // Load existing grounds.csv to preserve IDs across runs
+  const GROUNDS_FILE = 'data/ksi/grounds.csv';
+  const groundNameToId = new Map<string, number>(); // canonical name → ID
+  const groundIdToName = new Map<number, string>();  // ID → canonical name
+  let nextGroundId = 1;
+
+  if (existsSync(GROUNDS_FILE)) {
+    for (const line of readFileSync(GROUNDS_FILE, 'utf-8').split('\n').slice(1)) {
+      if (!line.trim()) continue;
+      const match = line.match(/^(\d+),(.+)$/);
+      if (match) {
+        const id = parseInt(match[1]);
+        const name = match[2].replace(/^"|"$/g, '').replace(/""/g, '"');
+        groundNameToId.set(name, id);
+        groundIdToName.set(id, name);
+        nextGroundId = Math.max(nextGroundId, id + 1);
+      }
+    }
+    console.log(`Loaded ${groundNameToId.size} existing grounds`);
+  }
+
+  // Resolve a venue name to a ground ID, creating new grounds as needed
+  function resolveGroundId(venueName: string): number | null {
+    if (!venueName) return null;
+    // Check if it's an alias
+    const aliasId = aliasToGroundId.get(venueName);
+    if (aliasId !== undefined) return aliasId;
+    // Check if it's already a canonical ground
+    const existingId = groundNameToId.get(venueName);
+    if (existingId !== undefined) return existingId;
+    // Create new ground
+    const id = nextGroundId++;
+    groundNameToId.set(venueName, id);
+    groundIdToName.set(id, venueName);
+    return id;
+  }
+
+  // Resolve all venues from fixtures
+  for (const m of allMatches) {
+    if (m.venue) resolveGroundId(m.venue);
+  }
+
+  // ---- Build team-seasons with home ground ----
+  const homeVenueCounts = new Map<string, Map<string, number>>();
+  for (const m of allMatches) {
+    if (!m.venue || !m.homeTeamKsiId) continue;
+    const key = `${m.homeTeamKsiId}-${m.season}`;
+    if (!homeVenueCounts.has(key)) homeVenueCounts.set(key, new Map());
+    const counts = homeVenueCounts.get(key)!;
+    counts.set(m.venue, (counts.get(m.venue) || 0) + 1);
+  }
+
+  interface TeamSeason {
+    ksiTeamId: string;
+    teamName: string;
+    season: number;
+    homeGroundId: number | null;
+  }
+
+  const teamSeasons: TeamSeason[] = [];
+  const teamsBySeason = new Map<string, Set<number>>();
+  for (const m of allMatches) {
+    for (const [id, season] of [[m.homeTeamKsiId, m.season], [m.awayTeamKsiId, m.season]] as [string, number][]) {
+      if (!id) continue;
+      if (!teamsBySeason.has(id)) teamsBySeason.set(id, new Set());
+      teamsBySeason.get(id)!.add(season);
+    }
+  }
+
+  for (const [ksiId, seasons] of teamsBySeason) {
+    for (const season of [...seasons].sort()) {
+      const key = `${ksiId}-${season}`;
+      const counts = homeVenueCounts.get(key);
+      let homeVenue = '';
+      if (counts) {
+        let maxCount = 0;
+        for (const [venue, count] of counts) {
+          if (count > maxCount) {
+            maxCount = count;
+            homeVenue = venue;
+          }
+        }
+      }
+      teamSeasons.push({
+        ksiTeamId: ksiId,
+        teamName: teamMap.get(ksiId) || '',
+        season,
+        homeGroundId: resolveGroundId(homeVenue),
       });
     }
-
-    // Fetch all pages
-    let page = 1;
-    let totalFixtures = 0;
-    while (true) {
-      const html = await fetchPage(comp.motId, page);
-      const { fixtures, unmappedTeams, unmappedVenues } = parseFixtures(html, comp);
-
-      if (fixtures.length === 0) break;
-
-      allFixtures.push(...fixtures);
-      for (const t of unmappedTeams) allUnmappedTeams.add(t);
-      for (const v of unmappedVenues) allUnmappedVenues.add(v);
-      totalFixtures += fixtures.length;
-
-      console.log(`  Page ${page}: ${fixtures.length} fixtures`);
-      page++;
-
-      // Rate limit courtesy
-      await new Promise(r => setTimeout(r, 500));
-    }
-
-    console.log(`  Total: ${totalFixtures} fixtures\n`);
   }
 
-  // Report unmapped
-  if (allUnmappedTeams.size > 0) {
-    console.log('WARNING: Unmapped teams:');
-    for (const t of allUnmappedTeams) console.log(`  - "${t}"`);
-    console.log();
+  // ---- Write CSVs ----
+
+  // teams.csv
+  let teamsCsv = 'ksi_id,name\n';
+  for (const [id, name] of [...teamMap.entries()].sort((a, b) => a[1].localeCompare(b[1], 'is'))) {
+    teamsCsv += `${id},${csvEscape(name)}\n`;
   }
-  if (allUnmappedVenues.size > 0) {
-    console.log('WARNING: Unmapped venues:');
-    for (const v of allUnmappedVenues) console.log(`  - "${v}"`);
-    console.log();
+  writeFileSync('data/ksi/teams.csv', teamsCsv);
+  console.log(`\nWrote data/ksi/teams.csv (${teamMap.size} teams)`);
+
+  // grounds.csv — id,name
+  let groundsCsv = 'id,name\n';
+  for (const [id, name] of [...groundIdToName.entries()].sort((a, b) => a[0] - b[0])) {
+    groundsCsv += `${id},${csvEscape(name)}\n`;
+  }
+  writeFileSync(GROUNDS_FILE, groundsCsv);
+  console.log(`Wrote ${GROUNDS_FILE} (${groundIdToName.size} grounds)`);
+
+  // ground_aliases.csv — alias_name,ground_id
+  // Only write if it doesn't exist yet (it's manually maintained)
+  if (!existsSync(ALIASES_FILE)) {
+    writeFileSync(ALIASES_FILE, 'ground_id,alias_name,first_year,is_sponsor\n');
+    console.log(`Created ${ALIASES_FILE} (empty — add aliases manually)`);
   }
 
-  const data: KsiData = {
-    scrapedAt: new Date().toISOString(),
-    competitions: COMPETITIONS,
-    teamSeasons: allTeamSeasons,
-    fixtures: allFixtures,
-    unmappedTeams: [...allUnmappedTeams],
-    unmappedVenues: [...allUnmappedVenues],
-  };
+  // team_seasons.csv
+  let teamSeasonsCsv = 'ksi_team_id,team_name,season,home_ground_id\n';
+  for (const ts of teamSeasons.sort((a, b) => a.season - b.season || a.teamName.localeCompare(b.teamName, 'is'))) {
+    teamSeasonsCsv += `${ts.ksiTeamId},${csvEscape(ts.teamName)},${ts.season},${ts.homeGroundId ?? ''}\n`;
+  }
+  writeFileSync('data/ksi/team_seasons.csv', teamSeasonsCsv);
+  console.log(`Wrote data/ksi/team_seasons.csv (${teamSeasons.length} entries)`);
 
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(data, null, 2) + '\n');
-  console.log(`Wrote ${allFixtures.length} fixtures and ${allTeamSeasons.length} team_seasons to ${OUTPUT_FILE}`);
+  // fixtures.csv
+  let fixturesCsv = 'ksi_match_id,season,date,time,home_team_ksi_id,away_team_ksi_id,home_goals,away_goals,ground_id,status\n';
+  for (const m of allMatches) {
+    fixturesCsv += [
+      m.ksiMatchId,
+      m.season,
+      m.matchDate,
+      m.kickoffTime,
+      m.homeTeamKsiId,
+      m.awayTeamKsiId,
+      m.homeGoals ?? '',
+      m.awayGoals ?? '',
+      resolveGroundId(m.venue) ?? '',
+      m.status,
+    ].join(',') + '\n';
+  }
+  writeFileSync('data/ksi/fixtures.csv', fixturesCsv);
+  console.log(`Wrote data/ksi/fixtures.csv (${allMatches.length} fixtures)`);
 }
 
-main().catch(e => {
+main().catch((e) => {
   console.error('Fatal error:', e);
   process.exit(1);
 });
