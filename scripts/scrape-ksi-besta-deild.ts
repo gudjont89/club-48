@@ -215,13 +215,14 @@ async function main() {
   // ---- Load ground aliases (venue name → canonical ground ID) ----
   // This file is maintained manually and persists across scraper runs.
   // Format: alias_name,ground_id
+  // Format: ground_id,alias_name,first_year,is_sponsor
   const ALIASES_FILE = 'data/ksi/ground_aliases.csv';
   const aliasToGroundId = new Map<string, number>(); // venue name alias → ground ID
   if (existsSync(ALIASES_FILE)) {
     for (const line of readFileSync(ALIASES_FILE, 'utf-8').split('\n').slice(1)) {
       if (!line.trim()) continue;
-      const match = line.match(/^(.+),(\d+)$/);
-      if (match) aliasToGroundId.set(match[1], parseInt(match[2]));
+      const match = line.match(/^(\d+),(.+?),/);
+      if (match) aliasToGroundId.set(match[2], parseInt(match[1]));
     }
     console.log(`\nLoaded ${aliasToGroundId.size} ground aliases`);
   }
@@ -347,7 +348,7 @@ async function main() {
   // ground_aliases.csv — alias_name,ground_id
   // Only write if it doesn't exist yet (it's manually maintained)
   if (!existsSync(ALIASES_FILE)) {
-    writeFileSync(ALIASES_FILE, 'alias_name,ground_id\n');
+    writeFileSync(ALIASES_FILE, 'ground_id,alias_name,first_year,is_sponsor\n');
     console.log(`Created ${ALIASES_FILE} (empty — add aliases manually)`);
   }
 
