@@ -1,4 +1,4 @@
--- Seed data generated from KSÍ CSVs on 2026-03-17T17:05:54.034Z
+-- Seed data generated from KSÍ CSVs on 2026-03-17T17:15:39.400Z
 
 -- Grounds
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (1, 'Fylkisvöllur', 'Reykjavík', 64.1134477985459, -21.792509342841853, NULL, 'artificial', now(), now());
@@ -72,35 +72,35 @@ INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6351, 'Árbær', NUL
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5387, 'Breiðablik', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (7125, 'Dalvík/Reynir', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5224, 'Elliði', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5733, 'FH', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5733, 'Fimleikafélag Hafnarfjarðar', 'FH');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5385, 'Fjölnir', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5366, 'Fram', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5386, 'Fylkir', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5963, 'Grindavík', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6031, 'Grótta', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5976, 'Haukar', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5732, 'HK', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5732, 'Handknattleiksfélag Kópavogs', 'HK');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6123, 'Hvíti riddarinn', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6281, 'Höttur/Huginn Fullorðnir Karlar', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5735, 'ÍA', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5388, 'ÍBV', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5383, 'ÍH', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5699, 'ÍR', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5731, 'KA', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6281, 'Höttur/Huginn', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5735, 'Íþróttabandalag Akraness', 'ÍA');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5388, 'Íþróttabandalag Vestmannaeyja', 'ÍBV');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5383, 'Íþróttafélag Hafnarfjarðar', 'ÍH');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5699, 'Íþróttafélag Reykjavíkur', 'ÍR');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5731, 'Knattspyrnufélag Akureyrar', 'KA');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5987, 'Kári', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5964, 'Keflavík', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5216, 'KF', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6330, 'KFA Fullorðnir Karlar', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6189, 'KFG', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6353, 'KFK Fullorðnir Karlar', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5980, 'KFS', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5216, 'Knattspyrnufélag Fjallabyggðar', 'KF');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6330, 'Knattspyrnufélag Austfjarða', 'KFA');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6189, 'Knattspyrnufélag Garðabæjar', 'KFG');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6353, 'Knattspyrnufélag Kópavogs', 'KFK');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5980, 'Knattspyrnufélagið Framherjar-Smástund', 'KFS');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5227, 'Kormákur/Hvöt', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5698, 'KR', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6131, 'KV', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5365, 'Leiknir R.', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5698, 'Knattspyrnufélag Reykjavíkur', 'KR');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6131, 'Knattspyrnufélag Vesturbæjar', 'KV');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5365, 'Leiknir Reykjavík', 'Leiknir R.');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5221, 'Magni', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5981, 'Njarðvík', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5989, 'Reynir S.', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5989, 'Reynir Sandgerði', 'Reynir S.');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5971, 'Selfoss', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5973, 'Sindri', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5730, 'Stjarnan', NULL);
@@ -114,8 +114,8 @@ INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5737, 'Vængir Júpi
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5217, 'Völsungur', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (6124, 'Ýmir', NULL);
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5965, 'Þór', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5389, 'Þróttur R.', NULL);
-INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5172, 'Þróttur V.', NULL);
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5389, 'Þróttur Reykjavík', 'Þróttur R.');
+INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5172, 'Þróttur Vogum', 'Þróttur V.');
 INSERT INTO public.teams (ksi_id, name, short_name) VALUES (5219, 'Ægir', NULL);
 
 -- Team seasons

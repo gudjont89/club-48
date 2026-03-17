@@ -65,7 +65,7 @@ export default function GroundCard({ ground, division, isVisited, animationDelay
               loading="lazy"
             />
           )}
-          <span className={styles.teamName}>{ground.shortName || ground.teamName}</span>
+          <span className={styles.teamName}>{ground.teamName}</span>
         </div>
       </div>
     </div>
