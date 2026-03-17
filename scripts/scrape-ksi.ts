@@ -253,11 +253,30 @@ async function main() {
     console.log(`\nLoaded ${aliasToGroundId.size} ground aliases`);
   }
 
-  // ---- Build unique teams ----
-  const teamMap = new Map<string, string>(); // ksiId -> name
+  // ---- Build unique teams (preserve existing short_name) ----
+  const TEAMS_FILE = 'data/ksi/teams.csv';
+  const existingTeams = new Map<string, { name: string; shortName: string }>(); // ksiId -> existing data
+  if (existsSync(TEAMS_FILE)) {
+    for (const line of readFileSync(TEAMS_FILE, 'utf-8').split('\n').slice(1)) {
+      if (!line.trim()) continue;
+      const cols = line.split(',');
+      if (cols.length >= 2) {
+        existingTeams.set(cols[0], { name: cols[1], shortName: cols[2] ?? '' });
+      }
+    }
+  }
+
+  // Start with all existing teams, then add any new ones from scraped data
+  const teamMap = new Map<string, { name: string; shortName: string }>(
+    [...existingTeams.entries()].map(([id, t]) => [id, { name: t.name, shortName: t.shortName }])
+  );
   for (const m of allMatches) {
-    if (m.homeTeamKsiId) teamMap.set(m.homeTeamKsiId, m.homeTeam);
-    if (m.awayTeamKsiId) teamMap.set(m.awayTeamKsiId, m.awayTeam);
+    if (m.homeTeamKsiId && !teamMap.has(m.homeTeamKsiId)) {
+      teamMap.set(m.homeTeamKsiId, { name: m.homeTeam, shortName: '' });
+    }
+    if (m.awayTeamKsiId && !teamMap.has(m.awayTeamKsiId)) {
+      teamMap.set(m.awayTeamKsiId, { name: m.awayTeam, shortName: '' });
+    }
   }
 
   // ---- Build grounds with IDs ----
@@ -383,8 +402,8 @@ async function main() {
 
   // teams.csv
   let teamsCsv = 'ksi_id,name,short_name\n';
-  for (const [id, name] of [...teamMap.entries()].sort((a, b) => a[1].localeCompare(b[1], 'is'))) {
-    teamsCsv += `${id},${csvEscape(name)},\n`;
+  for (const [id, team] of [...teamMap.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name, 'is'))) {
+    teamsCsv += `${id},${csvEscape(team.name)},${team.shortName}\n`;
   }
   writeFileSync('data/ksi/teams.csv', teamsCsv);
   console.log(`\nWrote data/ksi/teams.csv (${teamMap.size} teams)`);
