@@ -1,74 +1,72 @@
-id,name
-1,Würth völlurinn
-2,Greifavöllurinn
-3,Origo völlurinn
-4,Framvöllur
-5,Samsungvöllurinn
-6,Kópavogsvöllur
-7,Reykjaneshöll
-8,Kaplakrikavöllur
-9,Víkingsvöllur
-10,Kórinn
-11,Hásteinsvöllur
-12,Vivaldivöllurinn
-13,Meistaravellir
-14,HS Orku völlurinn
-17,AVIS völlurinn
-18,Akraneshöllin
-19,ELKEM völlurinn
-20,Kerecisvöllurinn
-21,Varmárvöllur
-22,Þórsvöllur Vey
-23,Valsvöllur
-24,Þorlákshafnarvöllur
-25,Norðurálsvöllurinn
-26,JÁVERK-völlurinn
-27,Boginn
-28,Egilshöll
-29,Domusnovavöllurinn
-30,Stakkavíkurvöllur
-31,Olísvöllurinn
-32,Þórsvöllur
-33,Rafholtsvöllurinn
-34,Extra völlurinn
-35,VÍS völlurinn
-36,Þróttheimar
-37,Dalvíkurvöllur
-38,Stakkavíkurvöllur-Safamýri
-39,ÍR-völlur
-40,JBÓ völlurinn
-41,tekk VÖLLURINN
-42,Fjölnisvöllur
-43,AutoCenter-völlurinn
-44,PCC völlurinn Húsavík
-45,Vogaídýfuvöllur
-46,Ásvellir
-47,Fjarðabyggðarhöllin
-48,Ólafsvíkurvöllur
-49,Jökulfellsvöllurinn
-50,KR-völlur
-51,Fellavöllur
-52,Ólafsfjarðarvöllur
-53,Miðgarður
-54,Vilhjálmsvöllur
-55,Brons völlurinn
-56,BIRTU völlurinn
-57,GeoSalmo völlurinn
-58,Blönduósvöllur
-59,Sjávarborgarvöllurinn
-60,Nesfisk-völlurinn
-61,Safamýri
-62,SÚN-völlurinn
-63,Skessan
-64,Fylkisvöllur
-65,Vestmannaeyjavöllur
-66,Fífan
-67,Sauðárkróksvöllur
-68,Týsvöllur
-69,Grenivíkurvöllur
-70,Kórinn - Gervigras
-71,Hvammstangavöllur
-72,Fjölnisvöllur - Gervigras
-73,Fagrilundur - gervigras
-74,Djúpavogsvöllur
-75,Smárinn
+id,name,city,latitude,longitude,capacity,surface
+1,Fylkisvöllur,Reykjavík,64.1134477985459,-21.792509342841853,,artificial
+2,Greifavöllurinn,,,,,
+3,Origo völlurinn,,,,,
+4,Framvöllur,,,,,
+5,Samsungvöllurinn,,,,,
+6,Kópavogsvöllur,,,,,
+7,Reykjaneshöll,,,,,
+8,Kaplakrikavöllur,,,,,
+9,Víkingsvöllur,,,,,
+10,Kórinn,,,,,
+11,Hásteinsvöllur,,,,,
+12,Vivaldivöllurinn,,,,,
+13,Meistaravellir,,,,,
+14,HS Orku völlurinn,,,,,
+17,AVIS völlurinn,,,,,
+18,Akraneshöllin,,,,,
+19,ELKEM völlurinn,,,,,
+20,Kerecisvöllurinn,,,,,
+21,Varmárvöllur,,,,,
+22,Þórsvöllur Vey,,,,,
+23,Valsvöllur,,,,,
+24,Þorlákshafnarvöllur,,,,,
+25,Norðurálsvöllurinn,,,,,
+26,JÁVERK-völlurinn,,,,,
+27,Boginn,,,,,
+28,Egilshöll,,,,,
+29,Leiknisvöllur,Reykjavík,64.10311168030393,-21.817703434835604,,artificial
+30,Stakkavíkurvöllur,,,,,
+31,Olísvöllurinn,,,,,
+32,Þórsvöllur,,,,,
+33,Rafholtsvöllurinn,,,,,
+34,Extra völlurinn,,,,,
+35,VÍS völlurinn,,,,,
+36,Þróttheimar,,,,,
+37,Dalvíkurvöllur,,,,,
+38,Stakkavíkurvöllur-Safamýri,,,,,
+39,ÍR-völlur,,,,,
+40,JBÓ völlurinn,,,,,
+42,Fjölnisvöllur,,,,,
+43,AutoCenter-völlurinn,,,,,
+44,PCC völlurinn Húsavík,,,,,
+45,Vogaídýfuvöllur,,,,,
+46,Ásvellir,,,,,
+47,Fjarðabyggðarhöllin,,,,,
+48,Ólafsvíkurvöllur,,,,,
+49,Jökulfellsvöllurinn,,,,,
+50,KR-völlur,,,,,
+51,Fellavöllur,,,,,
+52,Ólafsfjarðarvöllur,,,,,
+53,Miðgarður,,,,,
+54,Vilhjálmsvöllur,,,,,
+55,Brons völlurinn,,,,,
+56,BIRTU völlurinn,,,,,
+57,GeoSalmo völlurinn,,,,,
+58,Blönduósvöllur,,,,,
+59,Sjávarborgarvöllurinn,,,,,
+60,Nesfisk-völlurinn,,,,,
+61,Safamýri,,,,,
+62,SÚN-völlurinn,,,,,
+63,Skessan,,,,,
+65,Vestmannaeyjavöllur,,,,,
+66,Fífan,,,,,
+67,Sauðárkróksvöllur,,,,,
+68,Týsvöllur,,,,,
+69,Grenivíkurvöllur,,,,,
+70,Kórinn - Gervigras,,,,,
+71,Hvammstangavöllur,,,,,
+72,Fjölnisvöllur - Gervigras,,,,,
+73,Fagrilundur - gervigras,,,,,
+74,Djúpavogsvöllur,,,,,
+75,Smárinn,,,,,

@@ -248,23 +248,42 @@ async function main() {
   }
 
   // ---- Build grounds with IDs ----
-  // Load existing grounds.csv to preserve IDs across runs
+  // Load existing grounds.csv to preserve IDs and metadata across runs
   const GROUNDS_FILE = 'data/ksi/grounds.csv';
+  interface Ground {
+    id: number;
+    name: string;
+    city: string;
+    latitude: string;
+    longitude: string;
+    capacity: string;
+    surface: string;
+  }
   const groundNameToId = new Map<string, number>(); // canonical name → ID
-  const groundIdToName = new Map<number, string>();  // ID → canonical name
+  const groundsById = new Map<number, Ground>();
   let nextGroundId = 1;
 
   if (existsSync(GROUNDS_FILE)) {
-    for (const line of readFileSync(GROUNDS_FILE, 'utf-8').split('\n').slice(1)) {
+    const lines = readFileSync(GROUNDS_FILE, 'utf-8').split('\n').slice(1);
+    for (const line of lines) {
       if (!line.trim()) continue;
-      const match = line.match(/^(\d+),(.+)$/);
-      if (match) {
-        const id = parseInt(match[1]);
-        const name = match[2].replace(/^"|"$/g, '').replace(/""/g, '"');
-        groundNameToId.set(name, id);
-        groundIdToName.set(id, name);
-        nextGroundId = Math.max(nextGroundId, id + 1);
-      }
+      // Parse: id,name,city,latitude,longitude,capacity,surface
+      const cols = line.split(',');
+      if (cols.length < 2) continue;
+      const id = parseInt(cols[0]);
+      const name = cols[1].replace(/^"|"$/g, '').replace(/""/g, '"');
+      const ground: Ground = {
+        id,
+        name,
+        city: cols[2] || '',
+        latitude: cols[3] || '',
+        longitude: cols[4] || '',
+        capacity: cols[5] || '',
+        surface: cols[6] || '',
+      };
+      groundNameToId.set(name, id);
+      groundsById.set(id, ground);
+      nextGroundId = Math.max(nextGroundId, id + 1);
     }
     console.log(`Loaded ${groundNameToId.size} existing grounds`);
   }
@@ -281,7 +300,7 @@ async function main() {
     // Create new ground
     const id = nextGroundId++;
     groundNameToId.set(venueName, id);
-    groundIdToName.set(id, venueName);
+    groundsById.set(id, { id, name: venueName, city: '', latitude: '', longitude: '', capacity: '', surface: '' });
     return id;
   }
 
@@ -348,13 +367,13 @@ async function main() {
   writeFileSync('data/ksi/teams.csv', teamsCsv);
   console.log(`\nWrote data/ksi/teams.csv (${teamMap.size} teams)`);
 
-  // grounds.csv — id,name
-  let groundsCsv = 'id,name\n';
-  for (const [id, name] of [...groundIdToName.entries()].sort((a, b) => a[0] - b[0])) {
-    groundsCsv += `${id},${csvEscape(name)}\n`;
+  // grounds.csv — id,name,city,latitude,longitude,capacity,surface
+  let groundsCsv = 'id,name,city,latitude,longitude,capacity,surface\n';
+  for (const [id, g] of [...groundsById.entries()].sort((a, b) => a[0] - b[0])) {
+    groundsCsv += `${id},${csvEscape(g.name)},${g.city},${g.latitude},${g.longitude},${g.capacity},${g.surface}\n`;
   }
   writeFileSync(GROUNDS_FILE, groundsCsv);
-  console.log(`Wrote ${GROUNDS_FILE} (${groundIdToName.size} grounds)`);
+  console.log(`Wrote ${GROUNDS_FILE} (${groundsById.size} grounds)`);
 
   // ground_aliases.csv — alias_name,ground_id
   // Only write if it doesn't exist yet (it's manually maintained)
