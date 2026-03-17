@@ -119,15 +119,10 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                       const cancelled = fix.status === 'CANC';
                       const postponed = fix.status === 'PST';
                       const scoreCls = result === 'W' ? styles.scoreW : result === 'L' ? styles.scoreL : styles.scoreD;
-                      const isCup = fix.competition !== 'league';
-                      const competitionLabel = fix.competition === 'league' && division
+                      const isCup = fix.competitionType !== 'league';
+                      const competitionLabel = fix.competitionType === 'league' && division
                         ? t(`division.${division.cssKey}` as TranslationKey)
-                        : t(`competition.${fix.competition}` as TranslationKey);
-                      const metaLabel = t(`phase.${fix.phase}` as TranslationKey, {
-                        competition: competitionLabel,
-                        round: fix.round ?? '',
-                        n: fix.round ?? '',
-                      });
+                        : (fix.competitionType ?? '');
 
                       return (
                         <div
@@ -142,7 +137,7 @@ export default function MatchPickerPanel({ isOpen, teamId, grounds, season, minS
                           <div>
                             <div className={styles.opponent}>{fix.opponentName}</div>
                             <div className={styles.meta}>
-                              {metaLabel}{metaLabel && ' \u00B7 '}{fix.kickoffTime ?? ''} &middot; {ground.groundName}
+                              {competitionLabel}{competitionLabel && ' \u00B7 '}{fix.kickoffTime ?? ''} &middot; {ground.groundName}
                             </div>
                           </div>
                           <div className={styles.fixRight}>

@@ -25,23 +25,8 @@ export interface GroundProgress {
   fixtureCount: number;
 }
 
-export type Phase =
-  | 'regular_season'
-  | 'championship'
-  | 'relegation'
-  | 'promotion_playoffs'
-  | 'group_stage'
-  | 'qualifying'
-  | 'playoffs'
-  | 'knockout'
-  | 'quarter_finals'
-  | 'semi_finals'
-  | 'final';
-
 export interface Fixture {
   fixtureId: number;
-  round: number | null;
-  phase: Phase;
   matchDate: string;
   kickoffTime: string | null;
   opponentName: string;
@@ -51,30 +36,20 @@ export interface Fixture {
   status: 'NS' | 'FT' | 'LIVE' | 'PST' | 'CANC';
   groundId: number | null;
   attended: boolean;
-  competition: Competition;
+  competitionType: CompetitionType;
 }
 
-export type Competition =
+export type CompetitionType =
   | 'league'
   | 'cup'
-  | 'fotboltinet_cup'
-  | 'league_cup'
-  | 'super_cup'
-  | 'reykjavik_cup'
-  | 'champions_league'
-  | 'europa_league'
-  | 'conference_league';
+  | 'preseason'
+  | 'european';
 
-export const COMPETITION_LABELS: Record<Competition, string> = {
+export const COMPETITION_TYPE_LABELS: Record<CompetitionType, string> = {
   league: 'League',
   cup: 'Cup',
-  fotboltinet_cup: 'Fotbolti.net Cup',
-  league_cup: 'League Cup',
-  super_cup: 'Super Cup',
-  reykjavik_cup: 'Reykjavik Cup',
-  champions_league: 'Champions League',
-  europa_league: 'Europa League',
-  conference_league: 'Conference League',
+  preseason: 'Pre-season',
+  european: 'European',
 };
 
 export type MatchResult = 'W' | 'D' | 'L' | null;

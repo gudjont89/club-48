@@ -9,23 +9,23 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 // Competition IDs from ksi.is
-const COMPETITIONS: { season: number; id: number; name: string }[] = [
+const COMPETITIONS: { season: number; id: number; name: string; division: number }[] = [
   // Besta deild
-  { season: 2023, id: 190224, name: 'Besta deild karla' },
-  { season: 2024, id: 190265, name: 'Besta deild karla' },
-  { season: 2025, id: 190366, name: 'Besta deild karla' },
+  { season: 2023, id: 190224, name: 'Besta deild karla', division: 1 },
+  { season: 2024, id: 190265, name: 'Besta deild karla', division: 1 },
+  { season: 2025, id: 190366, name: 'Besta deild karla', division: 1 },
   // 1. deild (Lengjudeild)
-  { season: 2023, id: 190223, name: '1. deild karla' },
-  { season: 2024, id: 190134, name: '1. deild karla' },
-  { season: 2025, id: 190359, name: '1. deild karla' },
+  { season: 2023, id: 190223, name: '1. deild karla', division: 2 },
+  { season: 2024, id: 190134, name: '1. deild karla', division: 2 },
+  { season: 2025, id: 190359, name: '1. deild karla', division: 2 },
   // 2. deild
-  { season: 2023, id: 190219, name: '2. deild karla' },
-  { season: 2024, id: 190124, name: '2. deild karla' },
-  { season: 2025, id: 190365, name: '2. deild karla' },
+  { season: 2023, id: 190219, name: '2. deild karla', division: 3 },
+  { season: 2024, id: 190124, name: '2. deild karla', division: 3 },
+  { season: 2025, id: 190365, name: '2. deild karla', division: 3 },
   // 3. deild
-  { season: 2023, id: 190227, name: '3. deild karla' },
-  { season: 2024, id: 190139, name: '3. deild karla' },
-  { season: 2025, id: 190363, name: '3. deild karla' },
+  { season: 2023, id: 190227, name: '3. deild karla', division: 4 },
+  { season: 2024, id: 190139, name: '3. deild karla', division: 4 },
+  { season: 2025, id: 190363, name: '3. deild karla', division: 4 },
 ];
 
 // Icelandic month names → 1-indexed month number
@@ -46,6 +46,7 @@ const MONTHS: Record<string, number> = {
 
 interface RawMatch {
   season: number;
+  division: number;
   matchDate: string;       // YYYY-MM-DD
   kickoffTime: string;     // HH:MM
   homeTeam: string;
@@ -86,7 +87,7 @@ function parseTime(dateStr: string): string {
   return match ? match[1].padStart(5, '0') : '';
 }
 
-function parseFixtures(html: string, season: number, teamLogos: Map<string, string>): RawMatch[] {
+function parseFixtures(html: string, season: number, division: number, teamLogos: Map<string, string>): RawMatch[] {
   const matches: RawMatch[] = [];
 
   // Extract dates: <span class="body-5">Fös 2. maí  20:00</span>
@@ -173,6 +174,7 @@ function parseFixtures(html: string, season: number, teamLogos: Map<string, stri
 
     matches.push({
       season,
+      division,
       matchDate,
       kickoffTime,
       homeTeam: homeTeams[i],
@@ -190,7 +192,7 @@ function parseFixtures(html: string, season: number, teamLogos: Map<string, stri
   return matches;
 }
 
-async function scrapeCompetition(season: number, motId: number, teamLogos: Map<string, string>): Promise<RawMatch[]> {
+async function scrapeCompetition(season: number, motId: number, division: number, teamLogos: Map<string, string>): Promise<RawMatch[]> {
   const allMatches: RawMatch[] = [];
 
   const firstHtml = await fetchPage(motId, 1);
@@ -200,14 +202,14 @@ async function scrapeCompetition(season: number, motId: number, teamLogos: Map<s
   const totalPages = pageCountMatch ? parseInt(pageCountMatch[2]) : 1;
   console.log(`  Total pages: ${totalPages}`);
 
-  const firstMatches = parseFixtures(firstHtml, season, teamLogos);
+  const firstMatches = parseFixtures(firstHtml, season, division, teamLogos);
   allMatches.push(...firstMatches);
   console.log(`  Page 1: ${firstMatches.length} matches`);
 
   for (let page = 2; page <= totalPages; page++) {
     await delay(500);
     const html = await fetchPage(motId, page);
-    const matches = parseFixtures(html, season, teamLogos);
+    const matches = parseFixtures(html, season, division, teamLogos);
     allMatches.push(...matches);
     console.log(`  Page ${page}: ${matches.length} matches`);
   }
@@ -230,7 +232,7 @@ async function main() {
 
   for (const comp of COMPETITIONS) {
     console.log(`\n${comp.name} ${comp.season} (id=${comp.id})...`);
-    const matches = await scrapeCompetition(comp.season, comp.id, teamLogos);
+    const matches = await scrapeCompetition(comp.season, comp.id, comp.division, teamLogos);
     allMatches.push(...matches);
     console.log(`  Total: ${matches.length} matches`);
     await delay(1000);
@@ -333,10 +335,18 @@ async function main() {
   interface TeamSeason {
     ksiTeamId: string;
     season: number;
+    division: number;
     homeGroundId: number | null;
   }
 
   const teamSeasons: TeamSeason[] = [];
+  // Track team → season → division from home matches
+  const teamDivision = new Map<string, number>(); // `ksiId-season` → division
+  for (const m of allMatches) {
+    if (m.homeTeamKsiId) teamDivision.set(`${m.homeTeamKsiId}-${m.season}`, m.division);
+    if (m.awayTeamKsiId) teamDivision.set(`${m.awayTeamKsiId}-${m.season}`, m.division);
+  }
+
   const teamsBySeason = new Map<string, Set<number>>();
   for (const m of allMatches) {
     for (const [id, season] of [[m.homeTeamKsiId, m.season], [m.awayTeamKsiId, m.season]] as [string, number][]) {
@@ -363,6 +373,7 @@ async function main() {
       teamSeasons.push({
         ksiTeamId: ksiId,
         season,
+        division: teamDivision.get(key) ?? 1,
         homeGroundId: resolveGroundId(homeVenue),
       });
     }
@@ -414,9 +425,9 @@ async function main() {
   }
 
   // team_seasons.csv
-  let teamSeasonsCsv = 'ksi_team_id,season,home_ground_id\n';
-  for (const ts of teamSeasons.sort((a, b) => a.season - b.season || a.ksiTeamId.localeCompare(b.ksiTeamId))) {
-    teamSeasonsCsv += `${ts.ksiTeamId},${ts.season},${ts.homeGroundId ?? ''}\n`;
+  let teamSeasonsCsv = 'ksi_team_id,season,division,home_ground_id\n';
+  for (const ts of teamSeasons.sort((a, b) => a.season - b.season || a.division - b.division || a.ksiTeamId.localeCompare(b.ksiTeamId))) {
+    teamSeasonsCsv += `${ts.ksiTeamId},${ts.season},${ts.division},${ts.homeGroundId ?? ''}\n`;
   }
   writeFileSync('data/ksi/team_seasons.csv', teamSeasonsCsv);
   console.log(`Wrote data/ksi/team_seasons.csv (${teamSeasons.length} entries)`);
