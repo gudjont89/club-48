@@ -302,7 +302,6 @@ async function main() {
 
   interface TeamSeason {
     ksiTeamId: string;
-    teamName: string;
     season: number;
     homeGroundId: number | null;
   }
@@ -333,7 +332,6 @@ async function main() {
       }
       teamSeasons.push({
         ksiTeamId: ksiId,
-        teamName: teamMap.get(ksiId) || '',
         season,
         homeGroundId: resolveGroundId(homeVenue),
       });
@@ -366,9 +364,9 @@ async function main() {
   }
 
   // team_seasons.csv
-  let teamSeasonsCsv = 'ksi_team_id,team_name,season,home_ground_id\n';
-  for (const ts of teamSeasons.sort((a, b) => a.season - b.season || a.teamName.localeCompare(b.teamName, 'is'))) {
-    teamSeasonsCsv += `${ts.ksiTeamId},${csvEscape(ts.teamName)},${ts.season},${ts.homeGroundId ?? ''}\n`;
+  let teamSeasonsCsv = 'ksi_team_id,season,home_ground_id\n';
+  for (const ts of teamSeasons.sort((a, b) => a.season - b.season || a.ksiTeamId.localeCompare(b.ksiTeamId))) {
+    teamSeasonsCsv += `${ts.ksiTeamId},${ts.season},${ts.homeGroundId ?? ''}\n`;
   }
   writeFileSync('data/ksi/team_seasons.csv', teamSeasonsCsv);
   console.log(`Wrote data/ksi/team_seasons.csv (${teamSeasons.length} entries)`);
