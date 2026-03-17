@@ -341,9 +341,9 @@ async function main() {
   // ---- Write CSVs ----
 
   // teams.csv
-  let teamsCsv = 'ksi_id,name\n';
+  let teamsCsv = 'ksi_id,name,short_name\n';
   for (const [id, name] of [...teamMap.entries()].sort((a, b) => a[1].localeCompare(b[1], 'is'))) {
-    teamsCsv += `${id},${csvEscape(name)}\n`;
+    teamsCsv += `${id},${csvEscape(name)},\n`;
   }
   writeFileSync('data/ksi/teams.csv', teamsCsv);
   console.log(`\nWrote data/ksi/teams.csv (${teamMap.size} teams)`);
