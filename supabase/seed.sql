@@ -1,41 +1,41 @@
--- Seed data generated from KSÍ CSVs on 2026-03-18T08:54:04.956Z
+-- Seed data generated from KSÍ CSVs on 2026-03-18T09:22:38.523Z
 
 -- Grounds
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (1, 'Fylkisvöllur', 'Reykjavík', 64.1134477985459, -21.792509342841853, NULL, 'artificial', now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (2, 'Greifavöllurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (2, 'Greifavöllurinn', 'Akureyri', 65.68597417278868, -18.094576467956124, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (3, 'Origo völlurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (4, 'Framvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (5, 'Samsungvöllurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (6, 'Kópavogsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (4, 'Framvöllur', 'Reykjavík', 64.13154232838183,  -21.733062891181078, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (5, 'Samsungvöllurinn', 'Garðabær', 64.08747077365655,  -21.928390644624162, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (6, 'Kópavogsvöllur', 'Kópavogur', 64.10383443015697,  -21.89477954494938, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (7, 'Reykjaneshöll', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (8, 'Kaplakrikavöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (9, 'Víkingsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (10, 'Kórinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (11, 'Hásteinsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (12, 'Vivaldivöllurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (13, 'Meistaravellir', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (8, 'Kaplakrikavöllur', 'Hafnarfjörður', 64.07582909351412,  -21.936874040920472, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (9, 'Víkingsvöllur', 'Reykjavík', 64.11701887271776,  -21.852439470713993, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (10, 'Kórinn', 'Kópavogur', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (11, 'Hásteinsvöllur', 'Vestmannaeyjar', 63.439524115316836,  -20.286874842806647, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (12, 'Vivaldivöllurinn', 'Seltjarnarnes', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (13, 'Meistaravellir', 'Reykjavík', 64.14648580542878,  -21.966132071604864, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (14, 'HS Orku völlurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (17, 'AVIS völlurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (18, 'Akraneshöllin', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (19, 'Akranesvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (21, 'Varmárvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (22, 'Þórsvöllur Vey', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (23, 'Valsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (24, 'Þorlákshafnarvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (17, 'AVIS völlurinn', 'Reykjavík', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (18, 'Akraneshöllin', 'Akranes', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (19, 'Akranesvöllur', 'Akranes', 64.31769037225611,  -22.059396234824025, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (21, 'Varmárvöllur', 'Mosfellsbær', 64.16921647170922, -21.688779979012118, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (22, 'Þórsvöllur Vey', 'Vestmannaeyjar', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (23, 'Valsvöllur', 'Reykjavík', 64.13284793255015,  -21.922828713933562, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (24, 'Þorlákshafnarvöllur', 'Þorlákshöfn', NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (26, 'JÁVERK-völlurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (27, 'Boginn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (28, 'Egilshöll', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (27, 'Boginn', 'Akureyri', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (28, 'Egilshöll', 'Reykjavík', NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (29, 'Leiknisvöllur', 'Reykjavík', 64.10311168030393, -21.817703434835604, NULL, 'artificial', now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (30, 'Stakkavíkurvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (31, 'Torfnesvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (30, 'Stakkavíkurvöllur', 'Grindavík', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (31, 'Torfnesvöllur', 'Ísafjörður', 66.07306639430202,  -23.134445438960228, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (32, 'Þórsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (33, 'Njarðvíkurvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (36, 'Þróttheimar', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (37, 'Dalvíkurvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (39, 'ÍR-völlur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (39, 'ÍR-völlur', 'Reykjavík', NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (40, 'JBÓ völlurinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (42, 'Fjölnisvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (44, 'PCC völlurinn Húsavík', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (42, 'Fjölnisvöllur', 'Reykjavík', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (44, 'PCC völlurinn Húsavík', 'Húsavík', NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (45, 'Vogaídýfuvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (46, 'Ásvellir', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (47, 'Fjarðabyggðarhöllin', NULL, NULL, NULL, NULL, NULL, now(), now());
@@ -55,15 +55,15 @@ INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (62, 'SÚN-völlurinn'
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (63, 'Skessan', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (65, 'Vestmannaeyjavöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (66, 'Fífan', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (67, 'Sauðárkróksvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (67, 'Sauðárkróksvöllur', 'Sauðárkrókur', 65.74514221563754, -19.64479011987363, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (68, 'Týsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (69, 'Grenivíkurvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (71, 'Hvammstangavöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (69, 'Grenivíkurvöllur', 'Grenivík', NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (71, 'Hvammstangavöllur', 'Hvammstangi', NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (72, 'Fjölnisvöllur - Gervigras', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (73, 'Fagrilundur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (74, 'Djúpavogsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
 INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (75, 'Smárinn', NULL, NULL, NULL, NULL, NULL, now(), now());
-INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (76, 'Laugardalsvöllur', NULL, NULL, NULL, NULL, NULL, now(), now());
+INSERT INTO public.grounds OVERRIDING SYSTEM VALUE VALUES (76, 'Laugardalsvöllur', 'Reykjavík', NULL, NULL, NULL, NULL, now(), now());
 SELECT setval(pg_get_serial_sequence('public.grounds', 'id'), (SELECT MAX(id) FROM public.grounds));
 
 -- Teams
