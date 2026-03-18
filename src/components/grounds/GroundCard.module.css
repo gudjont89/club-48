@@ -6,13 +6,13 @@
   cursor: pointer;
   transition: all 0.25s ease;
   position: relative;
+  isolation: isolate;
   animation: fadeUp 0.3s ease both;
 }
 
 .card:hover {
   border-color: var(--border);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  transform: translateY(-1px);
 }
 
 .isVisited {
@@ -55,6 +55,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 
 .icon {
   font-size: 1.6rem;
