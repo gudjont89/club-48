@@ -56,7 +56,7 @@ tail -n +2 data/ksi/grounds.csv | while IFS=',' read -r id name city lat lng cap
       ty=$((tile_y + dy))
       curl -sL -H "User-Agent: club-48/1.0" \
         -o "$TMPDIR/tile_${dx}_${dy}.png" \
-        "https://tile.openstreetmap.org/$ZOOM/$tx/$ty.png"
+        "https://basemaps.cartocdn.com/rastertiles/voyager/$ZOOM/$tx/$ty.png"
       sleep 0.2
     done
   done
