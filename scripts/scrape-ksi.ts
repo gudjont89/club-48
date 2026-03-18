@@ -10,14 +10,26 @@ import { join } from 'path';
 
 // Competition IDs from ksi.is
 const COMPETITIONS: { season: number; id: number; name: string; division: number }[] = [
-  // Besta deild
+  // Besta deild — regular season
   { season: 2023, id: 190224, name: 'Besta deild karla', division: 1 },
   { season: 2024, id: 190265, name: 'Besta deild karla', division: 1 },
   { season: 2025, id: 190366, name: 'Besta deild karla', division: 1 },
+  // Besta deild — Efri hluti (championship round, top 6)
+  { season: 2023, id: 190226, name: 'Besta deild karla - Efri hluti', division: 1 },
+  { season: 2024, id: 190141, name: 'Besta deild karla - Efri hluti', division: 1 },
+  { season: 2025, id: 190373, name: 'Besta deild karla - Efri hluti', division: 1 },
+  // Besta deild — Neðri hluti (relegation round, bottom 6)
+  { season: 2023, id: 190220, name: 'Besta deild karla - Neðri hluti', division: 1 },
+  { season: 2024, id: 190129, name: 'Besta deild karla - Neðri hluti', division: 1 },
+  { season: 2025, id: 190371, name: 'Besta deild karla - Neðri hluti', division: 1 },
   // 1. deild (Lengjudeild)
   { season: 2023, id: 190223, name: '1. deild karla', division: 2 },
   { season: 2024, id: 190134, name: '1. deild karla', division: 2 },
   { season: 2025, id: 190359, name: '1. deild karla', division: 2 },
+  // 1. deild — Umspil (promotion play-offs)
+  { season: 2023, id: 190034, name: '1. deild karla - Umspil', division: 2 },
+  { season: 2024, id: 190125, name: '1. deild karla - Umspil', division: 2 },
+  { season: 2025, id: 190370, name: '1. deild karla - Umspil', division: 2 },
   // 2. deild
   { season: 2023, id: 190219, name: '2. deild karla', division: 3 },
   { season: 2024, id: 190124, name: '2. deild karla', division: 3 },
